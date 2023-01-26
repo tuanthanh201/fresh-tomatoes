@@ -1,12 +1,13 @@
 require('dotenv').config();
+const fs = require('fs');
+const _ = require('lodash');
 const express = require('express');
 const { sequelize } = require('./models');
-const { createMovie } = require('./services/movieService');
+const { createMovies } = require('./services/movieService');
+const { createGenres } = require('./services/genreService');
 
-const main = async () => {
+const clearTable = async () => {
 	try {
-		await sequelize.authenticate();
-		console.log('Connected to MySql...');
 		await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
 		await sequelize.sync({ force: true });
 		await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
@@ -14,17 +15,19 @@ const main = async () => {
 	} catch (error) {
 		throw error;
 	}
+};
 
+const main = async () => {
 	try {
-		const movie = await createMovie({
-			primaryTitle: 'Avatar: The Way of Water',
-			originalTitle: 'Avatar: The Way of Water',
-			type: 'movie',
-			isAdult: false,
-			releasedYear: '2022',
-			runtimeMinutes: 192,
-		});
-		console.log('Added movie');
+		await sequelize.authenticate();
+		console.log('Connected to MySql...');
+		await clearTable();
+
+		var genres = JSON.parse(fs.readFileSync('./data/genres.json', 'utf8'));
+		var movies = JSON.parse(fs.readFileSync('./data/movies.json', 'utf8'));
+		await createGenres(genres);
+		await createMovies(movies);
+		console.log('Populated database');
 	} catch (error) {
 		throw error;
 	}

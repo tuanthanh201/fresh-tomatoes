@@ -4,33 +4,91 @@ module.exports = function (sequelize, DataTypes) {
 		{
 			uuid: {
 				type: DataTypes.UUID,
-				allowNull: false,
 				defaultValue: DataTypes.UUIDV4,
 				primaryKey: true,
 			},
-			primaryTitle: {
+			title: {
 				type: DataTypes.STRING,
 				allowNull: false,
+				validate: {
+					min: {
+						args: [1],
+						msg: 'Title must not be empty',
+					},
+				},
 			},
-			originalTitle: {
-				type: DataTypes.STRING,
+			overview: {
+				type: DataTypes.TEXT,
 				allowNull: false,
+				validate: {
+					min: {
+						args: [1],
+						msg: 'Overview must not be empty',
+					},
+				},
 			},
-			type: {
+			poster: {
 				type: DataTypes.STRING,
-				allowNull: false,
+				allowNull: true,
 			},
-			isAdult: {
+			adult: {
 				type: DataTypes.BOOLEAN,
 				allowNull: false,
 			},
-			releasedYear: {
-				type: DataTypes.STRING,
+			// YYYY-MM-DD format
+			releasedDate: {
+				type: DataTypes.DATEONLY,
 				allowNull: false,
+				validate: {
+					isAfter: {
+						args: ['1000-01-01'],
+						msg: 'releasedDate must be before 1000-01-01',
+					},
+					isBefore: {
+						args: ['2099-12-31'],
+						msg: 'releasedDate must be after 2099-12-31',
+					},
+				},
 			},
-			runtimeMinutes: {
+			runtime: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
+				validate: {
+					min: {
+						args: [0],
+						msg: 'Runtime must be at least 0',
+					},
+				},
+			},
+			voteCount: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+				validate: {
+					min: {
+						args: [0],
+						msg: 'voteCount must be at least 0',
+					},
+				},
+			},
+			voteAverage: {
+				type: DataTypes.FLOAT,
+				allowNull: false,
+				validate: {
+					min: {
+						args: [0],
+						msg: 'voteAverage must be at least 0',
+					},
+				},
+			},
+			popularity: {
+				type: DataTypes.FLOAT,
+				allowNull: false,
+				validate: {
+					min: {
+						args: [0],
+						msg: 'popularity must be at least 0',
+					},
+				},
 			},
 		},
 		{

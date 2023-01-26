@@ -4,13 +4,18 @@ module.exports = function (sequelize, DataTypes) {
 		{
 			uuid: {
 				type: DataTypes.UUID,
-				allowNull: false,
 				defaultValue: DataTypes.UUIDV4,
 				primaryKey: true,
 			},
-			genres: {
+			name: {
 				type: DataTypes.STRING,
 				allowNull: false,
+				validate: {
+					min: {
+						args: [1],
+						msg: 'Name must not be empty',
+					},
+				},
 			},
 		},
 		{

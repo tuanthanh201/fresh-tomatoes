@@ -8,12 +8,17 @@ const findAll = (option) => {
 	return Genre.findAll(option);
 };
 
-const createOne = (Genre) => {
-	return Genre.create(Genre);
+const createOne = (genre) => {
+	return Genre.create(genre);
+};
+
+const createMany = (genres) => {
+	return Genre.bulkCreate(genres);
 };
 
 module.exports = {
 	findOne,
 	findAll,
 	createOne,
+	createMany,
 };

@@ -12,8 +12,13 @@ const createOne = (movie) => {
 	return Movie.create(movie);
 };
 
+const createMany = (movies) => {
+	return Movie.bulkCreate(movies);
+};
+
 module.exports = {
 	findOne,
 	findAll,
 	createOne,
+	createMany,
 };

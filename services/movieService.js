@@ -1,6 +1,6 @@
 const movieRepo = require('../repositories/movieRepo');
 
-const getMovie = (uuid) => {
+const getMovieById = (uuid) => {
 	return movieRepo.findOne({ where: { uuid } });
 };
 
@@ -12,8 +12,13 @@ const createMovie = (movie) => {
 	return movieRepo.createOne(movie);
 };
 
+const createMovies = (movies) => {
+	return movieRepo.createMany(movies);
+};
+
 module.exports = {
-	getMovie,
+	getMovieById,
 	getAllMovies,
 	createMovie,
+	createMovies,
 };
