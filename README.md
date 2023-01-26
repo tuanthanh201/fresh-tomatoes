@@ -1,5 +1,5 @@
 ## CS348 Group Project
-Start by cloning the repository `git clone https://git.uwaterloo.ca/a368gupt1/cs348-project.git cs348`.
+Start by cloning the repository `git clone https://git.uwaterloo.ca/a368gupt1/cs348-project.git cs348`. Make sure you have [Node.js](https://nodejs.org/en/download/) installed
 
 ### To run the frontend locally:
 1. Run `cd cs348/client`.
