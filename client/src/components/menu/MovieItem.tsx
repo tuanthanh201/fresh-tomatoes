@@ -13,8 +13,8 @@ const MovieItem = (props: MovieItemProps) => {
 
 	return (
 		<WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
-			<Box w='100%'>
-				<Box borderRadius='lg' overflow='hidden'>
+			<Box w='95%'>
+				<Box boxSize='auto' maxHeight='425px' borderRadius='lg' overflow='hidden'>
 					<Link textDecoration='none' _hover={{ textDecoration: 'none' }}>
 						<Image
 							transform='scale(1.0)'

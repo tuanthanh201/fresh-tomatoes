@@ -2,7 +2,7 @@ import { Heading, Divider, Wrap, Container } from '@chakra-ui/react';
 import MovieItem from './MovieItem';
 
 const img =
-	'https://scontent.fyto1-1.fna.fbcdn.net/v/t1.15752-9/327164951_6529345463749386_1225317772633054012_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=_FfW6QgIgJAAX_9Z6YU&tn=rIMlzMi1GkDIVIfd&_nc_ht=scontent.fyto1-1.fna&oh=03_AdSNmCNCS1N6H1nxJi7HgwDBapUtxQookyhMqvvyVi9-VA&oe=63F94DA1';
+	'https://image.tmdb.org/t/p/original/6sMnY4fEVAfdadhANhGnNckxsmx.jpg';
 const movies = [
 	{
 		id: 1,
@@ -56,12 +56,12 @@ const movies = [
 
 const MovieList = () => {
 	return (
-		<Container maxW={'7xl'} p='12'>
-			<Heading as='h2' marginTop='0'>
+		<Container maxW={'7xl'} p='2'>
+			<Heading as='h2'>
 				Latest movies
 			</Heading>
 			<Divider marginTop='5' />
-			<Wrap spacing='30px' marginTop='5'>
+			<Wrap spacing='30px'>
 				{/* TODO: Add pagination */}
 				{movies.map((movie) => (
 					<MovieItem
