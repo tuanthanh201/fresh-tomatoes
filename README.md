@@ -21,4 +21,5 @@ MYSQL_DATABASE="database"
 6. Run `npm run start`.
 
 #### Notes:
-- Currently, if you follow all the steps to run the backend locally, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will add the movie "Avatar 2" into the movie table. You can verify this by connecting to MySQL through the terminal.
+- Currently, if you follow all the steps to run the backend locally, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will populate the 2 tables movies and genres with some dummy data.
+- You can check the dummy data by either using MySQL or checking the files in the `data` directory.
