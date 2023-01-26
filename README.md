@@ -12,7 +12,12 @@ Start by cloning the repository `git clone https://git.uwaterloo.ca/a368gupt1/cs
 2. After installing MySQL, create an username, password, and a database.
 3. Run `cd cs348`.
 4. Run `npm i`.
-5. Replace the environment variables inside the file models/index.js with the username, password, and database you just created.
+5. Create a file named `.env` in the source directory. Then paste the following lines into that file, replacing username, password, and database with your database credentials.
+```
+MYSQL_USERNAME="username"
+MYSQL_PASSWORD="password"
+MYSQL_DATABASE="database"
+```
 6. Run `npm run start`.
 
 #### Notes:
