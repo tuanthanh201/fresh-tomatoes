@@ -1,5 +1,5 @@
 ## CS348 Group Project
-Start by cloning the repository `git clone https://git.uwaterloo.ca/a368gupt1/cs348-project.git cs348`. Make sure you have [Node.js](https://nodejs.org/en/download/) installed
+Start by cloning the repository by running `git clone https://git.uwaterloo.ca/a368gupt1/cs348-project.git cs348`. Make sure you have [Node.js](https://nodejs.org/en/download/) installed.
 
 ### To seed data:
 1. Download and install MySQL on your computer. Instructions can be found [here](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
@@ -25,5 +25,5 @@ MYSQL_DATABASE="database"
 2. Run `npm run start`.
 
 #### Notes:
-- Currently, if you follow all the steps to run the backend locally, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will populate the 2 tables movies and genres with some dummy data.
+- Currently, if you follow all the steps to seed data, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will populate the 2 tables movies and genres with some dummy data.
 - You can check the dummy data by either using MySQL or checking the files in the `data` directory.
