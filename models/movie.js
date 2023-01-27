@@ -60,23 +60,23 @@ module.exports = function (sequelize, DataTypes) {
 					},
 				},
 			},
-			voteCount: {
+			ratingCount: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				validate: {
 					min: {
 						args: [0],
-						msg: 'voteCount must be at least 0',
+						msg: 'ratingCount must be at least 0',
 					},
 				},
 			},
-			voteAverage: {
+			ratingAverage: {
 				type: DataTypes.FLOAT,
 				allowNull: false,
 				validate: {
 					min: {
 						args: [0],
-						msg: 'voteAverage must be at least 0',
+						msg: 'ratingAverage must be at least 0',
 					},
 				},
 			},
@@ -99,7 +99,7 @@ module.exports = function (sequelize, DataTypes) {
 
 	Movie.associate = (db) => {
 		// n:m relationship
-		Movie.belongsToMany(db.Genre, { through: 'movieGenre' });
+		Movie.belongsToMany(db.Genre, { through: 'movieGenres' });
 	};
 
 	return Movie;

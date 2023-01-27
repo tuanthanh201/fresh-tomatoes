@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
 			name: {
 				type: DataTypes.STRING,
 				allowNull: false,
+				isUnique: true,
 				validate: {
 					min: {
 						args: [1],
