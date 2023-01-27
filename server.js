@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const { syncDatabase } = require('./data/util');
 const { sequelize } = require('./models');
 
 const main = async () => {
 	try {
 		await sequelize.authenticate();
 		console.log('Connected to MySql...');
+		await syncDatabase();
 	} catch (error) {
 		throw new Error(error.message);
 	}
