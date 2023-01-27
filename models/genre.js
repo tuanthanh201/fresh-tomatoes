@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-	return sequelize.define(
+	const Genre = sequelize.define(
 		'Genre',
 		{
 			uuid: {
@@ -24,4 +24,10 @@ module.exports = function (sequelize, DataTypes) {
 			modelName: 'Genre',
 		}
 	);
+
+	Genre.associate = (db) => {
+		Genre.belongsToMany(db.Movie, { through: 'movieGenres' });
+	};
+
+	return Genre;
 };
