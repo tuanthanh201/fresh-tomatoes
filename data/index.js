@@ -11,7 +11,7 @@ const syncDatabase = async () => {
 		await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
 		console.log('Database synchronised');
 	} catch (error) {
-		throw error;
+		throw new Error(error.message);
 	}
 };
 
@@ -26,8 +26,9 @@ sequelize
 		await createMovies(movies);
 		console.log('Populated database');
 	})
-	.catch(() => {
+	.catch((error) => {
 		console.error('Fail to connect to MySQL');
+		throw new Error(error.message);
 	});
 
 module.exports = {

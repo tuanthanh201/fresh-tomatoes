@@ -1,1 +1,21 @@
-[{"name":"Animation"},{"name":"Action"},{"name":"Adventure"},{"name":"Comedy"},{"name":"Family"},{"name":"Fantasy"},{"name":"Science Fiction"},{"name":"Horror"},{"name":"Thriller"},{"name":"Drama"},{"name":"War"},{"name":"History"},{"name":"Crime"},{"name":"Mystery"},{"name":"Music"},{"name":"Romance"},{"name":"Western"},{"name":"Documentary"},{"name":"TV Movie"}]
+[
+	{ "name": "Animation" },
+	{ "name": "Action" },
+	{ "name": "Adventure" },
+	{ "name": "Comedy" },
+	{ "name": "Family" },
+	{ "name": "Fantasy" },
+	{ "name": "Science Fiction" },
+	{ "name": "Horror" },
+	{ "name": "Thriller" },
+	{ "name": "Drama" },
+	{ "name": "War" },
+	{ "name": "History" },
+	{ "name": "Crime" },
+	{ "name": "Mystery" },
+	{ "name": "Music" },
+	{ "name": "Romance" },
+	{ "name": "Western" },
+	{ "name": "Documentary" },
+	{ "name": "TV Movie" }
+]

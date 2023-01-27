@@ -7,7 +7,7 @@ const main = async () => {
 		await sequelize.authenticate();
 		console.log('Connected to MySql...');
 	} catch (error) {
-		throw error;
+		throw new Error(error.message);
 	}
 
 	const app = express();
