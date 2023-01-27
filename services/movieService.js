@@ -1,7 +1,12 @@
+const StatusError = require('../errors');
 const movieRepo = require('../repositories/movieRepo');
 
-const getMovieById = (uuid) => {
-	return movieRepo.findOne({ where: { uuid } });
+const getMovieById = async (uuid) => {
+	const movie = await movieRepo.findOne({ where: { uuid } });
+	if (!movie) {
+		throw new StatusError([{ msg: "Movie doesn't exist" }], 404);
+	}
+	return movie;
 };
 
 const getAllMovies = () => {

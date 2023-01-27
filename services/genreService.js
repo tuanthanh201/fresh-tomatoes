@@ -1,11 +1,20 @@
+const StatusError = require('../errors');
 const genreRepo = require('../repositories/genreRepo');
 
-const getGenreById = (uuid) => {
-	return genreRepo.findOne({ where: { uuid } });
+const getGenreById = async (uuid) => {
+	const genre = await genreRepo.findOne({ where: { uuid } });
+	if (!genre) {
+		throw new StatusError([{ msg: "Genre doesn't exist" }], 404);
+	}
+	return genre;
 };
 
-const getGenreByName = (name) => {
-	return genreRepo.findOne({ where: { name } });
+const getGenreByName = async (name) => {
+	const genre = await genreRepo.findOne({ where: { name } });
+	if (!genre) {
+		throw new StatusError([{ msg: "Genre doesn't exist" }], 404);
+	}
+	return genre;
 };
 
 const getAllGenres = () => {

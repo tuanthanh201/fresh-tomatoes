@@ -1,25 +1,30 @@
 const bcrypt = require('bcryptjs');
+const StatusError = require('../errors');
 
 const userRepo = require('../repositories/userRepo');
 const { generateToken } = require('./jwtService');
 
-const getUserById = (uuid) => {
-	return userRepo.findOne({ where: { uuid } });
+const getUserById = async (uuid) => {
+	const user = await userRepo.findOne({ where: { uuid } });
+	if (!user) {
+		throw new StatusError([{ msg: "User doesn't exist" }], 404);
+	}
+	return user;
 };
 
 const getAllUsers = () => {
-	return userRepo.findAll({ include: 'images' });
+	return userRepo.findAll({ include: 'movies' });
 };
 
 const login = async (email, password) => {
 	const user = await userRepo.findOne({ where: { email } });
 	if (!user) {
-		throw new Error('Invalid credentials');
+		throw new StatusError([{ msg: 'Invalid credentials' }], 401);
 	}
 
 	const passwordMatches = await bcrypt.compare(password, user.password);
 	if (!passwordMatches) {
-		throw new Error('Invalid credentials');
+		throw new StatusError([{ msg: 'Invalid credentials' }], 401);
 	}
 
 	const payload = {
@@ -36,7 +41,7 @@ const login = async (email, password) => {
 const register = async (email, password) => {
 	const emailExists = !!(await userRepo.findOne({ where: { email } }));
 	if (emailExists) {
-		throw new Error('Email is already registered');
+		throw new StatusError([{ msg: 'Email already registered' }], 400);
 	}
 
 	let user = {
