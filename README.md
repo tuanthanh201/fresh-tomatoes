@@ -21,9 +21,10 @@ MYSQL_DATABASE="database"
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### To run the backend locally:
-1. Do all the steps in the section "To seed data"
+1. Do all the steps in the section "To seed data".
 2. Run `npm run start`.
 
 #### Notes:
 - Currently, if you follow all the steps to seed data, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will populate the 2 tables movies and genres with some dummy data.
 - You can check the dummy data by either using MySQL or checking the files in the `data` directory.
+- If you get authentication error when run `npm run seedData`, try running `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`, replacing root and password with your MySQL credentials. After that, run `flush privileges;`.
