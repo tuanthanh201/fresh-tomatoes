@@ -6,11 +6,21 @@ const { check } = require('express-validator');
 
 const auth = require('../middleware/auth');
 
-// Get user by id
-router.get('/user-profile', auth, async (req, res) => {
+// Get my info
+router.get('/profile', auth, async (req, res) => {
 	try {
 		const { uuid } = req.user;
 		const user = await getUserById(uuid);
+		return res.json(user);
+	} catch (error) {
+		return defaultErrorHandler(res, error);
+	}
+});
+
+// Get user by id
+router.get('/:userId', async (req, res) => {
+	try {
+		const user = await getUserById(req.params.userId);
 		return res.json(user);
 	} catch (error) {
 		return defaultErrorHandler(res, error);
