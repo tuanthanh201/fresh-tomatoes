@@ -19,8 +19,8 @@ module.exports = function (sequelize, DataTypes) {
 				type: DataTypes.STRING,
 				allowNull: false,
 				min: {
-					args: [0],
-					msg: 'password must not be empty',
+					args: [6],
+					msg: 'password must not be at least 6 characters long',
 				},
 			},
 		},
