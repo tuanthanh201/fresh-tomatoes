@@ -1,0 +1,63 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "CS348 Group Project"
+	},
+	"paths": {
+		"/users/profile": {
+			"get": {
+				"summary": "Get current user's profile",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "x-auth-token",
+						"description": "JWT token",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"examples": {
+							"application/json": {
+								"uuid": "621575d6-01b1-4995-830d-5ff9cf92893d",
+								"email": "john@gmail.com",
+								"role": "User",
+								"profile": "Hello world",
+								"password": "$2a$10$Up3PB8U7RnplQvbvLM6Vz.X5YH.ZHiX2yAB4/LulH6bVxP/NTI8IK",
+								"createdAt": "2023-01-27T20:23:09.000Z",
+								"updatedAt": "2023-01-27T20:23:09.000Z"
+							}
+						}
+					},
+					"401": {
+						"description": "No token",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "No token, authorization denied"
+									}
+								]
+							}
+						}
+					},
+					"404": {
+						"description": "Invalid token",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "User doesn't exist"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"consumes": ["application/json"]
+}
