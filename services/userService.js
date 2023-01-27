@@ -38,7 +38,7 @@ const login = async (email, password) => {
 	return { user, token };
 };
 
-const register = async (email, password) => {
+const register = async ({ email, password, profile, role = 'User' }) => {
 	const emailExists = !!(await userRepo.findOne({ where: { email } }));
 	if (emailExists) {
 		throw new StatusError([{ msg: 'Email already registered' }], 400);
@@ -46,6 +46,8 @@ const register = async (email, password) => {
 
 	let user = {
 		email,
+		profile,
+		role,
 	};
 	const salt = await bcrypt.genSalt(10);
 	user.password = await bcrypt.hash(password, salt);

@@ -15,6 +15,17 @@ module.exports = function (sequelize, DataTypes) {
 					isEmail: true,
 				},
 			},
+			role: {
+				type: DataTypes.STRING,
+				allowNull: false,
+				validate: {
+					isIn: [['Admin', 'User']],
+				},
+			},
+			profile: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			},
 			password: {
 				type: DataTypes.STRING,
 				allowNull: false,

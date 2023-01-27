@@ -57,13 +57,19 @@ router.post(
 		check('password', 'Password must have 6 or more characters').isLength({
 			min: 6,
 		}),
+		check('profile', 'Profile must be a string').isString(),
 	],
 	async (req, res) => {
 		try {
 			defaultRequestValidator(req);
 
-			const { email, password } = req.body;
-			const response = await register(email, password);
+			const { email, password, profile } = req.body;
+			const response = await register({
+				email,
+				password,
+				profile,
+				// role: 'Admin',
+			});
 			res.json(response);
 		} catch (error) {
 			return defaultErrorHandler(res, error);
