@@ -74,6 +74,77 @@
 				}
 			}
 		},
+		"/users/update-profile": {
+			"put": {
+				"tags": ["user"],
+				"summary": "Update current user's profile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "x-auth-token",
+						"required": true
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"required": ["profile"],
+							"properties": {
+								"profile": {
+									"type": "string",
+									"example": "hello world",
+									"minLength": 0
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"examples": {
+							"application/json": {
+								"uuid": "621575d6-01b1-4995-830d-5ff9cf92893d",
+								"email": "john@gmail.com",
+								"role": "User",
+								"profile": "Hello world",
+								"password": "$2a$10$Up3PB8U7RnplQvbvLM6Vz.X5YH.ZHiX2yAB4/LulH6bVxP/NTI8IK",
+								"createdAt": "2023-01-27T20:23:09.000Z",
+								"updatedAt": "2023-01-27T20:23:09.000Z"
+							}
+						}
+					},
+					"401": {
+						"description": "No token",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "No token, authorization denied"
+									}
+								]
+							}
+						}
+					},
+					"404": {
+						"description": "Invalid token",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "User doesn't exist"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
 		"/users/{userId}": {
 			"get": {
 				"tags": ["user"],
@@ -122,20 +193,48 @@
 			"post": {
 				"tags": ["user"],
 				"summary": "Create a new user",
-				"consumes": ["multipart/form-data"],
+				"consumes": ["application/json"],
 				"produces": ["application/json"],
 				"parameters": [
 					{
 						"in": "body",
 						"name": "body",
-						"description": "User object",
 						"required": true,
-						"schema": { "$ref": "#/definitions/User" }
+						"schema": {
+							"type": "object",
+							"required": ["email", "password", "profile"],
+							"properties": {
+								"email": {
+									"type": "string",
+									"example": "johndoe@example.com"
+								},
+								"password": {
+									"type": "string",
+									"example": "123456",
+									"minLength": 6
+								},
+								"profile": {
+									"type": "string",
+									"example": "hello world",
+									"minLength": 0
+								}
+							}
+						}
 					}
 				],
 				"responses": {
 					"200": {
 						"description": "Success",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user": { "$ref": "#/definitions/User" },
+								"token": {
+									"type": "string",
+									"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
+								}
+							}
+						},
 						"examples": {
 							"application/json": {
 								"user": {
@@ -170,7 +269,7 @@
 			"post": {
 				"tags": ["user"],
 				"summary": "Login",
-				"consumes": ["multipart/form-data"],
+				"consumes": ["application/json"],
 				"produces": ["application/json"],
 				"parameters": [
 					{
@@ -184,6 +283,16 @@
 				"responses": {
 					"200": {
 						"description": "Success",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user": { "$ref": "#/definitions/User" },
+								"token": {
+									"type": "string",
+									"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
+								}
+							}
+						},
 						"examples": {
 							"application/json": {
 								"user": {
@@ -232,6 +341,51 @@
 			}
 		},
 		"User": {
+			"type": "object",
+			"required": [
+				"uuid",
+				"email",
+				"password",
+				"profile",
+				"role",
+				"createdAt",
+				"updatedAt"
+			],
+			"properties": {
+				"uuid": {
+					"type": "uuid",
+					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+				},
+				"email": {
+					"type": "email",
+					"example": "johndoe@example.com"
+				},
+				"password": {
+					"type": "string",
+					"example": "123456",
+					"minLength": 6
+				},
+				"profile": {
+					"type": "string",
+					"example": "hello world",
+					"minLength": 0
+				},
+				"role": {
+					"type": "string",
+					"example": "Admin",
+					"enum": ["Admin", "User"]
+				},
+				"createdAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
+				},
+				"updatedAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
+				}
+			}
+		},
+		"Movie": {
 			"type": "object",
 			"required": ["email", "password", "profile"],
 			"properties": {

@@ -18,7 +18,7 @@ router.get('/profile', auth, async (req, res) => {
 });
 
 router.put(
-	'/profile',
+	'/update-profile',
 	[auth, [check('profile', 'Profile must be a string').isString()]],
 	async (req, res) => {
 		try {
