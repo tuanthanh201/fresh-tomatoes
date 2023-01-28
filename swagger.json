@@ -441,6 +441,37 @@
 				"popularity": {
 					"type": "number",
 					"min": 0
+				},
+				"createdAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
+				},
+				"updatedAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
+				}
+			}
+		},
+		"Genre": {
+			"type": "object",
+			"required": ["uuid", "name", "createdAt", "updatedAt"],
+			"properties": {
+				"uuid": {
+					"type": "uuid",
+					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+				},
+				"name": {
+					"type": "string",
+					"minLength": 0,
+					"example": "Action"
+				},
+				"createdAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
+				},
+				"updatedAt": {
+					"type": "string",
+					"example": "2023-01-28T01:00:51.161Z"
 				}
 			}
 		}
