@@ -16,6 +16,13 @@ const getAllUsers = () => {
 	return userRepo.findAll({ include: 'movies' });
 };
 
+const updateUserProfile = async (uuid, profile) => {
+	const res = await userRepo.update({ profile }, { where: { uuid } });
+	if (res[0] != 1) {
+		throw new StatusError([{ msg: "User doesn't exist" }], 401);
+	}
+};
+
 const login = async (email, password) => {
 	const user = await userRepo.findOne({ where: { email } });
 	if (!user) {
@@ -69,4 +76,5 @@ module.exports = {
 	getAllUsers,
 	login,
 	register,
+	updateUserProfile,
 };

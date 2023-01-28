@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { login, register, getUserById } = require('../services/userService');
+const {
+	login,
+	register,
+	getUserById,
+	updateUserProfile,
+} = require('../services/userService');
 const { defaultErrorHandler, defaultRequestValidator } = require('./utils');
 const { check } = require('express-validator');
 
@@ -16,6 +21,22 @@ router.get('/profile', auth, async (req, res) => {
 		return defaultErrorHandler(res, error);
 	}
 });
+
+router.put(
+	'/profile',
+	[auth, [check('profile', 'Profile must be a string').isString()]],
+	async (req, res) => {
+		try {
+			defaultRequestValidator(req);
+			const { uuid } = req.user;
+			const { profile } = req.body;
+			await updateUserProfile(uuid, profile);
+			return res.json({ profile });
+		} catch (error) {
+			return defaultErrorHandler(res, error);
+		}
+	}
+);
 
 // Get user by id
 router.get('/:userId', async (req, res) => {

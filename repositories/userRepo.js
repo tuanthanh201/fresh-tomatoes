@@ -16,9 +16,14 @@ const createMany = (users) => {
 	return User.bulkCreate(users);
 };
 
+const update = (updateOption, findOption) => {
+	return User.update(updateOption, findOption);
+};
+
 module.exports = {
 	findOne,
 	findAll,
 	createOne,
 	createMany,
+	update,
 };
