@@ -1,4 +1,5 @@
 const StatusError = require('../errors');
+const { Genre } = require('../models');
 const movieRepo = require('../repositories/movieRepo');
 
 const getMovieById = async (uuid) => {
@@ -10,7 +11,11 @@ const getMovieById = async (uuid) => {
 };
 
 const getAllMovies = () => {
-	return movieRepo.findAll({ include: 'genres' });
+	return movieRepo.findAll({
+		include: {
+			model: Genre,
+		},
+	});
 };
 
 const createMovie = (movie) => {

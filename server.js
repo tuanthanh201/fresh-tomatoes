@@ -18,6 +18,7 @@ const main = async () => {
 	app.use(express.json({ extended: false }));
 
 	app.use('/api/users', require('./routes/users'));
+	app.use('/api/movies', require('./routes/movies'));
 	app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 	const PORT = process.env.PORT || 8000;

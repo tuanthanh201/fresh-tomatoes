@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {
-	login,
-	register,
-	getUserById,
-	updateUserProfile,
-} = require('../services/userService');
+const userService = require('../services/userService');
 const { defaultErrorHandler, defaultRequestValidator } = require('./utils');
 const { check } = require('express-validator');
 
@@ -15,7 +10,7 @@ const auth = require('../middleware/auth');
 router.get('/profile', auth, async (req, res) => {
 	try {
 		const { uuid } = req.user;
-		const user = await getUserById(uuid);
+		const user = await userService.getUserById(uuid);
 		return res.json(user);
 	} catch (error) {
 		return defaultErrorHandler(res, error);
@@ -30,7 +25,7 @@ router.put(
 			defaultRequestValidator(req);
 			const { uuid } = req.user;
 			const { profile } = req.body;
-			await updateUserProfile(uuid, profile);
+			await userService.updateUserProfile(uuid, profile);
 			return res.json({ profile });
 		} catch (error) {
 			return defaultErrorHandler(res, error);
@@ -41,7 +36,7 @@ router.put(
 // Get user by id
 router.get('/:userId', async (req, res) => {
 	try {
-		const user = await getUserById(req.params.userId);
+		const user = await userService.getUserById(req.params.userId);
 		return res.json(user);
 	} catch (error) {
 		return defaultErrorHandler(res, error);
@@ -62,7 +57,7 @@ router.post(
 			defaultRequestValidator(req);
 
 			const { email, password } = req.body;
-			const response = await login(email, password);
+			const response = await userService.login(email, password);
 			return res.json(response);
 		} catch (error) {
 			return defaultErrorHandler(res, error);
@@ -85,7 +80,7 @@ router.post(
 			defaultRequestValidator(req);
 
 			const { email, password, profile } = req.body;
-			const response = await register({
+			const response = await userService.register({
 				email,
 				password,
 				profile,
