@@ -387,20 +387,60 @@
 		},
 		"Movie": {
 			"type": "object",
-			"required": ["email", "password", "profile"],
+			"required": [
+				"uuid",
+				"title",
+				"overview",
+				"adult",
+				"releasedDate",
+				"runtime",
+				"ratingCount",
+				"ratingAverage",
+				"popularity",
+				"createdAt",
+				"updatedAt"
+			],
 			"properties": {
-				"email": {
-					"type": "string",
-					"example": "johndoe@example.com"
+				"uuid": {
+					"type": "uuid",
+					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
 				},
-				"password": {
+				"title": {
 					"type": "string",
-					"example": "123456",
-					"minLength": 6
+					"example": "A really cool movie",
+					"minLength": 1
 				},
-				"profile": {
+				"overview": {
 					"type": "string",
-					"example": ""
+					"example": "A movie about something",
+					"minLength": 1
+				},
+				"poster": {
+					"type": "url"
+				},
+				"adult": {
+					"type": "boolean"
+				},
+				"releasedData": {
+					"type": "string",
+					"example": "2022-12-31"
+				},
+				"runtime": {
+					"type": "integer",
+					"min": 0
+				},
+				"ratingCount": {
+					"type": "integer",
+					"min": 0
+				},
+				"ratingAverage": {
+					"type": "number",
+					"min": 0,
+					"max": 10
+				},
+				"popularity": {
+					"type": "number",
+					"min": 0
 				}
 			}
 		}
