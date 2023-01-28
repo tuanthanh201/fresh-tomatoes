@@ -7,23 +7,19 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
-import {
-	FiCompass,
-	FiHome,
-	FiStar,
-	FiTrendingUp,
-} from 'react-icons/fi';
+import { FiCompass, FiHome, FiStar, FiTrendingUp } from 'react-icons/fi';
 import NavItem from './NavItem';
 
 interface LinkItemProps {
 	name: string;
+	to: string;
 	icon: IconType;
 }
 const LinkItems: Array<LinkItemProps> = [
-	{ name: 'Home', icon: FiHome },
-	{ name: 'Trending', icon: FiTrendingUp },
-	{ name: 'Explore', icon: FiCompass },
-	{ name: 'Favourites', icon: FiStar },
+	{ name: 'Home', to: '/', icon: FiHome },
+	{ name: 'Trending', to: '/trending', icon: FiTrendingUp },
+	{ name: 'Explore', to: '/explore', icon: FiCompass },
+	{ name: 'Favourites', to: '/favourites', icon: FiStar },
 ];
 
 interface SidebarContentProps extends BoxProps {
@@ -48,7 +44,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarContentProps) => {
 				<CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
 			</Flex>
 			{LinkItems.map((link) => (
-				<NavItem key={link.name} icon={link.icon}>
+				<NavItem key={link.name} icon={link.icon} to={link.to}>
 					{link.name}
 				</NavItem>
 			))}

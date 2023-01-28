@@ -54,12 +54,21 @@ const movies = [
 	},
 ];
 
-const MovieList = () => {
+export enum MovieListTitles {
+	POPULAR = 'Popular',
+	TRENDING = 'Trending',
+	EXPLORE = 'Movies you might like',
+	FAVOURITES = 'Favourites',
+}
+
+interface MovieListProps {
+	title: MovieListTitles;
+}
+
+const MovieList = ({ title }: MovieListProps) => {
 	return (
 		<Container maxW={'7xl'} p='2'>
-			<Heading as='h2'>
-				Latest movies
-			</Heading>
+			<Heading as='h2'>{title}</Heading>
 			<Divider marginTop='5' />
 			<Wrap spacing='30px'>
 				{/* TODO: Add pagination */}
