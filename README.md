@@ -17,7 +17,7 @@ MYSQL_DATABASE="database"
 ### To run the frontend locally:
 1. Run `cd cs348/client`.
 2. Run `npm i`.
-3. Run `npm run client`. This will run the app in the development mode.
+3. Run `npm start`. This will run the app in the development mode.
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### To run the backend locally:
