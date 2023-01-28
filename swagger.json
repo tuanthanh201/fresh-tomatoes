@@ -3,9 +3,25 @@
 	"info": {
 		"title": "CS348 Group Project"
 	},
+	"basePath": "/api",
+	"tags": [
+		{
+			"name": "user",
+			"description": "User endpoints"
+		},
+		{
+			"name": "movie",
+			"description": "Movie endpoints"
+		},
+		{
+			"name": "genre",
+			"description": "Genre endpoints"
+		}
+	],
 	"paths": {
 		"/users/profile": {
 			"get": {
+				"tags": ["user"],
 				"summary": "Get current user's profile",
 				"produces": ["application/json"],
 				"parameters": [
@@ -57,7 +73,182 @@
 					}
 				}
 			}
+		},
+		"/users/{userId}": {
+			"get": {
+				"tags": ["user"],
+				"summary": "Get the profile of an user",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "A user's ID",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"examples": {
+							"application/json": {
+								"uuid": "94666c19-9ebb-44f3-b256-c91470aae40f",
+								"email": "john@gmail.com",
+								"role": "User",
+								"profile": "",
+								"password": "$2a$10$Vtj6oG8JhJ96rDwLtvlLTeot5S8H3dQb0dKBFe8A7Ekb6TaZB6ShG",
+								"createdAt": "2023-01-28T00:52:49.000Z",
+								"updatedAt": "2023-01-28T00:52:49.000Z"
+							}
+						}
+					},
+					"404": {
+						"description": "Invalid userID",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "User doesn't exist"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/register": {
+			"post": {
+				"tags": ["user"],
+				"summary": "Create a new user",
+				"consumes": ["multipart/form-data"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "User object",
+						"required": true,
+						"schema": { "$ref": "#/definitions/User" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"examples": {
+							"application/json": {
+								"user": {
+									"uuid": "3212359a-7405-44e1-89d7-3292c305c8fc",
+									"email": "emily@gmail.com",
+									"profile": "Hello world",
+									"role": "User",
+									"password": "$2a$10$Mui3DYREqARQX7jkWbcBBeAOwWXi66Su1YuC28ES36yunS0tqKdvS",
+									"updatedAt": "2023-01-28T01:00:51.161Z",
+									"createdAt": "2023-01-28T01:00:51.161Z"
+								},
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "Email already registered"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/login": {
+			"post": {
+				"tags": ["user"],
+				"summary": "Login",
+				"consumes": ["multipart/form-data"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "User object",
+						"required": true,
+						"schema": { "$ref": "#/definitions/Credentials" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"examples": {
+							"application/json": {
+								"user": {
+									"uuid": "3212359a-7405-44e1-89d7-3292c305c8fc",
+									"email": "emily@gmail.com",
+									"profile": "Hello world",
+									"role": "User",
+									"password": "$2a$10$Mui3DYREqARQX7jkWbcBBeAOwWXi66Su1YuC28ES36yunS0tqKdvS",
+									"updatedAt": "2023-01-28T01:00:51.161Z",
+									"createdAt": "2023-01-28T01:00:51.161Z"
+								},
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
+							}
+						}
+					},
+					"401": {
+						"description": "Invalid credentials",
+						"examples": {
+							"application/json": {
+								"errors": [
+									{
+										"msg": "Invalid credentials"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
 		}
 	},
-	"consumes": ["application/json"]
+	"definitions": {
+		"Credentials": {
+			"type": "object",
+			"required": ["email", "password"],
+			"properties": {
+				"email": {
+					"type": "string",
+					"example": "johndoe@example.com"
+				},
+				"password": {
+					"type": "string",
+					"example": "123456",
+					"minLength": 6
+				}
+			}
+		},
+		"User": {
+			"type": "object",
+			"required": ["email", "password", "profile"],
+			"properties": {
+				"email": {
+					"type": "string",
+					"example": "johndoe@example.com"
+				},
+				"password": {
+					"type": "string",
+					"example": "123456",
+					"minLength": 6
+				},
+				"profile": {
+					"type": "string",
+					"example": ""
+				}
+			}
+		}
+	}
 }
