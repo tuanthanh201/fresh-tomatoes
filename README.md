@@ -17,12 +17,13 @@ MYSQL_DATABASE="database"
 ### To run the frontend locally:
 1. Run `cd cs348/client`.
 2. Run `npm i`.
-3. Run `npm run start`. This will run the app in the development mode.
+3. Run `npm run client`. This will run the app in the development mode.
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### To run the backend locally:
 1. Do all the steps in the section "To seed data".
-2. Run `npm run start`.
+2. Run `npm run dev`.
+3. You can then open [http://localhost:8000/api/docs](http://localhost:8000/api/docs/) to see API documentation.
 
 #### Notes:
 - Currently, if you follow all the steps to seed data, the app will create 3 tables inside the chosen database, which are movies, genres, and movieGenre. After that, it will populate the 2 tables movies and genres with some dummy data.
