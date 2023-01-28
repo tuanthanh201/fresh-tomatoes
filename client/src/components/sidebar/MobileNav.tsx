@@ -60,7 +60,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				</Button>
 				<Flex alignItems={'center'}>
 					{/* TODO: Add authentication */}
-					{/* <Button>Login</Button> */}
 					{/* <Login /> */}
 					<Menu>
 						<MenuButton
