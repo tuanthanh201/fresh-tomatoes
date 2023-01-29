@@ -48,7 +48,7 @@ const Register = () => {
 
 	const submitHandler = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		const formIsValid = emailIsValid && passwordIsValid;
+		const formIsValid = emailIsValid && usernameIsValid && passwordIsValid;
 		if (formIsValid) {
 			// TODO: handle authentication
 			console.log({
