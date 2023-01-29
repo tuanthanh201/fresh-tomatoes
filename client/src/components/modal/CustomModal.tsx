@@ -16,18 +16,37 @@ interface CustomModalProps {
 	// onOpen: () => void;
 	onClose: () => void;
 	isOpen: boolean;
+	size?:
+		| 'sm'
+		| 'md'
+		| 'lg'
+		| 'xl'
+		| '2xl'
+		| 'full'
+		| 'xs'
+		| '3xl'
+		| '4xl'
+		| '5xl'
+		| '6xl';
 	initialFocusRef?: React.MutableRefObject<null>;
 }
 
 const CustomModal = (props: CustomModalProps) => {
-	const { header, isOpen, onClose, body, footer, initialFocusRef } = props;
+	const { header, size, isOpen, onClose, body, footer, initialFocusRef } =
+		props;
 	return (
-		<Modal initialFocusRef={initialFocusRef} isOpen={isOpen} onClose={onClose}>
+		<Modal
+			size={size}
+			initialFocusRef={initialFocusRef}
+			isOpen={isOpen}
+			onClose={onClose}
+			scrollBehavior='inside'
+		>
 			<ModalOverlay />
 			<ModalContent>
 				<ModalHeader>{header}</ModalHeader>
 				<ModalCloseButton />
-				{body ? <ModalBody pb={6}>{body}</ModalBody> : null}
+				{body ? <ModalBody>{body}</ModalBody> : null}
 				{footer ? <ModalFooter>{footer}</ModalFooter> : null}
 			</ModalContent>
 		</Modal>
