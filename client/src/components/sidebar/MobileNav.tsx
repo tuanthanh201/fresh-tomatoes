@@ -18,6 +18,7 @@ import {
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
+import Register from '../authentication/Register';
 
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
@@ -60,7 +61,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				</Button>
 				<Flex alignItems={'center'}>
 					{/* TODO: Add authentication */}
-					{/* <Login /> */}
+					<Register />
+					<Login />
 					<Menu>
 						<MenuButton
 							py={2}
