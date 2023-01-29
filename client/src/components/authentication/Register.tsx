@@ -5,6 +5,7 @@ import {
 	FormErrorMessage,
 	FormLabel,
 	Input,
+	useColorModeValue,
 	useDisclosure,
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
@@ -19,7 +20,7 @@ const validateEmail = (email: string) => {
 		);
 };
 
-const Login = () => {
+const Register = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const initialRef = useRef(null);
 
@@ -30,6 +31,13 @@ const Login = () => {
 		valueIsInvalid: emailIsInvalid,
 		valueIsValid: emailIsValid,
 	} = useInput(validateEmail, '');
+	const {
+		value: username,
+		valueChangeHandler: usernameChangeHandler,
+		valueBlurHandler: usernameBlurHandler,
+		valueIsInvalid: usernameIsInvalid,
+		valueIsValid: usernameIsValid,
+	} = useInput((value) => value !== '', '');
 	const {
 		value: password,
 		valueChangeHandler: passwordChangeHandler,
@@ -42,9 +50,10 @@ const Login = () => {
 		e.preventDefault();
 		const formIsValid = emailIsValid && passwordIsValid;
 		if (formIsValid) {
-      // TODO: handle authentication
+			// TODO: handle authentication
 			console.log({
 				email,
+				username,
 				password,
 			});
 		} else {
@@ -54,9 +63,9 @@ const Login = () => {
 
 	return (
 		<Box mr='1rem'>
-			<Button onClick={onOpen}>Login</Button>
+			<Button onClick={onOpen}>Register</Button>
 			<CustomModal
-				header='Login'
+				header='Register'
 				isOpen={isOpen}
 				onClose={onClose}
 				body={
@@ -70,6 +79,18 @@ const Login = () => {
 								placeholder='Email'
 								onChange={emailChangeHandler}
 								onBlur={emailBlurHandler}
+							/>
+							<FormErrorMessage>Invalid email</FormErrorMessage>
+						</FormControl>
+
+						<FormControl isInvalid={usernameIsInvalid} isRequired>
+							<FormLabel>Username</FormLabel>
+							<Input
+								type='username'
+								value={username}
+								placeholder='Username'
+								onChange={usernameChangeHandler}
+								onBlur={usernameBlurHandler}
 							/>
 							<FormErrorMessage>Invalid email</FormErrorMessage>
 						</FormControl>
@@ -91,7 +112,7 @@ const Login = () => {
 					<>
 						{/* TODO: disable login when form is invalid (?) */}
 						<Button colorScheme='blue' mr={3} onClick={submitHandler}>
-							Login
+							Register
 						</Button>
 						<Button onClick={onClose}>Cancel</Button>
 					</>
@@ -102,4 +123,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;
