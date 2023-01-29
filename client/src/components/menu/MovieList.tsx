@@ -1,4 +1,13 @@
-import { Heading, Divider, Wrap, Container } from '@chakra-ui/react';
+import { ArrowDownIcon, ArrowUpIcon } from '@chakra-ui/icons';
+import {
+	Heading,
+	Divider,
+	Wrap,
+	Container,
+	HStack,
+	Button,
+} from '@chakra-ui/react';
+import { useState } from 'react';
 import MovieItem from './MovieItem';
 
 const img =
@@ -66,12 +75,23 @@ interface MovieListProps {
 }
 
 const MovieList = ({ title }: MovieListProps) => {
+	const [descending, setDescending] = useState<boolean>(true);
+
 	return (
 		<Container maxW={'7xl'} p='2'>
-			<Heading as='h2'>{title}</Heading>
+			<HStack justifyContent='space-between'>
+				<Heading as='h2'>{title}</Heading>
+				<Button
+					variant='ghost'
+					leftIcon={descending ? <ArrowDownIcon /> : <ArrowUpIcon />}
+					onClick={() => setDescending((prev) => !prev)}
+				>
+					{descending ? 'DESC' : 'ASC'}
+				</Button>
+			</HStack>
 			<Divider marginTop='5' />
 			<Wrap spacing='30px'>
-				{/* TODO: Add pagination */}
+				{/* TODO: Implement infinite scrolling */}
 				{movies.map((movie) => (
 					<MovieItem
 						key={movie.id}
