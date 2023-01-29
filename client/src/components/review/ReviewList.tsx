@@ -5,22 +5,26 @@ const testimonials = [
 	{
 		name: 'John Doe',
 		role: 'User',
-		content: 'Hello world',
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quod sint quam magni rerum ullam inventore iste, nihil magnam nobis, culpa ducimus, non iure. Sequi, aspernatur sapiente necessitatibus illo expedita nam quasi maiores veritatis distinctio accusamus natus dolorem nemo magni eligendi porro nihil mollitia in temporibus. Deserunt inventore animi dicta!',
 	},
 	{
 		name: 'John Doe',
 		role: 'User',
-		content: 'Hello world',
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quod sint quam magni rerum ullam inventore iste, nihil magnam nobis, culpa ducimus, non iure. Sequi, aspernatur sapiente necessitatibus illo expedita nam quasi maiores veritatis distinctio accusamus natus dolorem nemo magni eligendi porro nihil mollitia in temporibus. Deserunt inventore animi dicta!',
 	},
 	{
 		name: 'John Doe',
 		role: 'User',
-		content: 'Hello world',
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quod sint quam magni rerum ullam inventore iste, nihil magnam nobis, culpa ducimus, non iure. Sequi, aspernatur sapiente necessitatibus illo expedita nam quasi maiores veritatis distinctio accusamus natus dolorem nemo magni eligendi porro nihil mollitia in temporibus. Deserunt inventore animi dicta!',
 	},
 	{
 		name: 'John Doe',
 		role: 'User',
-		content: 'Hello world',
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quod sint quam magni rerum ullam inventore iste, nihil magnam nobis, culpa ducimus, non iure. Sequi, aspernatur sapiente necessitatibus illo expedita nam quasi maiores veritatis distinctio accusamus natus dolorem nemo magni eligendi porro nihil mollitia in temporibus. Deserunt inventore animi dicta!',
 	},
 ];
 
