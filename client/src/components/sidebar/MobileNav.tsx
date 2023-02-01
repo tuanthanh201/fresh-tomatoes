@@ -38,7 +38,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 			bg={useColorModeValue('white', 'gray.900')}
 			borderBottomWidth='1px'
 			borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-			justifyContent={{ base: 'space-between', md: 'flex-end' }}
+			justifyContent={{ base: 'space-between' }}
 			{...rest}
 		>
 			<IconButton
@@ -58,7 +58,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				Fresh Tomatoes
 			</Text>
 
-			<InputGroup mr='5'>
+			<InputGroup mr='5' maxWidth='80%'>
 				<InputLeftElement
 					pointerEvents='none'
 					children={<SearchIcon color='gray.300' />}
@@ -72,8 +72,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				</Button>
 				<Flex alignItems={'center'}>
 					{/* TODO: Add authentication */}
-					<Register />
-					<Login />
+					{/* <Register />
+					<Login /> */}
 					<Menu>
 						<MenuButton
 							py={2}
@@ -81,12 +81,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 							_focus={{ boxShadow: 'none' }}
 						>
 							<HStack>
-								{/* <Avatar
+								<Avatar
 									size={'sm'}
 									src={
 										'https://www.thehappycatsite.com/wp-content/uploads/2017/12/White-Cat-HC-long.jpg'
 									}
-								/> */}
+								/>
 								<VStack
 									display={{ base: 'none', md: 'flex' }}
 									alignItems='flex-start'
