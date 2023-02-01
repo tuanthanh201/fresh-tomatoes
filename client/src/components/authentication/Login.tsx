@@ -42,7 +42,7 @@ const Login = () => {
 		e.preventDefault();
 		const formIsValid = emailIsValid && passwordIsValid;
 		if (formIsValid) {
-      // TODO: handle authentication
+			// TODO: handle authentication
 			console.log({
 				email,
 				password,
@@ -90,10 +90,12 @@ const Login = () => {
 				footer={
 					<>
 						{/* TODO: disable login when form is invalid (?) */}
-						<Button colorScheme='blue' mr={3} onClick={submitHandler}>
+						<Button onClick={onClose} mr={3}>
+							Cancel
+						</Button>
+						<Button colorScheme='blue' onClick={submitHandler}>
 							Login
 						</Button>
-						<Button onClick={onClose}>Cancel</Button>
 					</>
 				}
 				initialFocusRef={initialRef}
