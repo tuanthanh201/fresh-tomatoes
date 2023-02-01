@@ -6,6 +6,9 @@ import {
 	FlexProps,
 	HStack,
 	IconButton,
+	Input,
+	InputGroup,
+	InputLeftElement,
 	Menu,
 	MenuButton,
 	MenuItem,
@@ -15,7 +18,7 @@ import {
 	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons';
 import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
 import Register from '../authentication/Register';
@@ -54,6 +57,14 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 			>
 				Fresh Tomatoes
 			</Text>
+
+			<InputGroup mr='5'>
+				<InputLeftElement
+					pointerEvents='none'
+					children={<SearchIcon color='gray.300' />}
+				/>
+				<Input type='search' placeholder='Search for movies...' />
+			</InputGroup>
 
 			<HStack spacing={{ base: '0', md: '6' }}>
 				<Button size='md' variant='ghost' onClick={toggleColorMode}>
