@@ -1,4 +1,5 @@
-import MovieList, { MovieListTitles } from '../menu/MovieList';
+import { MovieListTitles } from '../../types';
+import MovieList from '../menu/MovieList';
 import SideBar from '../sidebar/SideBar';
 
 interface MovieListContainerProps {

@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import authSlice from './authSlice';
-// ...
+import navSlice from './navSlice';
 
 export const store = configureStore({
 	reducer: {
 		auth: authSlice,
+		nav: navSlice,
 	},
 });
 
