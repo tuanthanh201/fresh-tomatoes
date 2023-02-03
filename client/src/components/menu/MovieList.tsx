@@ -7,7 +7,6 @@ import {
 	HStack,
 	Button,
 } from '@chakra-ui/react';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../hooks/useRedux';
 import { RootState } from '../../store';

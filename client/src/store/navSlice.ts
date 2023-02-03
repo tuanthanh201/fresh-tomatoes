@@ -45,7 +45,7 @@ const initialState: Navigation = {
 };
 
 const navSlice = createSlice({
-	name: 'auth',
+	name: 'nav',
 	initialState,
 	reducers: {
 		saveMovies: (
