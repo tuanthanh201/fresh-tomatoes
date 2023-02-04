@@ -4,6 +4,7 @@ import { Movie, MovieListTitles, SortBy } from '../types';
 interface MovieData {
 	movies: Movie[];
 	hasMore: boolean;
+	// maybe will need popularity or whatever here
 }
 
 interface Navigation {

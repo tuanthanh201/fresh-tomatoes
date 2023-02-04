@@ -6,6 +6,7 @@ interface Auth {
 	email: string;
 	role: 'User' | 'Admin' | '';
 	profile: string | null;
+	isAuthenticated: boolean;
 }
 
 const initialState: Auth = {
@@ -14,6 +15,7 @@ const initialState: Auth = {
 	email: '',
 	role: '',
 	profile: '',
+	isAuthenticated: false,
 };
 
 const authSlice = createSlice({
@@ -26,6 +28,7 @@ const authSlice = createSlice({
 			state.email = payload.email;
 			state.role = payload.role;
 			state.profile = payload.profile;
+			state.isAuthenticated = true;
 		},
 		clearUser: (state) => {
 			state.uuid = '';
@@ -33,6 +36,7 @@ const authSlice = createSlice({
 			state.email = '';
 			state.role = '';
 			state.profile = '';
+			state.isAuthenticated = false;
 		},
 	},
 });

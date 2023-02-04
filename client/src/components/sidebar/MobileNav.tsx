@@ -6,9 +6,6 @@ import {
 	FlexProps,
 	HStack,
 	IconButton,
-	Input,
-	InputGroup,
-	InputLeftElement,
 	Menu,
 	MenuButton,
 	MenuItem,
@@ -18,16 +15,23 @@ import {
 	useColorModeValue,
 	VStack,
 } from '@chakra-ui/react';
-import { MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
 import Register from '../authentication/Register';
+import SearchBar from './SearchBar';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	const { colorMode, toggleColorMode } = useColorMode();
+	const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+
+	const bgColor = useColorModeValue('white', 'gray.900');
+	const borderColor = useColorModeValue('gray.200', 'gray.700');
 
 	return (
 		<Flex
@@ -58,13 +62,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				Fresh Tomatoes
 			</Text>
 
-			<InputGroup mr='5' maxWidth='80%'>
-				<InputLeftElement
-					pointerEvents='none'
-					children={<SearchIcon color='gray.300' />}
-				/>
-				<Input type='search' placeholder='Search for movies...' />
-			</InputGroup>
+			<SearchBar />
 
 			<HStack spacing={{ base: '0', md: '6' }}>
 				<Button size='md' variant='ghost' onClick={toggleColorMode}>
@@ -72,45 +70,44 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				</Button>
 				<Flex alignItems={'center'}>
 					{/* TODO: Add authentication */}
-					{/* <Register />
-					<Login /> */}
-					<Menu>
-						<MenuButton
-							py={2}
-							transition='all 0.3s'
-							_focus={{ boxShadow: 'none' }}
-						>
-							<HStack>
-								<Avatar
-									size={'sm'}
-									src={
-										'https://www.thehappycatsite.com/wp-content/uploads/2017/12/White-Cat-HC-long.jpg'
-									}
-								/>
-								<VStack
-									display={{ base: 'none', md: 'flex' }}
-									alignItems='flex-start'
-									spacing='1px'
-									ml='2'
-								>
-									<Text fontSize='sm'>John Doe</Text>
-									<Text fontSize='xs' color='gray.600'>
-										Admin
-									</Text>
-								</VStack>
-								<Box display={{ base: 'none', md: 'flex' }}>
-									<FiChevronDown />
-								</Box>
-							</HStack>
-						</MenuButton>
-						<MenuList
-							bg={useColorModeValue('white', 'gray.900')}
-							borderColor={useColorModeValue('gray.200', 'gray.700')}
-						>
-							<MenuItem>Profile</MenuItem>
-							<MenuItem>Sign out</MenuItem>
-						</MenuList>
-					</Menu>
+					{!isAuthenticated ? <Register /> : null}
+					{!isAuthenticated ? <Login /> : null}
+					{isAuthenticated ? (
+						<Menu>
+							<MenuButton
+								py={2}
+								transition='all 0.3s'
+								_focus={{ boxShadow: 'none' }}
+							>
+								<HStack>
+									<Avatar
+										size={'sm'}
+										src={
+											'https://www.thehappycatsite.com/wp-content/uploads/2017/12/White-Cat-HC-long.jpg'
+										}
+									/>
+									<VStack
+										display={{ base: 'none', md: 'flex' }}
+										alignItems='flex-start'
+										spacing='1px'
+										ml='2'
+									>
+										<Text fontSize='sm'>John Doe</Text>
+										<Text fontSize='xs' color='gray.600'>
+											Admin
+										</Text>
+									</VStack>
+									<Box display={{ base: 'none', md: 'flex' }}>
+										<FiChevronDown />
+									</Box>
+								</HStack>
+							</MenuButton>
+							<MenuList bg={bgColor} borderColor={borderColor}>
+								<MenuItem>Profile</MenuItem>
+								<MenuItem>Sign out</MenuItem>
+							</MenuList>
+						</Menu>
+					) : null}
 				</Flex>
 			</HStack>
 		</Flex>
