@@ -5,7 +5,7 @@ import {
 	FormErrorMessage,
 	FormLabel,
 	Input,
-	useColorModeValue,
+	Textarea,
 	useDisclosure,
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
@@ -45,10 +45,18 @@ const Register = () => {
 		valueIsInvalid: passwordIsInvalid,
 		valueIsValid: passwordIsValid,
 	} = useInput((value) => value !== '', '');
+	const {
+		value: profile,
+		valueChangeHandler: profileChangeHandler,
+		valueBlurHandler: profileBlurHandler,
+		valueIsInvalid: profileIsInvalid,
+		valueIsValid: profileIsValid,
+	} = useInput((value) => value !== '', '');
 
 	const submitHandler = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		const formIsValid = emailIsValid && usernameIsValid && passwordIsValid;
+		const formIsValid =
+			emailIsValid && usernameIsValid && passwordIsValid && profileIsValid;
 		if (formIsValid) {
 			// TODO: handle authentication
 			console.log({
@@ -106,15 +114,29 @@ const Register = () => {
 							/>
 							<FormErrorMessage>Invalid password</FormErrorMessage>
 						</FormControl>
+
+						<FormControl mt={4} isInvalid={profileIsInvalid} isRequired>
+							<FormLabel>Profile</FormLabel>
+							<Textarea
+								value={profile}
+								onChange={profileChangeHandler}
+								onBlur={profileBlurHandler}
+								placeholder='A few things about yourself...'
+								size='sm'
+							/>
+							<FormErrorMessage>Invalid password</FormErrorMessage>
+						</FormControl>
 					</>
 				}
 				footer={
 					<>
 						{/* TODO: disable login when form is invalid (?) */}
-						<Button colorScheme='blue' mr={3} onClick={submitHandler}>
+						<Button onClick={onClose} mr={3}>
+							Cancel
+						</Button>
+						<Button colorScheme='blue' onClick={submitHandler}>
 							Register
 						</Button>
-						<Button onClick={onClose}>Cancel</Button>
 					</>
 				}
 				initialFocusRef={initialRef}

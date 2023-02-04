@@ -7,6 +7,17 @@ module.exports = function (sequelize, DataTypes) {
 				defaultValue: DataTypes.UUIDV4,
 				primaryKey: true,
 			},
+			username: {
+				type: DataTypes.STRING,
+				allowNull: false,
+				isUnique: true,
+				validate: {
+					min: {
+						args: [1],
+						msg: 'Name must not be empty',
+					},
+				},
+			},
 			email: {
 				type: DataTypes.STRING,
 				allowNull: false,

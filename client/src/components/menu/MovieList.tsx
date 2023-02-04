@@ -7,7 +7,11 @@ import {
 	HStack,
 	Button,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../hooks/useRedux';
+import { RootState } from '../../store';
+import { sortBy } from '../../store/navSlice';
+import { MovieListTitles } from '../../types';
 import MovieItem from './MovieItem';
 
 const img =
@@ -63,19 +67,23 @@ const movies = [
 	},
 ];
 
-export enum MovieListTitles {
-	POPULAR = 'Popular',
-	TRENDING = 'Trending',
-	EXPLORE = 'Movies you might like',
-	FAVOURITES = 'Favourites',
-}
-
 interface MovieListProps {
 	title: MovieListTitles;
 }
 
 const MovieList = ({ title }: MovieListProps) => {
-	const [descending, setDescending] = useState<boolean>(true);
+	const { sort } = useSelector((state: RootState) => state.nav[title]);
+	const dispatch = useAppDispatch();
+	const descending = sort === 'DESC';
+
+	const sortHandler = () => {
+		// TODO: send request to BE to get new data
+		if (descending) {
+			dispatch(sortBy({ page: title, sort: 'ASC' }));
+		} else {
+			dispatch(sortBy({ page: title, sort: 'DESC' }));
+		}
+	};
 
 	return (
 		<Container maxW={'7xl'} p='2'>
@@ -84,7 +92,7 @@ const MovieList = ({ title }: MovieListProps) => {
 				<Button
 					variant='ghost'
 					leftIcon={descending ? <ArrowDownIcon /> : <ArrowUpIcon />}
-					onClick={() => setDescending((prev) => !prev)}
+					onClick={sortHandler}
 				>
 					{descending ? 'DESC' : 'ASC'}
 				</Button>

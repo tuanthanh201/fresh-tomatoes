@@ -1,12 +1,12 @@
-import { MovieListTitles } from './components/menu/MovieList';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/error/Error';
 import MovieListContainer from './components/container/MovieListContainer';
+import { MovieListTitles } from './types';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <MovieListContainer title={MovieListTitles.TRENDING} />,
+		element: <MovieListContainer title={MovieListTitles.POPULAR} />,
 		errorElement: <ErrorPage />,
 	},
 	{

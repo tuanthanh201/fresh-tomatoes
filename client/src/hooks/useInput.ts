@@ -10,7 +10,11 @@ const useInput = (
 	const valueIsValid = validateValue(value);
 	const valueIsInvalid = !valueIsValid && isTouched;
 
-	const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const valueChangeHandler = (
+		event:
+			| React.ChangeEvent<HTMLInputElement>
+			| React.ChangeEvent<HTMLTextAreaElement>
+	) => {
 		setValue(event.target.value);
 	};
 
