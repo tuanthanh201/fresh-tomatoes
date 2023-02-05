@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const { syncDatabase } = require('./data/util');
@@ -16,6 +17,7 @@ const main = async () => {
 
 	const app = express();
 	app.use(express.json({ extended: false }));
+	app.use(cors());
 
 	app.use('/api/users', require('./routes/users'));
 	app.use('/api/movies', require('./routes/movies'));
