@@ -81,9 +81,13 @@ const MovieList = ({ title }: MovieListProps) => {
 						<Heading fontSize='2xl'>Loading...</Heading>
 					</Center>
 				}
+				endMessage={
+					<Center>
+						<Heading fontSize='2xl'>Yay! You have seen it all</Heading>
+					</Center>
+				}
 			>
 				<Wrap spacing='30px'>
-					{/* TODO: Implement infinite scrolling */}
 					{movies.map((movie) => (
 						<MovieItem
 							key={movie.uuid}
