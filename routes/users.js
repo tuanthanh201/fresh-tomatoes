@@ -70,6 +70,9 @@ router.post(
 	'/register',
 	[
 		check('email', 'Email is required').isEmail(),
+		check('username', 'Username must not be empty').isLength({
+			min: 1,
+		}),
 		check('password', 'Password must have 6 or more characters').isLength({
 			min: 6,
 		}),
@@ -79,9 +82,10 @@ router.post(
 		try {
 			defaultRequestValidator(req);
 
-			const { email, password, profile } = req.body;
+			const { email, username, password, profile } = req.body;
 			const response = await userService.register({
 				email,
+				username,
 				password,
 				profile,
 				// role: 'Admin',
