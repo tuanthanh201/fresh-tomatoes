@@ -45,7 +45,13 @@ const login = async (email, password) => {
 	return { user, token };
 };
 
-const register = async ({ email, password, profile, role = 'User' }) => {
+const register = async ({
+	email,
+	username,
+	password,
+	profile,
+	role = 'User',
+}) => {
 	const emailExists = !!(await userRepo.findOne({ where: { email } }));
 	if (emailExists) {
 		throw new StatusError([{ msg: 'Email already registered' }], 400);
@@ -53,6 +59,7 @@ const register = async ({ email, password, profile, role = 'User' }) => {
 
 	let user = {
 		email,
+		username,
 		profile,
 		role,
 	};

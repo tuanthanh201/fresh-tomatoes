@@ -1,13 +1,21 @@
-import { AppDispatch } from './../index';
+import { AppDispatch } from '../index';
 import axios from 'axios';
 import { MovieListTitles, SortBy } from '../../types';
 
-import { addMovies, initMovies } from './movieSlice';
+import { addMovies, initMovies, setLoading } from './movieSlice';
+import { showNotification } from '../ui/actions';
 
 const url = 'http://localhost:8000';
 
 export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 	return async (dispatch: AppDispatch) => {
+		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: true }));
+		dispatch(
+			showNotification({
+				status: 'default',
+				msg: 'Fetching movies...',
+			})
+		);
 		try {
 			const response = await axios.get(`${url}/api/movies/popular`, {
 				params: { sort },
@@ -24,10 +32,21 @@ export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 					uuidCursor,
 				})
 			);
-		} catch (error) {
-			console.error(error);
-			throw new Error("Couldn't get movies");
+			dispatch(
+				showNotification({
+					status: 'success',
+					msg: 'Fetched movies 🎉',
+				})
+			);
+		} catch (error: any) {
+			dispatch(
+				showNotification({
+					status: 'error',
+					msg: error.message ?? 'Failed to fetch movies 😢',
+				})
+			);
 		}
+		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: false }));
 	};
 };
 
@@ -41,6 +60,12 @@ export const fetchMorePopularMovies = ({
 	uuid: string;
 }) => {
 	return async (dispatch: AppDispatch) => {
+		dispatch(
+			showNotification({
+				status: 'default',
+				msg: 'Fetching more movies...',
+			})
+		);
 		try {
 			const response = await axios.get(`${url}/api/movies/popular`, {
 				params: { sort, popularity, uuid },
@@ -56,9 +81,20 @@ export const fetchMorePopularMovies = ({
 					uuidCursor,
 				})
 			);
-		} catch (error) {
-			console.error(error);
-			throw new Error("Couldn't get movies");
+			dispatch(
+				showNotification({
+					status: 'success',
+					msg: 'Fetched more movies 🎉',
+				})
+			);
+		} catch (error: any) {
+			dispatch(
+				showNotification({
+					status: 'error',
+					msg: error.message ?? 'Failed to fetch movies 😢',
+				})
+			);
 		}
+		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: false }));
 	};
 };

@@ -2,6 +2,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/error/Error';
 import MovieListContainer from './components/container/MovieListContainer';
 import { MovieListTitles } from './types';
+import { useEffect } from 'react';
+import { useAppDispatch } from './store';
+import { getMyProfile } from './store/auth/actions';
+import { Box, Flex, Spinner, VStack } from '@chakra-ui/react';
+import { useAppSelector } from './hooks/useRedux';
 
 const router = createBrowserRouter([
 	{
@@ -23,8 +28,24 @@ const router = createBrowserRouter([
 	},
 ]);
 
-function App() {
-	return <RouterProvider router={router} />;
-}
+const App = () => {
+	const { loading } = useAppSelector((state) => state.auth);
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+		dispatch(getMyProfile());
+	}, [dispatch]);
+
+	return loading ? 
+
+		<Flex
+			width='100vw'
+			height='100vh'
+			alignItems='center'
+			justifyContent='center'
+		>
+			<Spinner size='xl' />
+		</Flex>
+	:<RouterProvider router={router} />;
+};
 
 export default App;

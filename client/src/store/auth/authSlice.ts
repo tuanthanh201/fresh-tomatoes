@@ -7,6 +7,7 @@ interface Auth {
 	role: 'User' | 'Admin' | '';
 	profile: string | null;
 	isAuthenticated: boolean;
+	loading: boolean;
 }
 
 const initialState: Auth = {
@@ -16,6 +17,7 @@ const initialState: Auth = {
 	role: '',
 	profile: '',
 	isAuthenticated: false,
+	loading: false,
 };
 
 const authSlice = createSlice({
@@ -38,9 +40,12 @@ const authSlice = createSlice({
 			state.profile = '';
 			state.isAuthenticated = false;
 		},
+		setLoading(state, { payload }: PayloadAction<boolean>) {
+			state.loading = payload;
+		},
 	},
 });
 
-export const { saveUser, clearUser } = authSlice.actions;
+export const { saveUser, clearUser, setLoading } = authSlice.actions;
 
 export default authSlice.reducer;

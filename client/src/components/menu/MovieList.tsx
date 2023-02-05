@@ -6,22 +6,18 @@ import {
 	Container,
 	HStack,
 	Button,
-	Text,
 	Center,
 } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../hooks/useRedux';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { RootState } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { MovieListTitles } from '../../types';
 import MovieItem from './MovieItem';
-
 import {
 	fetchMorePopularMovies,
 	getPopularMovies,
-} from '../../store/nav/actions';
-import { updateSortBy } from '../../store/nav/movieSlice';
+} from '../../store/movie/actions';
+import { updateSortBy } from '../../store/movie/movieSlice';
 
 interface MovieListProps {
 	title: MovieListTitles;
@@ -32,8 +28,9 @@ const MovieList = ({ title }: MovieListProps) => {
 		sort,
 		fieldCursor,
 		uuidCursor,
+		loading,
 		movieData: { movies, hasMore },
-	} = useSelector((state: RootState) => state.movie[title]);
+	} = useAppSelector((state) => state.movie[title]);
 	const dispatch = useAppDispatch();
 
 	const descending = sort === 'DESC';
@@ -66,6 +63,7 @@ const MovieList = ({ title }: MovieListProps) => {
 			<HStack justifyContent='space-between'>
 				<Heading as='h2'>{title}</Heading>
 				<Button
+					isLoading={loading}
 					variant='ghost'
 					leftIcon={descending ? <ArrowDownIcon /> : <ArrowUpIcon />}
 					onClick={sortHandler}
@@ -83,9 +81,13 @@ const MovieList = ({ title }: MovieListProps) => {
 						<Heading fontSize='2xl'>Loading...</Heading>
 					</Center>
 				}
+				endMessage={
+					<Center>
+						<Heading fontSize='2xl'>Yay! You have seen it all</Heading>
+					</Center>
+				}
 			>
 				<Wrap spacing='30px'>
-					{/* TODO: Implement infinite scrolling */}
 					{movies.map((movie) => (
 						<MovieItem
 							key={movie.uuid}

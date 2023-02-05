@@ -1,7 +1,6 @@
 import {
 	Avatar,
 	Box,
-	Button,
 	Flex,
 	FlexProps,
 	HStack,
@@ -20,17 +19,19 @@ import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
 import Register from '../authentication/Register';
 import SearchBar from './SearchBar';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useAppSelector } from '../../hooks/useRedux';
+import { useAppDispatch } from '../../store';
+import { clearUser } from '../../store/auth/authSlice';
 
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-	const { colorMode, toggleColorMode } = useColorMode();
-	const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+	const { toggleColorMode } = useColorMode();
+	const { isAuthenticated } = useAppSelector((state) => state.auth);
+	const dispatch = useAppDispatch();
 
-	const bgColor = useColorModeValue('white', 'gray.900');
+	const bgColor = useColorModeValue('white', 'black');
 	const borderColor = useColorModeValue('gray.200', 'gray.700');
 
 	return (
@@ -65,11 +66,15 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 			<SearchBar />
 
 			<HStack spacing={{ base: '0', md: '6' }}>
-				<Button size='md' variant='ghost' onClick={toggleColorMode}>
-					{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-				</Button>
+				<IconButton
+					aria-label='Toggle theme'
+					size='md'
+					variant='ghost'
+					color={useColorModeValue('purple', 'orange')}
+					onClick={toggleColorMode}
+					icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+				/>
 				<Flex alignItems={'center'}>
-					{/* TODO: Add authentication */}
 					{!isAuthenticated ? <Register /> : null}
 					{!isAuthenticated ? <Login /> : null}
 					{isAuthenticated ? (
@@ -80,12 +85,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 								_focus={{ boxShadow: 'none' }}
 							>
 								<HStack>
-									<Avatar
+									{/* <Avatar
 										size={'sm'}
 										src={
 											'https://www.thehappycatsite.com/wp-content/uploads/2017/12/White-Cat-HC-long.jpg'
 										}
-									/>
+									/> */}
 									<VStack
 										display={{ base: 'none', md: 'flex' }}
 										alignItems='flex-start'
@@ -103,8 +108,26 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 								</HStack>
 							</MenuButton>
 							<MenuList bg={bgColor} borderColor={borderColor}>
-								<MenuItem>Profile</MenuItem>
-								<MenuItem>Sign out</MenuItem>
+								<MenuItem
+									bg={bgColor}
+									_hover={{
+										backgroundColor: borderColor,
+									}}
+								>
+									Profile
+								</MenuItem>
+								<MenuItem
+									bg={bgColor}
+									_hover={{
+										backgroundColor: borderColor,
+									}}
+									onClick={() => {
+										localStorage.removeItem('token');
+										dispatch(clearUser());
+									}}
+								>
+									Sign out
+								</MenuItem>
 							</MenuList>
 						</Menu>
 					) : null}

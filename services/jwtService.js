@@ -6,6 +6,7 @@ const generateToken = (payload) => {
 		jwt.sign(
 			payload,
 			config.get('JWT_SECRET'),
+			// 60 * 60 = 3600, i.e., 1 hour
 			{ expiresIn: 3600 },
 			(err, token) => {
 				if (err) {

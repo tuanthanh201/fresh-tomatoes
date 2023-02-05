@@ -9,6 +9,8 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import useInput from '../../hooks/useInput';
+import { useAppDispatch } from '../../store';
+import { login } from '../../store/auth/actions';
 import CustomModal from '../modal/CustomModal';
 
 const validateEmail = (email: string) => {
@@ -22,6 +24,7 @@ const validateEmail = (email: string) => {
 const Login = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const initialRef = useRef(null);
+	const dispatch = useAppDispatch();
 
 	const {
 		value: email,
@@ -42,11 +45,7 @@ const Login = () => {
 		e.preventDefault();
 		const formIsValid = emailIsValid && passwordIsValid;
 		if (formIsValid) {
-			// TODO: handle authentication
-			console.log({
-				email,
-				password,
-			});
+			dispatch(login({ email, password }));
 		} else {
 			console.error('Invalid form');
 		}
