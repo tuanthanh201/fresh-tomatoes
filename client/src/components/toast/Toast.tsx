@@ -7,8 +7,32 @@ const Toast = () => {
 	const { notifications } = useAppSelector((state) => state.ui);
 
 	notifications.forEach((noti) => {
-		if (noti.status === 'error') {
-			toast.error(noti.msg);
+		switch (noti.status) {
+			case 'success':
+				toast.success(noti.msg, {
+					toastId: noti.uuid,
+				});
+				break;
+			case 'error':
+				toast.error(noti.msg, {
+					toastId: noti.uuid,
+				});
+				break;
+			case 'info':
+				toast.info(noti.msg, {
+					toastId: noti.uuid,
+				});
+				break;
+			case 'warning':
+				toast.warning(noti.msg, {
+					toastId: noti.uuid,
+				});
+				break;
+			default:
+				toast(noti.msg, {
+					toastId: noti.uuid,
+				});
+				break;
 		}
 	});
 
