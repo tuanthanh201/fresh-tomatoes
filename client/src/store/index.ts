@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import authSlice from './authSlice';
-import movieSlice from './nav/movieSlice';
+import movieSlice from './movie/movieSlice';
 import uiSlice from './ui/uiSlice';
 
 export const store = configureStore({

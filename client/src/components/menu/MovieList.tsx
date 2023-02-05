@@ -16,8 +16,8 @@ import MovieItem from './MovieItem';
 import {
 	fetchMorePopularMovies,
 	getPopularMovies,
-} from '../../store/nav/actions';
-import { updateSortBy } from '../../store/nav/movieSlice';
+} from '../../store/movie/actions';
+import { updateSortBy } from '../../store/movie/movieSlice';
 
 interface MovieListProps {
 	title: MovieListTitles;
