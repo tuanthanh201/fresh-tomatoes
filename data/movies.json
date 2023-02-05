@@ -9,7 +9,7 @@
 		"genres": ["Action", "Adventure", "Science Fiction"],
 		"runtime": 162,
 		"ratingCount": 2363,
-		"ratingAverage": 7.527,
+		"ratingAverage": "7.53",
 		"popularity": 5470
 	},
 	{
@@ -22,7 +22,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Family", "Fantasy"],
 		"runtime": 103,
 		"ratingCount": 3228,
-		"ratingAverage": 8.567,
+		"ratingAverage": "8.57",
 		"popularity": 4289
 	},
 	{
@@ -35,7 +35,7 @@
 		"genres": ["Science Fiction", "Horror", "Comedy"],
 		"runtime": 102,
 		"ratingCount": 1261,
-		"ratingAverage": 7.561,
+		"ratingAverage": "7.56",
 		"popularity": 3046
 	},
 	{
@@ -48,7 +48,7 @@
 		"genres": ["Science Fiction", "Action", "Adventure"],
 		"runtime": 98,
 		"ratingCount": 224,
-		"ratingAverage": 6.429,
+		"ratingAverage": "6.43",
 		"popularity": 2264
 	},
 	{
@@ -61,7 +61,7 @@
 		"genres": ["Crime", "Thriller", "Drama"],
 		"runtime": 105,
 		"ratingCount": 30,
-		"ratingAverage": 6.6,
+		"ratingAverage": "6.60",
 		"popularity": 1491
 	},
 	{
@@ -74,7 +74,7 @@
 		"genres": ["Action", "Fantasy", "TV Movie"],
 		"runtime": 140,
 		"ratingCount": 301,
-		"ratingAverage": 8.281,
+		"ratingAverage": "8.28",
 		"popularity": 1856
 	},
 	{
@@ -87,7 +87,7 @@
 		"genres": ["Science Fiction", "Adventure", "Action"],
 		"runtime": 192,
 		"ratingCount": 4989,
-		"ratingAverage": 7.739,
+		"ratingAverage": "7.74",
 		"popularity": 1750
 	},
 	{
@@ -100,7 +100,7 @@
 		"genres": ["Action", "Romance", "Comedy"],
 		"runtime": 101,
 		"ratingCount": 220,
-		"ratingAverage": 6.3,
+		"ratingAverage": "6.30",
 		"popularity": 1679
 	},
 	{
@@ -113,7 +113,7 @@
 		"genres": ["War", "History", "Drama"],
 		"runtime": 139,
 		"ratingCount": 228,
-		"ratingAverage": 7.632,
+		"ratingAverage": "7.63",
 		"popularity": 1470
 	},
 	{
@@ -126,7 +126,7 @@
 		"genres": ["Action", "Thriller", "Drama"],
 		"runtime": 91,
 		"ratingCount": 136,
-		"ratingAverage": 7.386,
+		"ratingAverage": "7.39",
 		"popularity": 1413
 	},
 	{
@@ -139,7 +139,7 @@
 		"genres": ["War", "Action"],
 		"runtime": 127,
 		"ratingCount": 36,
-		"ratingAverage": 7.222,
+		"ratingAverage": "7.22",
 		"popularity": 1116
 	},
 	{
@@ -152,7 +152,7 @@
 		"genres": ["Action", "Thriller", "Crime"],
 		"runtime": 92,
 		"ratingCount": 16,
-		"ratingAverage": 6.5,
+		"ratingAverage": "6.50",
 		"popularity": 1258
 	},
 	{
@@ -165,7 +165,7 @@
 		"genres": ["Drama", "Comedy"],
 		"runtime": 189,
 		"ratingCount": 745,
-		"ratingAverage": 7.69,
+		"ratingAverage": "7.69",
 		"popularity": 1258
 	},
 	{
@@ -178,7 +178,7 @@
 		"genres": ["Action", "Comedy", "Crime", "Thriller"],
 		"runtime": 112,
 		"ratingCount": 1102,
-		"ratingAverage": 7.673,
+		"ratingAverage": "7.67",
 		"popularity": 1200
 	},
 	{
@@ -191,7 +191,7 @@
 		"genres": ["Fantasy", "Action", "Science Fiction"],
 		"runtime": 125,
 		"ratingCount": 4026,
-		"ratingAverage": 7.205,
+		"ratingAverage": "7.21",
 		"popularity": 1176
 	},
 	{
@@ -204,7 +204,7 @@
 		"genres": ["Action", "Drama"],
 		"runtime": 90,
 		"ratingCount": 27,
-		"ratingAverage": 6.148,
+		"ratingAverage": "6.15",
 		"popularity": 1141
 	},
 	{
@@ -217,7 +217,7 @@
 		"genres": ["Science Fiction", "Horror", "Adventure", "Action"],
 		"runtime": 75,
 		"ratingCount": 2,
-		"ratingAverage": 6,
+		"ratingAverage": "6.00",
 		"popularity": 988
 	},
 	{
@@ -230,7 +230,7 @@
 		"genres": ["Fantasy", "Action", "Adventure", "Thriller"],
 		"runtime": 104,
 		"ratingCount": 1137,
-		"ratingAverage": 6.752,
+		"ratingAverage": "6.75",
 		"popularity": 978
 	},
 	{
@@ -243,7 +243,7 @@
 		"genres": ["Action", "Adventure", "Fantasy", "Science Fiction"],
 		"runtime": 162,
 		"ratingCount": 28178,
-		"ratingAverage": 7.567,
+		"ratingAverage": "7.57",
 		"popularity": 915
 	},
 	{
@@ -256,7 +256,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 93,
 		"ratingCount": 472,
-		"ratingAverage": 7.3,
+		"ratingAverage": "7.30",
 		"popularity": 882
 	},
 	{
@@ -269,7 +269,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 92,
 		"ratingCount": 51,
-		"ratingAverage": 6.255,
+		"ratingAverage": "6.25",
 		"popularity": 853
 	},
 	{
@@ -282,7 +282,7 @@
 		"genres": ["Music"],
 		"runtime": 45,
 		"ratingCount": 81,
-		"ratingAverage": 7.543,
+		"ratingAverage": "7.54",
 		"popularity": 829
 	},
 	{
@@ -295,7 +295,7 @@
 		"genres": ["Family", "Comedy", "Fantasy"],
 		"runtime": 117,
 		"ratingCount": 458,
-		"ratingAverage": 6.939,
+		"ratingAverage": "6.94",
 		"popularity": 957
 	},
 	{
@@ -308,7 +308,7 @@
 		"genres": ["Adventure", "Animation", "Family"],
 		"runtime": 77,
 		"ratingCount": 836,
-		"ratingAverage": 7.188,
+		"ratingAverage": "7.19",
 		"popularity": 802
 	},
 	{
@@ -321,7 +321,7 @@
 		"genres": ["Thriller", "Crime"],
 		"runtime": 95,
 		"ratingCount": 66,
-		"ratingAverage": 8.03,
+		"ratingAverage": "8.03",
 		"popularity": 748
 	},
 	{
@@ -334,7 +334,7 @@
 		"genres": ["Adventure", "Family", "Fantasy"],
 		"runtime": 143,
 		"ratingCount": 9261,
-		"ratingAverage": 7.1,
+		"ratingAverage": "7.10",
 		"popularity": 771
 	},
 	{
@@ -347,7 +347,7 @@
 		"genres": ["Comedy", "Crime", "Mystery"],
 		"runtime": 140,
 		"ratingCount": 3183,
-		"ratingAverage": 7.1,
+		"ratingAverage": "7.10",
 		"popularity": 754
 	},
 	{
@@ -360,7 +360,7 @@
 		"genres": ["Animation", "Fantasy", "Drama"],
 		"runtime": 117,
 		"ratingCount": 1768,
-		"ratingAverage": 8.344,
+		"ratingAverage": "8.34",
 		"popularity": 733
 	},
 	{
@@ -373,7 +373,7 @@
 		"genres": ["Action", "Comedy", "Crime"],
 		"runtime": 84,
 		"ratingCount": 43,
-		"ratingAverage": 5.988,
+		"ratingAverage": "5.99",
 		"popularity": 731
 	},
 	{
@@ -386,7 +386,7 @@
 		"genres": ["Horror"],
 		"runtime": 93,
 		"ratingCount": 27,
-		"ratingAverage": 5.222,
+		"ratingAverage": "5.22",
 		"popularity": 726
 	},
 	{
@@ -399,7 +399,7 @@
 		"genres": ["Action", "Mystery", "Thriller", "Crime"],
 		"runtime": 101,
 		"ratingCount": 90,
-		"ratingAverage": 6.611,
+		"ratingAverage": "6.61",
 		"popularity": 680
 	},
 	{
@@ -412,7 +412,7 @@
 		"genres": ["Action", "Drama", "History"],
 		"runtime": 135,
 		"ratingCount": 1180,
-		"ratingAverage": 7.845,
+		"ratingAverage": "7.84",
 		"popularity": 666
 	},
 	{
@@ -425,7 +425,7 @@
 		"genres": ["Action", "Comedy", "Crime"],
 		"runtime": 141,
 		"ratingCount": 120,
-		"ratingAverage": 7.142,
+		"ratingAverage": "7.14",
 		"popularity": 654
 	},
 	{
@@ -438,7 +438,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 84,
 		"ratingCount": 11,
-		"ratingAverage": 7,
+		"ratingAverage": "7.00",
 		"popularity": 642
 	},
 	{
@@ -451,7 +451,7 @@
 		"genres": ["Action", "Crime"],
 		"runtime": 105,
 		"ratingCount": 69,
-		"ratingAverage": 6.906,
+		"ratingAverage": "6.91",
 		"popularity": 641
 	},
 	{
@@ -464,7 +464,7 @@
 		"genres": ["Horror"],
 		"runtime": 100,
 		"ratingCount": 164,
-		"ratingAverage": 6.863,
+		"ratingAverage": "6.86",
 		"popularity": 616
 	},
 	{
@@ -477,7 +477,7 @@
 		"genres": ["Horror"],
 		"runtime": 138,
 		"ratingCount": 983,
-		"ratingAverage": 6.953,
+		"ratingAverage": "6.95",
 		"popularity": 587
 	},
 	{
@@ -490,7 +490,7 @@
 		"genres": ["Romance", "Comedy"],
 		"runtime": 117,
 		"ratingCount": 209,
-		"ratingAverage": 5.983,
+		"ratingAverage": "5.98",
 		"popularity": 580
 	},
 	{
@@ -510,7 +510,7 @@
 		],
 		"runtime": 92,
 		"ratingCount": 3,
-		"ratingAverage": 5.7,
+		"ratingAverage": "5.70",
 		"popularity": 573
 	},
 	{
@@ -523,7 +523,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Family"],
 		"runtime": 91,
 		"ratingCount": 207,
-		"ratingAverage": 8.181,
+		"ratingAverage": "8.18",
 		"popularity": 547
 	},
 	{
@@ -536,7 +536,7 @@
 		"genres": ["Thriller"],
 		"runtime": 107,
 		"ratingCount": 2374,
-		"ratingAverage": 7.33,
+		"ratingAverage": "7.33",
 		"popularity": 541
 	},
 	{
@@ -549,7 +549,7 @@
 		"genres": ["Animation", "Science Fiction", "Adventure", "Family"],
 		"runtime": 102,
 		"ratingCount": 755,
-		"ratingAverage": 6.557,
+		"ratingAverage": "6.56",
 		"popularity": 533
 	},
 	{
@@ -562,7 +562,7 @@
 		"genres": ["Action", "Thriller", "Mystery", "Crime", "Horror"],
 		"runtime": 85,
 		"ratingCount": 15,
-		"ratingAverage": 5.4,
+		"ratingAverage": "5.40",
 		"popularity": 530
 	},
 	{
@@ -575,7 +575,7 @@
 		"genres": ["Animation", "Family", "Adventure"],
 		"runtime": 47,
 		"ratingCount": 197,
-		"ratingAverage": 6.807,
+		"ratingAverage": "6.81",
 		"popularity": 626
 	},
 	{
@@ -588,7 +588,7 @@
 		"genres": ["Fantasy", "Action", "Comedy", "Crime"],
 		"runtime": 102,
 		"ratingCount": 364,
-		"ratingAverage": 6.559,
+		"ratingAverage": "6.56",
 		"popularity": 497
 	},
 	{
@@ -601,7 +601,7 @@
 		"genres": ["Animation", "Family"],
 		"runtime": 90,
 		"ratingCount": 65,
-		"ratingAverage": 7.1,
+		"ratingAverage": "7.10",
 		"popularity": 487
 	},
 	{
@@ -614,7 +614,7 @@
 		"genres": ["Action", "Horror", "Thriller"],
 		"runtime": 88,
 		"ratingCount": 35,
-		"ratingAverage": 6.2,
+		"ratingAverage": "6.20",
 		"popularity": 474
 	},
 	{
@@ -627,7 +627,7 @@
 		"genres": ["Thriller", "Drama"],
 		"runtime": 108,
 		"ratingCount": 57,
-		"ratingAverage": 7.518,
+		"ratingAverage": "7.52",
 		"popularity": 468
 	},
 	{
@@ -640,7 +640,7 @@
 		"genres": ["Animation", "Adventure", "Fantasy", "Comedy"],
 		"runtime": 90,
 		"ratingCount": 3,
-		"ratingAverage": 4.7,
+		"ratingAverage": "4.70",
 		"popularity": 467
 	},
 	{
@@ -653,7 +653,7 @@
 		"genres": ["Action", "Crime", "Thriller"],
 		"runtime": 90,
 		"ratingCount": 359,
-		"ratingAverage": 6.872,
+		"ratingAverage": "6.87",
 		"popularity": 462
 	},
 	{
@@ -666,7 +666,7 @@
 		"genres": ["War", "Action", "Drama"],
 		"runtime": 120,
 		"ratingCount": 261,
-		"ratingAverage": 7.693,
+		"ratingAverage": "7.69",
 		"popularity": 462
 	},
 	{
@@ -679,7 +679,7 @@
 		"genres": ["History", "Action", "Drama"],
 		"runtime": 126,
 		"ratingCount": 318,
-		"ratingAverage": 7.2,
+		"ratingAverage": "7.20",
 		"popularity": 450
 	},
 	{
@@ -692,7 +692,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 100,
 		"ratingCount": 83,
-		"ratingAverage": 6.645,
+		"ratingAverage": "6.64",
 		"popularity": 430
 	},
 	{
@@ -705,7 +705,7 @@
 		"genres": ["Horror", "Thriller", "Mystery"],
 		"runtime": 88,
 		"ratingCount": 620,
-		"ratingAverage": 5.802,
+		"ratingAverage": "5.80",
 		"popularity": 411
 	},
 	{
@@ -718,7 +718,7 @@
 		"genres": ["Adventure", "Action", "Science Fiction"],
 		"runtime": 147,
 		"ratingCount": 4363,
-		"ratingAverage": 6.919,
+		"ratingAverage": "6.92",
 		"popularity": 404
 	},
 	{
@@ -731,7 +731,7 @@
 		"genres": ["Action", "Drama"],
 		"runtime": 131,
 		"ratingCount": 5916,
-		"ratingAverage": 8.324,
+		"ratingAverage": "8.32",
 		"popularity": 400
 	},
 	{
@@ -744,7 +744,7 @@
 		"genres": ["Drama"],
 		"runtime": 123,
 		"ratingCount": 8,
-		"ratingAverage": 4.6,
+		"ratingAverage": "4.60",
 		"popularity": 400
 	},
 	{
@@ -757,7 +757,7 @@
 		"genres": ["Mystery", "Crime", "Horror"],
 		"runtime": 130,
 		"ratingCount": 941,
-		"ratingAverage": 7.007,
+		"ratingAverage": "7.01",
 		"popularity": 397
 	},
 	{
@@ -770,7 +770,7 @@
 		"genres": ["Fantasy", "Action", "Comedy"],
 		"runtime": 119,
 		"ratingCount": 5335,
-		"ratingAverage": 6.649,
+		"ratingAverage": "6.65",
 		"popularity": 381
 	},
 	{
@@ -783,7 +783,7 @@
 		"genres": ["Animation", "Comedy", "Family", "Fantasy"],
 		"runtime": 77,
 		"ratingCount": 163,
-		"ratingAverage": 6.991,
+		"ratingAverage": "6.99",
 		"popularity": 378
 	},
 	{
@@ -796,7 +796,7 @@
 		"genres": ["Action", "Drama", "War"],
 		"runtime": 147,
 		"ratingCount": 1672,
-		"ratingAverage": 7.764,
+		"ratingAverage": "7.76",
 		"popularity": 408
 	},
 	{
@@ -809,7 +809,7 @@
 		"genres": ["Animation", "Action", "Adventure", "Comedy"],
 		"runtime": 92,
 		"ratingCount": 8,
-		"ratingAverage": 6.4,
+		"ratingAverage": "6.40",
 		"popularity": 366
 	},
 	{
@@ -822,7 +822,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 102,
 		"ratingCount": 184,
-		"ratingAverage": 6.435,
+		"ratingAverage": "6.43",
 		"popularity": 365
 	},
 	{
@@ -835,7 +835,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 115,
 		"ratingCount": 1567,
-		"ratingAverage": 6.828,
+		"ratingAverage": "6.83",
 		"popularity": 353
 	},
 	{
@@ -848,7 +848,7 @@
 		"genres": ["Action", "Adventure", "Family", "Comedy"],
 		"runtime": 122,
 		"ratingCount": 3653,
-		"ratingAverage": 7.608,
+		"ratingAverage": "7.61",
 		"popularity": 348
 	},
 	{
@@ -861,7 +861,7 @@
 		"genres": ["Animation", "Science Fiction", "Action"],
 		"runtime": 99,
 		"ratingCount": 2214,
-		"ratingAverage": 7.957,
+		"ratingAverage": "7.96",
 		"popularity": 415
 	},
 	{
@@ -874,7 +874,7 @@
 		"genres": ["Action", "Adventure", "Science Fiction"],
 		"runtime": 148,
 		"ratingCount": 16584,
-		"ratingAverage": 8.021,
+		"ratingAverage": "8.02",
 		"popularity": 344
 	},
 	{
@@ -887,7 +887,7 @@
 		"genres": ["Comedy", "Family", "Music"],
 		"runtime": 106,
 		"ratingCount": 309,
-		"ratingAverage": 7.709,
+		"ratingAverage": "7.71",
 		"popularity": 339
 	},
 	{
@@ -900,7 +900,7 @@
 		"genres": ["Thriller", "Horror"],
 		"runtime": 84,
 		"ratingCount": 33,
-		"ratingAverage": 6.545,
+		"ratingAverage": "6.54",
 		"popularity": 332
 	},
 	{
@@ -913,7 +913,7 @@
 		"genres": ["Animation", "Action", "Adventure", "Fantasy", "Thriller"],
 		"runtime": 117,
 		"ratingCount": 2924,
-		"ratingAverage": 8.293,
+		"ratingAverage": "8.29",
 		"popularity": 327
 	},
 	{
@@ -926,7 +926,7 @@
 		"genres": ["Romance"],
 		"runtime": 81,
 		"ratingCount": 7,
-		"ratingAverage": 6.857,
+		"ratingAverage": "6.86",
 		"popularity": 327
 	},
 	{
@@ -939,7 +939,7 @@
 		"genres": ["Science Fiction", "Horror"],
 		"runtime": 99,
 		"ratingCount": 243,
-		"ratingAverage": 5.671,
+		"ratingAverage": "5.67",
 		"popularity": 322
 	},
 	{
@@ -952,7 +952,7 @@
 		"genres": ["Action", "Comedy", "Thriller"],
 		"runtime": 126,
 		"ratingCount": 3275,
-		"ratingAverage": 7.519,
+		"ratingAverage": "7.52",
 		"popularity": 315
 	},
 	{
@@ -965,7 +965,7 @@
 		"genres": ["Animation", "Action", "Fantasy"],
 		"runtime": 105,
 		"ratingCount": 792,
-		"ratingAverage": 8.257,
+		"ratingAverage": "8.26",
 		"popularity": 312
 	},
 	{
@@ -978,7 +978,7 @@
 		"genres": ["Thriller", "Action", "Science Fiction"],
 		"runtime": 100,
 		"ratingCount": 5125,
-		"ratingAverage": 7.817,
+		"ratingAverage": "7.82",
 		"popularity": 305
 	},
 	{
@@ -991,7 +991,7 @@
 		"genres": ["Comedy", "Family", "Fantasy"],
 		"runtime": 120,
 		"ratingCount": 722,
-		"ratingAverage": 7.039,
+		"ratingAverage": "7.04",
 		"popularity": 304
 	},
 	{
@@ -1004,7 +1004,7 @@
 		"genres": ["Crime", "Thriller"],
 		"runtime": 101,
 		"ratingCount": 104,
-		"ratingAverage": 6.433,
+		"ratingAverage": "6.43",
 		"popularity": 295
 	},
 	{
@@ -1017,7 +1017,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 93,
 		"ratingCount": 22,
-		"ratingAverage": 6.955,
+		"ratingAverage": "6.96",
 		"popularity": 292
 	},
 	{
@@ -1030,7 +1030,7 @@
 		"genres": ["Horror"],
 		"runtime": 114,
 		"ratingCount": 22,
-		"ratingAverage": 7,
+		"ratingAverage": "7.00",
 		"popularity": 288
 	},
 	{
@@ -1043,7 +1043,7 @@
 		"genres": ["Documentary"],
 		"runtime": 41,
 		"ratingCount": 15,
-		"ratingAverage": 7.467,
+		"ratingAverage": "7.47",
 		"popularity": 284
 	},
 	{
@@ -1056,7 +1056,7 @@
 		"genres": ["Drama", "Romance"],
 		"runtime": 61,
 		"ratingCount": 7,
-		"ratingAverage": 7.4,
+		"ratingAverage": "7.40",
 		"popularity": 280
 	},
 	{
@@ -1069,7 +1069,7 @@
 		"genres": ["Animation", "Comedy", "Family"],
 		"runtime": 87,
 		"ratingCount": 2579,
-		"ratingAverage": 7.484,
+		"ratingAverage": "7.48",
 		"popularity": 278
 	},
 	{
@@ -1082,7 +1082,7 @@
 		"genres": ["Animation", "Comedy", "Family", "Fantasy"],
 		"runtime": 102,
 		"ratingCount": 7899,
-		"ratingAverage": 7.7,
+		"ratingAverage": "7.70",
 		"popularity": 275
 	},
 	{
@@ -1095,7 +1095,7 @@
 		"genres": ["Thriller", "Action", "Adventure", "Horror"],
 		"runtime": 93,
 		"ratingCount": 992,
-		"ratingAverage": 6.9,
+		"ratingAverage": "6.90",
 		"popularity": 275
 	},
 	{
@@ -1108,7 +1108,7 @@
 		"genres": [],
 		"runtime": 0,
 		"ratingCount": 14,
-		"ratingAverage": 5.357,
+		"ratingAverage": "5.36",
 		"popularity": 273
 	},
 	{
@@ -1121,7 +1121,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 89,
 		"ratingCount": 179,
-		"ratingAverage": 6.126,
+		"ratingAverage": "6.13",
 		"popularity": 268
 	},
 	{
@@ -1134,7 +1134,7 @@
 		"genres": ["Drama"],
 		"runtime": 117,
 		"ratingCount": 70,
-		"ratingAverage": 7.45,
+		"ratingAverage": "7.45",
 		"popularity": 286
 	},
 	{
@@ -1147,7 +1147,7 @@
 		"genres": ["Comedy", "Action", "Thriller"],
 		"runtime": 100,
 		"ratingCount": 59,
-		"ratingAverage": 6.314,
+		"ratingAverage": "6.31",
 		"popularity": 265
 	},
 	{
@@ -1160,7 +1160,7 @@
 		"genres": ["Action", "Fantasy", "Thriller"],
 		"runtime": 106,
 		"ratingCount": 120,
-		"ratingAverage": 6.704,
+		"ratingAverage": "6.70",
 		"popularity": 265
 	},
 	{
@@ -1173,7 +1173,7 @@
 		"genres": ["Animation", "Family", "Comedy", "Fantasy"],
 		"runtime": 100,
 		"ratingCount": 3847,
-		"ratingAverage": 7.502,
+		"ratingAverage": "7.50",
 		"popularity": 301
 	},
 	{
@@ -1193,7 +1193,7 @@
 		],
 		"runtime": 90,
 		"ratingCount": 3053,
-		"ratingAverage": 6.49,
+		"ratingAverage": "6.49",
 		"popularity": 260
 	},
 	{
@@ -1206,7 +1206,7 @@
 		"genres": ["Crime", "Mystery", "Thriller"],
 		"runtime": 177,
 		"ratingCount": 7402,
-		"ratingAverage": 7.708,
+		"ratingAverage": "7.71",
 		"popularity": 258
 	},
 	{
@@ -1219,7 +1219,7 @@
 		"genres": ["Fantasy", "Horror", "Comedy"],
 		"runtime": 88,
 		"ratingCount": 4,
-		"ratingAverage": 5,
+		"ratingAverage": "5.00",
 		"popularity": 255
 	},
 	{
@@ -1232,7 +1232,7 @@
 		"genres": ["Fantasy", "Action", "Adventure"],
 		"runtime": 126,
 		"ratingCount": 6874,
-		"ratingAverage": 7.41,
+		"ratingAverage": "7.41",
 		"popularity": 254
 	},
 	{
@@ -1245,7 +1245,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Fantasy"],
 		"runtime": 105,
 		"ratingCount": 1121,
-		"ratingAverage": 7.935,
+		"ratingAverage": "7.93",
 		"popularity": 252
 	},
 	{
@@ -1258,7 +1258,7 @@
 		"genres": ["Documentary"],
 		"runtime": 23,
 		"ratingCount": 40,
-		"ratingAverage": 7.2,
+		"ratingAverage": "7.20",
 		"popularity": 248
 	},
 	{
@@ -1271,7 +1271,7 @@
 		"genres": ["Thriller", "Crime"],
 		"runtime": 90,
 		"ratingCount": 35,
-		"ratingAverage": 5.614,
+		"ratingAverage": "5.61",
 		"popularity": 244
 	},
 	{
@@ -1284,7 +1284,7 @@
 		"genres": ["Action", "Adventure", "Thriller"],
 		"runtime": 76,
 		"ratingCount": 18,
-		"ratingAverage": 6.8,
+		"ratingAverage": "6.80",
 		"popularity": 242
 	},
 	{
@@ -1297,7 +1297,7 @@
 		"genres": ["Documentary"],
 		"runtime": 89,
 		"ratingCount": 46,
-		"ratingAverage": 6.587,
+		"ratingAverage": "6.59",
 		"popularity": 242
 	},
 	{
@@ -1310,7 +1310,7 @@
 		"genres": ["Animation", "Family", "Fantasy", "Drama"],
 		"runtime": 97,
 		"ratingCount": 245,
-		"ratingAverage": 6.69,
+		"ratingAverage": "6.69",
 		"popularity": 240
 	},
 	{
@@ -1323,7 +1323,7 @@
 		"genres": ["Thriller", "Horror"],
 		"runtime": 86,
 		"ratingCount": 34,
-		"ratingAverage": 5.221,
+		"ratingAverage": "5.22",
 		"popularity": 240
 	},
 	{
@@ -1336,7 +1336,7 @@
 		"genres": ["Action", "Crime", "Thriller"],
 		"runtime": 93,
 		"ratingCount": 57,
-		"ratingAverage": 5.5,
+		"ratingAverage": "5.50",
 		"popularity": 239
 	},
 	{
@@ -1349,7 +1349,7 @@
 		"genres": ["Horror", "Thriller", "Action", "Adventure"],
 		"runtime": 87,
 		"ratingCount": 204,
-		"ratingAverage": 5.907,
+		"ratingAverage": "5.91",
 		"popularity": 235
 	},
 	{
@@ -1362,7 +1362,7 @@
 		"genres": ["Comedy"],
 		"runtime": 107,
 		"ratingCount": 31,
-		"ratingAverage": 6.065,
+		"ratingAverage": "6.07",
 		"popularity": 234
 	},
 	{
@@ -1375,7 +1375,7 @@
 		"genres": ["Comedy"],
 		"runtime": 100,
 		"ratingCount": 28,
-		"ratingAverage": 7.125,
+		"ratingAverage": "7.13",
 		"popularity": 232
 	},
 	{
@@ -1388,7 +1388,7 @@
 		"genres": ["Thriller", "Drama", "Horror"],
 		"runtime": 100,
 		"ratingCount": 264,
-		"ratingAverage": 6.7,
+		"ratingAverage": "6.70",
 		"popularity": 231
 	},
 	{
@@ -1401,7 +1401,7 @@
 		"genres": ["Drama"],
 		"runtime": 97,
 		"ratingCount": 83,
-		"ratingAverage": 6.681,
+		"ratingAverage": "6.68",
 		"popularity": 199
 	},
 	{
@@ -1414,7 +1414,7 @@
 		"genres": ["Adventure", "Fantasy"],
 		"runtime": 152,
 		"ratingCount": 24025,
-		"ratingAverage": 7.916,
+		"ratingAverage": "7.92",
 		"popularity": 234
 	},
 	{
@@ -1427,7 +1427,7 @@
 		"genres": ["Animation", "Science Fiction", "Adventure"],
 		"runtime": 108,
 		"ratingCount": 8,
-		"ratingAverage": 5.5,
+		"ratingAverage": "5.50",
 		"popularity": 226
 	},
 	{
@@ -1440,7 +1440,7 @@
 		"genres": ["Action", "Adventure", "Science Fiction"],
 		"runtime": 135,
 		"ratingCount": 20257,
-		"ratingAverage": 7.395,
+		"ratingAverage": "7.39",
 		"popularity": 226
 	},
 	{
@@ -1453,7 +1453,7 @@
 		"genres": ["Comedy"],
 		"runtime": 97,
 		"ratingCount": 123,
-		"ratingAverage": 6.2,
+		"ratingAverage": "6.20",
 		"popularity": 223
 	},
 	{
@@ -1466,7 +1466,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 99,
 		"ratingCount": 1543,
-		"ratingAverage": 6.794,
+		"ratingAverage": "6.79",
 		"popularity": 223
 	},
 	{
@@ -1479,7 +1479,7 @@
 		"genres": ["Adventure", "Action", "Science Fiction"],
 		"runtime": 149,
 		"ratingCount": 26240,
-		"ratingAverage": 8.265,
+		"ratingAverage": "8.27",
 		"popularity": 221
 	},
 	{
@@ -1492,7 +1492,7 @@
 		"genres": ["Crime", "Drama", "Thriller"],
 		"runtime": 97,
 		"ratingCount": 397,
-		"ratingAverage": 6.861,
+		"ratingAverage": "6.86",
 		"popularity": 219
 	},
 	{
@@ -1505,7 +1505,7 @@
 		"genres": ["Romance", "Drama"],
 		"runtime": 95,
 		"ratingCount": 778,
-		"ratingAverage": 6.905,
+		"ratingAverage": "6.91",
 		"popularity": 219
 	},
 	{
@@ -1518,7 +1518,7 @@
 		"genres": ["Mystery", "Thriller", "Crime", "Drama"],
 		"runtime": 107,
 		"ratingCount": 77,
-		"ratingAverage": 7.3,
+		"ratingAverage": "7.30",
 		"popularity": 216
 	},
 	{
@@ -1531,7 +1531,7 @@
 		"genres": ["Action", "Adventure", "Thriller"],
 		"runtime": 107,
 		"ratingCount": 99,
-		"ratingAverage": 6.641,
+		"ratingAverage": "6.64",
 		"popularity": 216
 	},
 	{
@@ -1544,7 +1544,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Family"],
 		"runtime": 110,
 		"ratingCount": 3468,
-		"ratingAverage": 8,
+		"ratingAverage": "8.00",
 		"popularity": 268
 	},
 	{
@@ -1557,7 +1557,7 @@
 		"genres": ["Action", "Crime", "Thriller"],
 		"runtime": 96,
 		"ratingCount": 73,
-		"ratingAverage": 6.7,
+		"ratingAverage": "6.70",
 		"popularity": 214
 	},
 	{
@@ -1570,7 +1570,7 @@
 		"genres": ["Action", "Adventure"],
 		"runtime": 116,
 		"ratingCount": 4322,
-		"ratingAverage": 7.046,
+		"ratingAverage": "7.05",
 		"popularity": 213
 	},
 	{
@@ -1583,7 +1583,7 @@
 		"genres": ["Comedy", "Romance"],
 		"runtime": 90,
 		"ratingCount": 1,
-		"ratingAverage": 4,
+		"ratingAverage": "4.00",
 		"popularity": 212
 	},
 	{
@@ -1596,7 +1596,7 @@
 		"genres": ["Animation", "Family", "Fantasy", "Adventure"],
 		"runtime": 92,
 		"ratingCount": 1019,
-		"ratingAverage": 7.164,
+		"ratingAverage": "7.16",
 		"popularity": 212
 	},
 	{
@@ -1609,7 +1609,7 @@
 		"genres": ["Animation", "Comedy", "Fantasy", "Adventure", "Family"],
 		"runtime": 90,
 		"ratingCount": 14855,
-		"ratingAverage": 7.713,
+		"ratingAverage": "7.71",
 		"popularity": 230
 	},
 	{
@@ -1622,7 +1622,7 @@
 		"genres": ["Thriller"],
 		"runtime": 104,
 		"ratingCount": 247,
-		"ratingAverage": 6.257,
+		"ratingAverage": "6.26",
 		"popularity": 255
 	},
 	{
@@ -1635,7 +1635,7 @@
 		"genres": ["Horror", "Thriller", "Comedy"],
 		"runtime": 107,
 		"ratingCount": 2162,
-		"ratingAverage": 7.282,
+		"ratingAverage": "7.28",
 		"popularity": 209
 	},
 	{
@@ -1648,7 +1648,7 @@
 		"genres": ["Comedy", "Science Fiction", "Adventure"],
 		"runtime": 45,
 		"ratingCount": 1106,
-		"ratingAverage": 7.362,
+		"ratingAverage": "7.36",
 		"popularity": 208
 	},
 	{
@@ -1661,7 +1661,7 @@
 		"genres": ["Romance", "Drama"],
 		"runtime": 119,
 		"ratingCount": 387,
-		"ratingAverage": 8.416,
+		"ratingAverage": "8.42",
 		"popularity": 232
 	},
 	{
@@ -1674,7 +1674,7 @@
 		"genres": ["Comedy"],
 		"runtime": 90,
 		"ratingCount": 112,
-		"ratingAverage": 6.089,
+		"ratingAverage": "6.09",
 		"popularity": 207
 	},
 	{
@@ -1687,7 +1687,7 @@
 		"genres": ["Animation", "Comedy", "Family", "Fantasy", "Adventure"],
 		"runtime": 87,
 		"ratingCount": 1392,
-		"ratingAverage": 7.082,
+		"ratingAverage": "7.08",
 		"popularity": 206
 	},
 	{
@@ -1700,7 +1700,7 @@
 		"genres": ["Animation", "Action", "Family", "Comedy", "Science Fiction"],
 		"runtime": 105,
 		"ratingCount": 1102,
-		"ratingAverage": 7.431,
+		"ratingAverage": "7.43",
 		"popularity": 223
 	},
 	{
@@ -1713,7 +1713,7 @@
 		"genres": ["Horror", "Action"],
 		"runtime": 93,
 		"ratingCount": 65,
-		"ratingAverage": 5.754,
+		"ratingAverage": "5.75",
 		"popularity": 205
 	},
 	{
@@ -1726,7 +1726,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 114,
 		"ratingCount": 2052,
-		"ratingAverage": 6.692,
+		"ratingAverage": "6.69",
 		"popularity": 203
 	},
 	{
@@ -1739,7 +1739,7 @@
 		"genres": ["Action", "Adventure", "Fantasy"],
 		"runtime": 143,
 		"ratingCount": 133,
-		"ratingAverage": 6.368,
+		"ratingAverage": "6.37",
 		"popularity": 202
 	},
 	{
@@ -1752,7 +1752,7 @@
 		"genres": ["Family", "Adventure", "Music", "Animation"],
 		"runtime": 74,
 		"ratingCount": 80,
-		"ratingAverage": 7.594,
+		"ratingAverage": "7.59",
 		"popularity": 201
 	},
 	{
@@ -1765,7 +1765,7 @@
 		"genres": ["Animation", "Comedy", "Family"],
 		"runtime": 74,
 		"ratingCount": 76,
-		"ratingAverage": 6.783,
+		"ratingAverage": "6.78",
 		"popularity": 200
 	},
 	{
@@ -1778,7 +1778,7 @@
 		"genres": ["Drama", "Romance"],
 		"runtime": 103,
 		"ratingCount": 627,
-		"ratingAverage": 6,
+		"ratingAverage": "6.00",
 		"popularity": 216
 	},
 	{
@@ -1791,7 +1791,7 @@
 		"genres": ["Animation", "Comedy", "Romance"],
 		"runtime": 136,
 		"ratingCount": 172,
-		"ratingAverage": 8.657,
+		"ratingAverage": "8.66",
 		"popularity": 199
 	},
 	{
@@ -1804,7 +1804,7 @@
 		"genres": ["Action", "Drama", "Thriller"],
 		"runtime": 98,
 		"ratingCount": 230,
-		"ratingAverage": 6.587,
+		"ratingAverage": "6.59",
 		"popularity": 199
 	},
 	{
@@ -1817,7 +1817,7 @@
 		"genres": ["Drama", "Action", "Thriller"],
 		"runtime": 97,
 		"ratingCount": 478,
-		"ratingAverage": 6.655,
+		"ratingAverage": "6.66",
 		"popularity": 199
 	},
 	{
@@ -1830,7 +1830,7 @@
 		"genres": ["Action", "Adventure", "Science Fiction"],
 		"runtime": 140,
 		"ratingCount": 2974,
-		"ratingAverage": 8.033,
+		"ratingAverage": "8.03",
 		"popularity": 198
 	},
 	{
@@ -1843,7 +1843,7 @@
 		"genres": ["Comedy", "Drama"],
 		"runtime": 126,
 		"ratingCount": 93,
-		"ratingAverage": 7.414,
+		"ratingAverage": "7.41",
 		"popularity": 198
 	},
 	{
@@ -1856,7 +1856,7 @@
 		"genres": ["Horror", "Action", "Comedy"],
 		"runtime": 93,
 		"ratingCount": 122,
-		"ratingAverage": 7.045,
+		"ratingAverage": "7.04",
 		"popularity": 195
 	},
 	{
@@ -1869,7 +1869,7 @@
 		"genres": ["Action", "Drama", "Thriller"],
 		"runtime": 132,
 		"ratingCount": 736,
-		"ratingAverage": 8.1,
+		"ratingAverage": "8.10",
 		"popularity": 193
 	},
 	{
@@ -1882,7 +1882,7 @@
 		"genres": ["Family", "Fantasy", "Adventure", "Drama"],
 		"runtime": 117,
 		"ratingCount": 565,
-		"ratingAverage": 7.598,
+		"ratingAverage": "7.60",
 		"popularity": 191
 	},
 	{
@@ -1895,7 +1895,7 @@
 		"genres": ["Action", "Thriller", "Crime"],
 		"runtime": 93,
 		"ratingCount": 38,
-		"ratingAverage": 6.197,
+		"ratingAverage": "6.20",
 		"popularity": 191
 	},
 	{
@@ -1908,7 +1908,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Family", "Fantasy"],
 		"runtime": 0,
 		"ratingCount": 0,
-		"ratingAverage": 0,
+		"ratingAverage": "0.00",
 		"popularity": 191
 	},
 	{
@@ -1921,7 +1921,7 @@
 		"genres": ["Drama", "Comedy"],
 		"runtime": 114,
 		"ratingCount": 805,
-		"ratingAverage": 7.484,
+		"ratingAverage": "7.48",
 		"popularity": 190
 	},
 	{
@@ -1934,7 +1934,7 @@
 		"genres": ["Adventure", "Fantasy", "Family"],
 		"runtime": 157,
 		"ratingCount": 18277,
-		"ratingAverage": 7.818,
+		"ratingAverage": "7.82",
 		"popularity": 190
 	},
 	{
@@ -1947,7 +1947,7 @@
 		"genres": ["Music"],
 		"runtime": 44,
 		"ratingCount": 14,
-		"ratingAverage": 6,
+		"ratingAverage": "6.00",
 		"popularity": 188
 	},
 	{
@@ -1960,7 +1960,7 @@
 		"genres": ["Animation", "Comedy", "Family"],
 		"runtime": 74,
 		"ratingCount": 78,
-		"ratingAverage": 6.192,
+		"ratingAverage": "6.19",
 		"popularity": 216
 	},
 	{
@@ -1973,7 +1973,7 @@
 		"genres": ["Horror", "Mystery", "Thriller"],
 		"runtime": 106,
 		"ratingCount": 1645,
-		"ratingAverage": 6.771,
+		"ratingAverage": "6.77",
 		"popularity": 188
 	},
 	{
@@ -1986,7 +1986,7 @@
 		"genres": ["Drama"],
 		"runtime": 67,
 		"ratingCount": 2,
-		"ratingAverage": 1.5,
+		"ratingAverage": "1.50",
 		"popularity": 187
 	},
 	{
@@ -1999,7 +1999,7 @@
 		"genres": ["Mystery", "Adventure", "Comedy", "Crime"],
 		"runtime": 129,
 		"ratingCount": 1745,
-		"ratingAverage": 7.655,
+		"ratingAverage": "7.66",
 		"popularity": 186
 	},
 	{
@@ -2012,7 +2012,7 @@
 		"genres": ["Adventure", "Science Fiction", "Comedy"],
 		"runtime": 125,
 		"ratingCount": 0,
-		"ratingAverage": 0,
+		"ratingAverage": "0.00",
 		"popularity": 185
 	},
 	{
@@ -2025,7 +2025,7 @@
 		"genres": ["Animation", "Action", "Adventure", "Science Fiction"],
 		"runtime": 105,
 		"ratingCount": 363,
-		"ratingAverage": 7.602,
+		"ratingAverage": "7.60",
 		"popularity": 185
 	},
 	{
@@ -2038,7 +2038,7 @@
 		"genres": ["Adventure", "Fantasy"],
 		"runtime": 161,
 		"ratingCount": 19318,
-		"ratingAverage": 7.723,
+		"ratingAverage": "7.72",
 		"popularity": 184
 	},
 	{
@@ -2051,7 +2051,7 @@
 		"genres": ["Thriller", "Mystery"],
 		"runtime": 107,
 		"ratingCount": 164,
-		"ratingAverage": 6.701,
+		"ratingAverage": "6.70",
 		"popularity": 184
 	},
 	{
@@ -2064,7 +2064,7 @@
 		"genres": ["Documentary"],
 		"runtime": 0,
 		"ratingCount": 13,
-		"ratingAverage": 7.692,
+		"ratingAverage": "7.69",
 		"popularity": 184
 	},
 	{
@@ -2077,7 +2077,7 @@
 		"genres": ["Family", "Comedy", "Animation", "Adventure"],
 		"runtime": 76,
 		"ratingCount": 25,
-		"ratingAverage": 7.2,
+		"ratingAverage": "7.20",
 		"popularity": 184
 	},
 	{
@@ -2090,7 +2090,7 @@
 		"genres": ["Horror", "Mystery"],
 		"runtime": 121,
 		"ratingCount": 429,
-		"ratingAverage": 6.47,
+		"ratingAverage": "6.47",
 		"popularity": 182
 	},
 	{
@@ -2103,7 +2103,7 @@
 		"genres": ["Animation", "Adventure", "Comedy", "Family", "Fantasy"],
 		"runtime": 89,
 		"ratingCount": 198,
-		"ratingAverage": 7.77,
+		"ratingAverage": "7.77",
 		"popularity": 232
 	},
 	{
@@ -2116,7 +2116,7 @@
 		"genres": ["Fantasy", "Comedy", "Family"],
 		"runtime": 107,
 		"ratingCount": 1307,
-		"ratingAverage": 7.473,
+		"ratingAverage": "7.47",
 		"popularity": 181
 	},
 	{
@@ -2129,7 +2129,7 @@
 		"genres": ["Drama"],
 		"runtime": 96,
 		"ratingCount": 637,
-		"ratingAverage": 7.694,
+		"ratingAverage": "7.69",
 		"popularity": 180
 	},
 	{
@@ -2142,7 +2142,7 @@
 		"genres": ["Adventure", "Fantasy"],
 		"runtime": 153,
 		"ratingCount": 17128,
-		"ratingAverage": 7.702,
+		"ratingAverage": "7.70",
 		"popularity": 180
 	},
 	{
@@ -2155,7 +2155,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 97,
 		"ratingCount": 0,
-		"ratingAverage": 0,
+		"ratingAverage": "0.00",
 		"popularity": 178
 	},
 	{
@@ -2168,7 +2168,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 105,
 		"ratingCount": 437,
-		"ratingAverage": 6.35,
+		"ratingAverage": "6.35",
 		"popularity": 176
 	},
 	{
@@ -2181,7 +2181,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 103,
 		"ratingCount": 3479,
-		"ratingAverage": 7.789,
+		"ratingAverage": "7.79",
 		"popularity": 174
 	},
 	{
@@ -2194,7 +2194,7 @@
 		"genres": ["Comedy", "Drama", "Romance"],
 		"runtime": 93,
 		"ratingCount": 22,
-		"ratingAverage": 5.3,
+		"ratingAverage": "5.30",
 		"popularity": 174
 	},
 	{
@@ -2207,7 +2207,7 @@
 		"genres": ["Drama", "History", "War"],
 		"runtime": 139,
 		"ratingCount": 11872,
-		"ratingAverage": 8.187,
+		"ratingAverage": "8.19",
 		"popularity": 174
 	},
 	{
@@ -2227,7 +2227,7 @@
 		],
 		"runtime": 93,
 		"ratingCount": 10660,
-		"ratingAverage": 7.217,
+		"ratingAverage": "7.22",
 		"popularity": 170
 	},
 	{
@@ -2240,7 +2240,7 @@
 		"genres": ["Action", "Adventure", "Comedy"],
 		"runtime": 112,
 		"ratingCount": 2525,
-		"ratingAverage": 6.658,
+		"ratingAverage": "6.66",
 		"popularity": 181
 	},
 	{
@@ -2253,7 +2253,7 @@
 		"genres": ["Animation", "Drama", "Mystery", "Fantasy", "Family"],
 		"runtime": 120,
 		"ratingCount": 175,
-		"ratingAverage": 7.671,
+		"ratingAverage": "7.67",
 		"popularity": 173
 	},
 	{
@@ -2266,7 +2266,7 @@
 		"genres": ["Science Fiction", "Action", "Thriller"],
 		"runtime": 106,
 		"ratingCount": 1310,
-		"ratingAverage": 6.675,
+		"ratingAverage": "6.67",
 		"popularity": 172
 	},
 	{
@@ -2279,7 +2279,7 @@
 		"genres": ["Action", "Crime", "Science Fiction"],
 		"runtime": 102,
 		"ratingCount": 1537,
-		"ratingAverage": 6.825,
+		"ratingAverage": "6.83",
 		"popularity": 171
 	},
 	{
@@ -2292,7 +2292,7 @@
 		"genres": ["Fantasy", "Action", "Drama"],
 		"runtime": 146,
 		"ratingCount": 850,
-		"ratingAverage": 7.219,
+		"ratingAverage": "7.22",
 		"popularity": 170
 	},
 	{
@@ -2305,7 +2305,7 @@
 		"genres": ["Science Fiction", "Action"],
 		"runtime": 106,
 		"ratingCount": 45,
-		"ratingAverage": 5.344,
+		"ratingAverage": "5.34",
 		"popularity": 170
 	},
 	{
@@ -2318,7 +2318,7 @@
 		"genres": ["Family", "Fantasy"],
 		"runtime": 60,
 		"ratingCount": 42,
-		"ratingAverage": 7.8,
+		"ratingAverage": "7.80",
 		"popularity": 199
 	},
 	{
@@ -2331,7 +2331,7 @@
 		"genres": ["Animation", "Comedy", "Romance"],
 		"runtime": 73,
 		"ratingCount": 89,
-		"ratingAverage": 8.6,
+		"ratingAverage": "8.60",
 		"popularity": 169
 	},
 	{
@@ -2344,7 +2344,7 @@
 		"genres": ["Action", "Science Fiction", "Fantasy"],
 		"runtime": 94,
 		"ratingCount": 13,
-		"ratingAverage": 3.9,
+		"ratingAverage": "3.90",
 		"popularity": 169
 	},
 	{
@@ -2357,7 +2357,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 76,
 		"ratingCount": 51,
-		"ratingAverage": 6.412,
+		"ratingAverage": "6.41",
 		"popularity": 168
 	},
 	{
@@ -2370,7 +2370,7 @@
 		"genres": ["Fantasy", "Adventure", "Action"],
 		"runtime": 142,
 		"ratingCount": 3282,
-		"ratingAverage": 6.771,
+		"ratingAverage": "6.77",
 		"popularity": 166
 	},
 	{
@@ -2383,7 +2383,7 @@
 		"genres": ["Drama"],
 		"runtime": 89,
 		"ratingCount": 9,
-		"ratingAverage": 6.6,
+		"ratingAverage": "6.60",
 		"popularity": 165
 	},
 	{
@@ -2396,7 +2396,7 @@
 		"genres": ["Thriller", "Adventure"],
 		"runtime": 86,
 		"ratingCount": 149,
-		"ratingAverage": 6.138,
+		"ratingAverage": "6.14",
 		"popularity": 165
 	},
 	{
@@ -2409,7 +2409,7 @@
 		"genres": ["Comedy", "Fantasy"],
 		"runtime": 100,
 		"ratingCount": 22,
-		"ratingAverage": 6.477,
+		"ratingAverage": "6.48",
 		"popularity": 164
 	},
 	{
@@ -2422,7 +2422,7 @@
 		"genres": ["Adventure", "Fantasy"],
 		"runtime": 141,
 		"ratingCount": 18976,
-		"ratingAverage": 8.02,
+		"ratingAverage": "8.02",
 		"popularity": 164
 	},
 	{
@@ -2435,7 +2435,7 @@
 		"genres": ["Fantasy", "Adventure", "Family"],
 		"runtime": 105,
 		"ratingCount": 1282,
-		"ratingAverage": 6.557,
+		"ratingAverage": "6.56",
 		"popularity": 162
 	},
 	{
@@ -2448,7 +2448,7 @@
 		"genres": ["Animation", "Comedy"],
 		"runtime": 121,
 		"ratingCount": 35,
-		"ratingAverage": 7.743,
+		"ratingAverage": "7.74",
 		"popularity": 161
 	},
 	{
@@ -2461,7 +2461,7 @@
 		"genres": ["Adventure", "Fantasy", "Mystery"],
 		"runtime": 138,
 		"ratingCount": 17292,
-		"ratingAverage": 7.687,
+		"ratingAverage": "7.69",
 		"popularity": 160
 	},
 	{
@@ -2474,7 +2474,7 @@
 		"genres": ["Science Fiction", "Family", "Action", "Adventure"],
 		"runtime": 104,
 		"ratingCount": 216,
-		"ratingAverage": 6.787,
+		"ratingAverage": "6.79",
 		"popularity": 160
 	},
 	{
@@ -2487,7 +2487,7 @@
 		"genres": ["Animation", "Family", "Adventure", "Fantasy"],
 		"runtime": 78,
 		"ratingCount": 1198,
-		"ratingAverage": 6.828,
+		"ratingAverage": "6.83",
 		"popularity": 159
 	},
 	{
@@ -2500,7 +2500,7 @@
 		"genres": ["Animation", "Fantasy"],
 		"runtime": 79,
 		"ratingCount": 429,
-		"ratingAverage": 7.8,
+		"ratingAverage": "7.80",
 		"popularity": 157
 	},
 	{
@@ -2513,7 +2513,7 @@
 		"genres": ["Animation", "Comedy", "Family", "Fantasy"],
 		"runtime": 111,
 		"ratingCount": 14886,
-		"ratingAverage": 7.793,
+		"ratingAverage": "7.79",
 		"popularity": 156
 	},
 	{
@@ -2526,7 +2526,7 @@
 		"genres": ["Drama"],
 		"runtime": 113,
 		"ratingCount": 20,
-		"ratingAverage": 6.65,
+		"ratingAverage": "6.65",
 		"popularity": 156
 	},
 	{
@@ -2539,7 +2539,7 @@
 		"genres": ["Drama", "Romance"],
 		"runtime": 68,
 		"ratingCount": 5,
-		"ratingAverage": 5,
+		"ratingAverage": "5.00",
 		"popularity": 155
 	},
 	{
@@ -2552,7 +2552,7 @@
 		"genres": ["Drama", "Romance"],
 		"runtime": 194,
 		"ratingCount": 22209,
-		"ratingAverage": 7.884,
+		"ratingAverage": "7.88",
 		"popularity": 163
 	},
 	{
@@ -2565,7 +2565,7 @@
 		"genres": ["Romance"],
 		"runtime": 81,
 		"ratingCount": 6,
-		"ratingAverage": 4.2,
+		"ratingAverage": "4.20",
 		"popularity": 154
 	},
 	{
@@ -2578,7 +2578,7 @@
 		"genres": ["Animation", "Fantasy", "Adventure"],
 		"runtime": 108,
 		"ratingCount": 17,
-		"ratingAverage": 7.9,
+		"ratingAverage": "7.90",
 		"popularity": 154
 	},
 	{
@@ -2591,7 +2591,7 @@
 		"genres": ["Horror", "Thriller"],
 		"runtime": 84,
 		"ratingCount": 1376,
-		"ratingAverage": 6.588,
+		"ratingAverage": "6.59",
 		"popularity": 154
 	},
 	{
@@ -2604,7 +2604,7 @@
 		"genres": ["Comedy", "Romance"],
 		"runtime": 0,
 		"ratingCount": 0,
-		"ratingAverage": 0,
+		"ratingAverage": "0.00",
 		"popularity": 153
 	},
 	{
@@ -2617,7 +2617,7 @@
 		"genres": ["Action", "Crime", "Thriller"],
 		"runtime": 119,
 		"ratingCount": 131,
-		"ratingAverage": 6.565,
+		"ratingAverage": "6.57",
 		"popularity": 153
 	}
 ]

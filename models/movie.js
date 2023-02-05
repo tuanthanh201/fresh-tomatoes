@@ -75,7 +75,7 @@ module.exports = function (sequelize, DataTypes) {
 				},
 			},
 			ratingAverage: {
-				type: DataTypes.FLOAT,
+				type: DataTypes.DECIMAL(3, 2),
 				allowNull: false,
 				validate: {
 					min: {
