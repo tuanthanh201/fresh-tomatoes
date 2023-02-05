@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import useInput from '../../hooks/useInput';
+import { useAppDispatch } from '../../store';
+import { register } from '../../store/auth/actions';
 import CustomModal from '../modal/CustomModal';
 
 const validateEmail = (email: string) => {
@@ -23,6 +25,7 @@ const validateEmail = (email: string) => {
 const Register = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const initialRef = useRef(null);
+	const dispatch = useAppDispatch();
 
 	const {
 		value: email,
@@ -49,21 +52,20 @@ const Register = () => {
 		value: profile,
 		valueChangeHandler: profileChangeHandler,
 		valueBlurHandler: profileBlurHandler,
-		valueIsInvalid: profileIsInvalid,
-		valueIsValid: profileIsValid,
-	} = useInput((value) => value !== '', '');
+	} = useInput((value) => true, '');
 
 	const submitHandler = (e: React.SyntheticEvent) => {
 		e.preventDefault();
-		const formIsValid =
-			emailIsValid && usernameIsValid && passwordIsValid && profileIsValid;
+		const formIsValid = emailIsValid && usernameIsValid && passwordIsValid;
 		if (formIsValid) {
-			// TODO: handle authentication
-			console.log({
-				email,
-				username,
-				password,
-			});
+			dispatch(
+				register({
+					email,
+					username,
+					password,
+					profile,
+				})
+			);
 		} else {
 			console.error('Invalid form');
 		}
@@ -115,7 +117,7 @@ const Register = () => {
 							<FormErrorMessage>Invalid password</FormErrorMessage>
 						</FormControl>
 
-						<FormControl mt={4} isInvalid={profileIsInvalid} isRequired>
+						<FormControl mt={4}>
 							<FormLabel>Profile</FormLabel>
 							<Textarea
 								value={profile}
@@ -124,7 +126,6 @@ const Register = () => {
 								placeholder='A few things about yourself...'
 								size='sm'
 							/>
-							<FormErrorMessage>Invalid password</FormErrorMessage>
 						</FormControl>
 					</>
 				}

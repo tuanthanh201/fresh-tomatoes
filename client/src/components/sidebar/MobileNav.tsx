@@ -28,7 +28,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	const { toggleColorMode } = useColorMode();
 	const { isAuthenticated } = useAppSelector((state) => state.auth);
 
-	const bgColor = useColorModeValue('white', 'gray.900');
+	const bgColor = useColorModeValue('white', 'black');
 	const borderColor = useColorModeValue('gray.200', 'gray.700');
 
 	return (
@@ -72,7 +72,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 					icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
 				/>
 				<Flex alignItems={'center'}>
-					{/* TODO: Add authentication */}
 					{!isAuthenticated ? <Register /> : null}
 					{!isAuthenticated ? <Login /> : null}
 					{isAuthenticated ? (
@@ -106,8 +105,22 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 								</HStack>
 							</MenuButton>
 							<MenuList bg={bgColor} borderColor={borderColor}>
-								<MenuItem>Profile</MenuItem>
-								<MenuItem>Sign out</MenuItem>
+								<MenuItem
+									bg={bgColor}
+									_hover={{
+										backgroundColor: borderColor,
+									}}
+								>
+									Profile
+								</MenuItem>
+								<MenuItem
+									bg={bgColor}
+									_hover={{
+										backgroundColor: borderColor,
+									}}
+								>
+									Sign out
+								</MenuItem>
 							</MenuList>
 						</Menu>
 					) : null}
