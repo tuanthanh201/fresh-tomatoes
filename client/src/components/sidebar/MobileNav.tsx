@@ -20,6 +20,8 @@ import Login from '../authentication/Login';
 import Register from '../authentication/Register';
 import SearchBar from './SearchBar';
 import { useAppSelector } from '../../hooks/useRedux';
+import { useAppDispatch } from '../../store';
+import { clearUser } from '../../store/auth/authSlice';
 
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
@@ -27,6 +29,7 @@ interface MobileProps extends FlexProps {
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	const { toggleColorMode } = useColorMode();
 	const { isAuthenticated } = useAppSelector((state) => state.auth);
+	const dispatch = useAppDispatch();
 
 	const bgColor = useColorModeValue('white', 'black');
 	const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -117,6 +120,10 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 									bg={bgColor}
 									_hover={{
 										backgroundColor: borderColor,
+									}}
+									onClick={() => {
+										localStorage.removeItem('token');
+										dispatch(clearUser());
 									}}
 								>
 									Sign out
