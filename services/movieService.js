@@ -28,7 +28,7 @@ const getMovieById = async (uuid) => {
 const getPopularMovies = async (query) => {
 	const { sort, limit, popularity, uuid } = query;
 	const moviesLimit = limit ? parseInt(limit, 10) : LIMIT;
-	const sortBy = sort === 'ascending' ? 'ASC' : 'DESC';
+	const descending = !(sort === 'ASC');
 	try {
 		const movies = await movieRepo.findAll({
 			where: popularity
@@ -36,7 +36,7 @@ const getPopularMovies = async (query) => {
 						[Op.or]: [
 							{
 								popularity: {
-									[Op.lt]: popularity,
+									[descending ? Op.lt : Op.gt]: popularity,
 								},
 							},
 							{
@@ -48,7 +48,7 @@ const getPopularMovies = async (query) => {
 									},
 									{
 										uuid: {
-											[Op.lt]: uuid,
+											[descending ? Op.lt : Op.gt]: uuid,
 										},
 									},
 								],
@@ -60,8 +60,8 @@ const getPopularMovies = async (query) => {
 				model: Genre,
 			},
 			order: [
-				['popularity', sortBy],
-				['uuid', sortBy],
+				['popularity', sort ?? 'DESC'],
+				['uuid', sort ?? 'DESC'],
 			],
 			limit: moviesLimit,
 		});

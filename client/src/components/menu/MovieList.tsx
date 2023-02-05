@@ -7,82 +7,38 @@ import {
 	HStack,
 	Button,
 } from '@chakra-ui/react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../hooks/useRedux';
 import { RootState } from '../../store';
-import { sortBy } from '../../store/navSlice';
 import { MovieListTitles } from '../../types';
 import MovieItem from './MovieItem';
 
-const img =
-	'https://image.tmdb.org/t/p/original/6sMnY4fEVAfdadhANhGnNckxsmx.jpg';
-const movies = [
-	{
-		id: 1,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-	{
-		id: 2,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-	{
-		id: 3,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-	{
-		id: 4,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-	{
-		id: 5,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-	{
-		id: 6,
-		title: 'Title',
-		description:
-			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, consequuntur tenetur a cumque libero corrupti ipsum odit ipsam labore inventore accusamus ex beatae amet eveniet sapiente repellat reiciendis eligendi quae.',
-		img,
-		tags: ['Action', 'Comedy'],
-	},
-];
+import { getPopularMovies } from '../../store/nav/actions';
+import { updateSortBy } from '../../store/nav/movieSlice';
 
 interface MovieListProps {
 	title: MovieListTitles;
 }
 
 const MovieList = ({ title }: MovieListProps) => {
-	const { sort } = useSelector((state: RootState) => state.nav[title]);
+	const {
+		sort,
+		movieData: { movies, hasMore },
+	} = useSelector((state: RootState) => state.movie[title]);
 	const dispatch = useAppDispatch();
+
 	const descending = sort === 'DESC';
 
-	const sortHandler = () => {
-		// TODO: send request to BE to get new data
-		if (descending) {
-			dispatch(sortBy({ page: title, sort: 'ASC' }));
-		} else {
-			dispatch(sortBy({ page: title, sort: 'DESC' }));
+	useEffect(() => {
+		if (title === MovieListTitles.POPULAR) {
+			dispatch(getPopularMovies({ sort }));
 		}
+	}, [dispatch, title, sort]);
+
+	const sortHandler = () => {
+		const newSort = descending ? 'ASC' : 'DESC';
+		dispatch(updateSortBy({ page: title, sort: newSort }));
 	};
 
 	return (
@@ -94,7 +50,7 @@ const MovieList = ({ title }: MovieListProps) => {
 					leftIcon={descending ? <ArrowDownIcon /> : <ArrowUpIcon />}
 					onClick={sortHandler}
 				>
-					{descending ? 'DESC' : 'ASC'}
+					{sort}
 				</Button>
 			</HStack>
 			<Divider marginTop='5' />
@@ -102,11 +58,12 @@ const MovieList = ({ title }: MovieListProps) => {
 				{/* TODO: Implement infinite scrolling */}
 				{movies.map((movie) => (
 					<MovieItem
-						key={movie.id}
+						key={movie.uuid}
 						title={movie.title}
-						description={movie.description}
-						img={movie.img}
-						tags={movie.tags}
+						overview={movie.overview}
+						poster={movie.poster}
+						backdrop={movie.backdrop}
+						genres={movie.Genres}
 					/>
 				))}
 			</Wrap>

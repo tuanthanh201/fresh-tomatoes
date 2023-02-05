@@ -7,19 +7,22 @@ import {
 	useDisclosure,
 	WrapItem,
 } from '@chakra-ui/react';
+import { Genre } from '../../types';
 import CustomModal from '../modal/CustomModal';
 import Tags from '../utilities/Tags';
 import Movie from './Movie';
 
 interface MovieItemProps {
-	img: string;
 	title: string;
-	description: string;
-	tags: string[];
+	overview: string;
+	backdrop: string | null;
+	poster: string | null;
+	genres: Genre[];
 }
 
 const MovieItem = (props: MovieItemProps) => {
-	const { description, img, tags, title } = props;
+	console.log(props);
+	const { overview, poster, genres, title } = props;
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -34,7 +37,7 @@ const MovieItem = (props: MovieItemProps) => {
 					<Image
 						onClick={onOpen}
 						transform='scale(1.0)'
-						src={img}
+						src={poster ?? 'https://via.placeholder.com/450x600'}
 						alt='some text'
 						objectFit='contain'
 						width='100%'
@@ -45,14 +48,14 @@ const MovieItem = (props: MovieItemProps) => {
 						}}
 					/>
 				</Box>
-				<Tags tags={tags} marginTop='3' />
+				<Tags tags={genres} marginTop='3' />
 				<Heading fontSize='xl' marginTop='2'>
 					<Link textDecoration='none' _hover={{ textDecoration: 'none' }}>
 						{title}
 					</Link>
 				</Heading>
 				<Text as='p' fontSize='md' marginTop='2'>
-					{description}
+					{overview}
 				</Text>
 			</Box>
 			<CustomModal

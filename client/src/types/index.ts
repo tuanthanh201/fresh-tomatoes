@@ -5,6 +5,11 @@ export enum MovieListTitles {
 	FAVOURITES = 'Favourites',
 }
 
+export interface Genre {
+	uuid: string;
+	name: string;
+}
+
 export interface Movie {
 	uuid: string;
 	title: string;
@@ -17,6 +22,7 @@ export interface Movie {
 	ratingCount: number;
 	ratingAverage: number;
 	popularity: number;
+	Genres: Genre[];
 }
 
 export type SortBy = 'ASC' | 'DESC';
