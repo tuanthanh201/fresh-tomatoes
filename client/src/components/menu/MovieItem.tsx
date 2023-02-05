@@ -21,7 +21,6 @@ interface MovieItemProps {
 }
 
 const MovieItem = (props: MovieItemProps) => {
-	console.log(props);
 	const { overview, poster, genres, title } = props;
 	const { isOpen, onOpen, onClose } = useDisclosure();
 

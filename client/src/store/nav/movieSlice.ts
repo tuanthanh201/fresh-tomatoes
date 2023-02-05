@@ -10,8 +10,8 @@ interface MovieSlice {
 	[page: string]: {
 		movieData: MovieData;
 		sort: SortBy;
-		fieldCursor: number | undefined;
-		uuidCursor: string | undefined;
+		fieldCursor: number;
+		uuidCursor: string;
 	};
 }
 
@@ -21,8 +21,8 @@ const initialState: MovieSlice = {
 			movies: [],
 			hasMore: false,
 		},
-		fieldCursor: undefined,
-		uuidCursor: undefined,
+		fieldCursor: 0,
+		uuidCursor: '',
 		sort: 'DESC',
 	},
 	[MovieListTitles.EXPLORE]: {
@@ -30,8 +30,8 @@ const initialState: MovieSlice = {
 			movies: [],
 			hasMore: false,
 		},
-		fieldCursor: undefined,
-		uuidCursor: undefined,
+		fieldCursor: 0,
+		uuidCursor: '',
 		sort: 'DESC',
 	},
 	[MovieListTitles.TRENDING]: {
@@ -39,8 +39,8 @@ const initialState: MovieSlice = {
 			movies: [],
 			hasMore: false,
 		},
-		fieldCursor: undefined,
-		uuidCursor: undefined,
+		fieldCursor: 0,
+		uuidCursor: '',
 		sort: 'DESC',
 	},
 	[MovieListTitles.FAVOURITES]: {
@@ -48,8 +48,8 @@ const initialState: MovieSlice = {
 			movies: [],
 			hasMore: false,
 		},
-		fieldCursor: undefined,
-		uuidCursor: undefined,
+		fieldCursor: 0,
+		uuidCursor: '',
 		sort: 'DESC',
 	},
 };
@@ -70,14 +70,27 @@ const movieSlice = createSlice({
 				uuidCursor: string;
 			}>
 		) => {
-			// add movies to current movies
-			// state[payload.page].movieData.movies = [
-			// 	...state[payload.page].movieData.movies,
-			// 	...payload.movieData.movies,
-			// ];
-			// state[payload.page].movieData.hasMore = payload.movieData.hasMore;
 			state[payload.page].movieData = payload.movieData;
 			state[payload.page].sort = payload.sort;
+			state[payload.page].fieldCursor = payload.fieldCursor;
+			state[payload.page].uuidCursor = payload.uuidCursor;
+		},
+		addMovies: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
+				page: MovieListTitles;
+				movieData: MovieData;
+				fieldCursor: number;
+				uuidCursor: string;
+			}>
+		) => {
+			state[payload.page].movieData.movies = [
+				...state[payload.page].movieData.movies,
+				...payload.movieData.movies,
+			];
+			state[payload.page].movieData.hasMore = payload.movieData.hasMore;
 			state[payload.page].fieldCursor = payload.fieldCursor;
 			state[payload.page].uuidCursor = payload.uuidCursor;
 		},
@@ -101,6 +114,6 @@ const movieSlice = createSlice({
 	},
 });
 
-export const { initMovies, updateSortBy } = movieSlice.actions;
+export const { initMovies, addMovies, updateSortBy } = movieSlice.actions;
 
 export default movieSlice.reducer;

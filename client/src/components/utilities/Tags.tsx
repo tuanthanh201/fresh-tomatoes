@@ -1,15 +1,17 @@
-import { HStack, SpaceProps, Tag } from '@chakra-ui/react';
+import { HStack, SpaceProps, Tag, VStack } from '@chakra-ui/react';
 import { Genre } from '../../types';
+
+const LIMIT = 4;
 
 interface TagsProps {
 	tags: Genre[];
 	marginTop?: SpaceProps['marginTop'];
 }
 
-const Tags = (props: TagsProps) => {
+const SingleRow = ({ tags, marginTop }: TagsProps) => {
 	return (
-		<HStack spacing={2} marginTop={props.marginTop}>
-			{props.tags.map((tag) => {
+		<HStack spacing={2} marginTop={marginTop}>
+			{tags.map((tag) => {
 				return (
 					<Tag size={'md'} variant='solid' colorScheme='orange' key={tag.uuid}>
 						{tag.name}
@@ -17,6 +19,51 @@ const Tags = (props: TagsProps) => {
 				);
 			})}
 		</HStack>
+	);
+};
+
+const DoubleRows = ({ tags, marginTop }: TagsProps) => {
+	const firstHalf = tags.slice(0, tags.length / 2);
+	const secondHalf = tags.slice(tags.length / 2);
+	return (
+		<VStack alignItems='flex-start'>
+			<HStack spacing={2} marginTop={marginTop}>
+				{firstHalf.map((tag) => {
+					return (
+						<Tag
+							size={'md'}
+							variant='solid'
+							colorScheme='orange'
+							key={tag.uuid}
+						>
+							{tag.name}
+						</Tag>
+					);
+				})}
+			</HStack>
+			<HStack spacing={2} marginTop={marginTop}>
+				{secondHalf.map((tag) => {
+					return (
+						<Tag
+							size={'md'}
+							variant='solid'
+							colorScheme='orange'
+							key={tag.uuid}
+						>
+							{tag.name}
+						</Tag>
+					);
+				})}
+			</HStack>
+		</VStack>
+	);
+};
+
+const Tags = ({ tags, marginTop }: TagsProps) => {
+	return tags.length >= LIMIT ? (
+		<DoubleRows tags={tags} marginTop={marginTop} />
+	) : (
+		<SingleRow tags={tags} marginTop={marginTop} />
 	);
 };
 
