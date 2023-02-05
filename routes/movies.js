@@ -5,11 +5,17 @@ const { defaultErrorHandler } = require('./utils');
 
 const auth = require('../middleware/auth');
 
-// Get all movies
-router.get('/all', async (req, res) => {
+/**
+ * Get popular movies
+ * @param sort either 'ASC' or 'DESC'
+ * @param limit limit
+ * @param popularity popularity cursor
+ * @param uuid uuid cursor
+ */
+router.get('/popular', async (req, res) => {
 	try {
-		const movies = await movieService.getAllMovies();
-		return res.json(movies);
+		const result = await movieService.getPopularMovies(req.query);
+		return res.json(result);
 	} catch (error) {
 		return defaultErrorHandler(res, error);
 	}

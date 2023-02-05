@@ -6,20 +6,20 @@ import { MovieListTitles } from './types';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <MovieListContainer title={MovieListTitles.POPULAR} />,
+		element: <MovieListContainer key={1} title={MovieListTitles.POPULAR} />,
 		errorElement: <ErrorPage />,
 	},
 	{
 		path: '/trending',
-		element: <MovieListContainer title={MovieListTitles.TRENDING} />,
+		element: <MovieListContainer key={2} title={MovieListTitles.TRENDING} />,
 	},
 	{
 		path: '/explore',
-		element: <MovieListContainer title={MovieListTitles.EXPLORE} />,
+		element: <MovieListContainer key={3} title={MovieListTitles.EXPLORE} />,
 	},
 	{
 		path: '/favourites',
-		element: <MovieListContainer title={MovieListTitles.FAVOURITES} />,
+		element: <MovieListContainer key={4} title={MovieListTitles.FAVOURITES} />,
 	},
 ]);
 
