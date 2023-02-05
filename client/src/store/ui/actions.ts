@@ -13,6 +13,6 @@ export const showNotification = ({
 		const uuid = uuidv4();
 		const notification = { uuid, status, msg };
 		dispatch(addNotification(notification));
-		setTimeout(() => dispatch(removeNotification(uuid)), 2000);
+		setTimeout(() => dispatch(removeNotification(uuid)), 1000);
 	};
 };
