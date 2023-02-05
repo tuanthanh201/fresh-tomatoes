@@ -13,7 +13,8 @@ const sequelize = new Sequelize(
 		host: 'localhost',
 		dialect: 'mysql',
 		// Change this to true if wanna show queries and arguments
-		logging: console.log,
+		// logging: console.log,
+		logging: false,
 	}
 );
 

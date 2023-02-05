@@ -31,6 +31,10 @@ module.exports = function (sequelize, DataTypes) {
 				type: DataTypes.STRING,
 				allowNull: true,
 			},
+			backdrop: {
+				type: DataTypes.STRING,
+				allowNull: true,
+			},
 			adult: {
 				type: DataTypes.BOOLEAN,
 				allowNull: false,
@@ -81,7 +85,7 @@ module.exports = function (sequelize, DataTypes) {
 				},
 			},
 			popularity: {
-				type: DataTypes.FLOAT,
+				type: DataTypes.INTEGER,
 				allowNull: false,
 				validate: {
 					min: {
