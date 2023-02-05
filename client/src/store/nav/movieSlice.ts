@@ -12,46 +12,32 @@ interface MovieSlice {
 		sort: SortBy;
 		fieldCursor: number;
 		uuidCursor: string;
+		loading: boolean;
 	};
 }
 
+const initialMoviePageState: {
+	movieData: MovieData;
+	sort: SortBy;
+	fieldCursor: number;
+	uuidCursor: string;
+	loading: boolean;
+} = {
+	movieData: {
+		movies: [],
+		hasMore: false,
+	},
+	fieldCursor: 0,
+	uuidCursor: '',
+	sort: 'DESC',
+	loading: false,
+};
+
 const initialState: MovieSlice = {
-	[MovieListTitles.POPULAR]: {
-		movieData: {
-			movies: [],
-			hasMore: false,
-		},
-		fieldCursor: 0,
-		uuidCursor: '',
-		sort: 'DESC',
-	},
-	[MovieListTitles.EXPLORE]: {
-		movieData: {
-			movies: [],
-			hasMore: false,
-		},
-		fieldCursor: 0,
-		uuidCursor: '',
-		sort: 'DESC',
-	},
-	[MovieListTitles.TRENDING]: {
-		movieData: {
-			movies: [],
-			hasMore: false,
-		},
-		fieldCursor: 0,
-		uuidCursor: '',
-		sort: 'DESC',
-	},
-	[MovieListTitles.FAVOURITES]: {
-		movieData: {
-			movies: [],
-			hasMore: false,
-		},
-		fieldCursor: 0,
-		uuidCursor: '',
-		sort: 'DESC',
-	},
+	[MovieListTitles.POPULAR]: initialMoviePageState,
+	[MovieListTitles.EXPLORE]: initialMoviePageState,
+	[MovieListTitles.TRENDING]: initialMoviePageState,
+	[MovieListTitles.FAVOURITES]: initialMoviePageState,
 };
 
 const movieSlice = createSlice({
@@ -111,9 +97,16 @@ const movieSlice = createSlice({
 			state[payload.page].fieldCursor = 0;
 			state[payload.page].uuidCursor = '';
 		},
+		setLoading: (
+			state,
+			{ payload }: PayloadAction<{ page: MovieListTitles; loading: boolean }>
+		) => {
+			state[payload.page].loading = payload.loading;
+		},
 	},
 });
 
-export const { initMovies, addMovies, updateSortBy } = movieSlice.actions;
+export const { initMovies, addMovies, updateSortBy, setLoading } =
+	movieSlice.actions;
 
 export default movieSlice.reducer;

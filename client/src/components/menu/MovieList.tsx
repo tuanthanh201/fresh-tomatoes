@@ -31,6 +31,7 @@ const MovieList = ({ title }: MovieListProps) => {
 		sort,
 		fieldCursor,
 		uuidCursor,
+		loading,
 		movieData: { movies, hasMore },
 	} = useSelector((state: RootState) => state.movie[title]);
 	const dispatch = useAppDispatch();
@@ -65,6 +66,7 @@ const MovieList = ({ title }: MovieListProps) => {
 			<HStack justifyContent='space-between'>
 				<Heading as='h2'>{title}</Heading>
 				<Button
+					isLoading={loading}
 					variant='ghost'
 					leftIcon={descending ? <ArrowDownIcon /> : <ArrowUpIcon />}
 					onClick={sortHandler}

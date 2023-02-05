@@ -2,12 +2,13 @@ import { AppDispatch } from './../index';
 import axios from 'axios';
 import { MovieListTitles, SortBy } from '../../types';
 
-import { addMovies, initMovies } from './movieSlice';
+import { addMovies, initMovies, setLoading } from './movieSlice';
 
 const url = 'http://localhost:8000';
 
 export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 	return async (dispatch: AppDispatch) => {
+		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: true }));
 		try {
 			const response = await axios.get(`${url}/api/movies/popular`, {
 				params: { sort },
@@ -28,6 +29,7 @@ export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 			console.error(error);
 			throw new Error("Couldn't get movies");
 		}
+		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: false }));
 	};
 };
 
