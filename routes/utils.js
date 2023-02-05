@@ -9,7 +9,6 @@ const defaultRequestValidator = (req) => {
 };
 
 const defaultErrorHandler = (res, error) => {
-	console.log(error);
 	if (error instanceof StatusError) {
 		return res.status(error.status).json({ errors: error.messages });
 	} else {

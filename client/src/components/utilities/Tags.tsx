@@ -7,7 +7,6 @@ interface TagsProps {
 }
 
 const Tags = (props: TagsProps) => {
-	console.log(props)
 	return (
 		<HStack spacing={2} marginTop={props.marginTop}>
 			{props.tags.map((tag) => {
