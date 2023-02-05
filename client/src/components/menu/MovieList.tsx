@@ -6,7 +6,6 @@ import {
 	Container,
 	HStack,
 	Button,
-	Text,
 	Center,
 } from '@chakra-ui/react';
 import { useEffect } from 'react';

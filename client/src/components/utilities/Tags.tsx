@@ -1,4 +1,10 @@
-import { HStack, SpaceProps, Tag, VStack } from '@chakra-ui/react';
+import {
+	HStack,
+	SpaceProps,
+	Tag,
+	VStack,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import { Genre } from '../../types';
 
 const LIMIT = 4;
@@ -9,11 +15,17 @@ interface TagsProps {
 }
 
 const SingleRow = ({ tags, marginTop }: TagsProps) => {
+	const tagColor = useColorModeValue('orange', 'purple');
 	return (
 		<HStack spacing={2} marginTop={marginTop}>
 			{tags.map((tag) => {
 				return (
-					<Tag size={'md'} variant='solid' colorScheme='orange' key={tag.uuid}>
+					<Tag
+						size={'md'}
+						variant='solid'
+						colorScheme={tagColor}
+						key={tag.uuid}
+					>
 						{tag.name}
 					</Tag>
 				);
@@ -25,6 +37,7 @@ const SingleRow = ({ tags, marginTop }: TagsProps) => {
 const DoubleRows = ({ tags, marginTop }: TagsProps) => {
 	const firstHalf = tags.slice(0, tags.length / 2);
 	const secondHalf = tags.slice(tags.length / 2);
+	const tagColor = useColorModeValue('orange', 'purple');
 	return (
 		<VStack alignItems='flex-start'>
 			<HStack spacing={2} marginTop={marginTop}>
@@ -33,7 +46,7 @@ const DoubleRows = ({ tags, marginTop }: TagsProps) => {
 						<Tag
 							size={'md'}
 							variant='solid'
-							colorScheme='orange'
+							colorScheme={tagColor}
 							key={tag.uuid}
 						>
 							{tag.name}
@@ -47,7 +60,7 @@ const DoubleRows = ({ tags, marginTop }: TagsProps) => {
 						<Tag
 							size={'md'}
 							variant='solid'
-							colorScheme='orange'
+							colorScheme={tagColor}
 							key={tag.uuid}
 						>
 							{tag.name}
