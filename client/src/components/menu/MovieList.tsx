@@ -9,13 +9,10 @@ import {
 	Center,
 } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../hooks/useRedux';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { RootState } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { MovieListTitles } from '../../types';
 import MovieItem from './MovieItem';
-
 import {
 	fetchMorePopularMovies,
 	getPopularMovies,
@@ -33,7 +30,7 @@ const MovieList = ({ title }: MovieListProps) => {
 		uuidCursor,
 		loading,
 		movieData: { movies, hasMore },
-	} = useSelector((state: RootState) => state.movie[title]);
+	} = useAppSelector((state) => state.movie[title]);
 	const dispatch = useAppDispatch();
 
 	const descending = sort === 'DESC';

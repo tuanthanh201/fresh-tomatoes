@@ -3,6 +3,7 @@ import axios from 'axios';
 import { MovieListTitles, SortBy } from '../../types';
 
 import { addMovies, initMovies, setLoading } from './movieSlice';
+import { showNotification } from '../ui/actions';
 
 const url = 'http://localhost:8000';
 
@@ -10,7 +11,7 @@ export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 	return async (dispatch: AppDispatch) => {
 		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: true }));
 		try {
-			const response = await axios.get(`${url}/api/movies/popular`, {
+			const response = await axios.get(`${url}/api/movies/ppular`, {
 				params: { sort },
 			});
 			const movieData = response.data;
@@ -25,9 +26,13 @@ export const getPopularMovies = ({ sort }: { sort: SortBy }) => {
 					uuidCursor,
 				})
 			);
-		} catch (error) {
-			console.error(error);
-			throw new Error("Couldn't get movies");
+		} catch (error: any) {
+			dispatch(
+				showNotification({
+					status: 'error',
+					msg: error.message ?? 'Something went wrong',
+				})
+			);
 		}
 		dispatch(setLoading({ page: MovieListTitles.POPULAR, loading: false }));
 	};

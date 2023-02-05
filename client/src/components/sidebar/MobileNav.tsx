@@ -19,15 +19,14 @@ import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
 import Register from '../authentication/Register';
 import SearchBar from './SearchBar';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useAppSelector } from '../../hooks/useRedux';
 
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-	const { colorMode, toggleColorMode } = useColorMode();
-	const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+	const { toggleColorMode } = useColorMode();
+	const { isAuthenticated } = useAppSelector((state) => state.auth);
 
 	const bgColor = useColorModeValue('white', 'gray.900');
 	const borderColor = useColorModeValue('gray.200', 'gray.700');
