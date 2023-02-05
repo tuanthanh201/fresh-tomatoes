@@ -82,12 +82,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 								_focus={{ boxShadow: 'none' }}
 							>
 								<HStack>
-									<Avatar
+									{/* <Avatar
 										size={'sm'}
 										src={
 											'https://www.thehappycatsite.com/wp-content/uploads/2017/12/White-Cat-HC-long.jpg'
 										}
-									/>
+									/> */}
 									<VStack
 										display={{ base: 'none', md: 'flex' }}
 										alignItems='flex-start'
