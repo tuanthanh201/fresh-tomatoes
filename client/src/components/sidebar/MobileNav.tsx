@@ -1,7 +1,6 @@
 import {
 	Avatar,
 	Box,
-	Button,
 	Flex,
 	FlexProps,
 	HStack,
@@ -65,9 +64,14 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 			<SearchBar />
 
 			<HStack spacing={{ base: '0', md: '6' }}>
-				<Button size='md' variant='ghost' onClick={toggleColorMode}>
-					{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-				</Button>
+				<IconButton
+					aria-label='Toggle theme'
+					size='md'
+					variant='ghost'
+					color={useColorModeValue('purple', 'orange')}
+					onClick={toggleColorMode}
+					icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+				/>
 				<Flex alignItems={'center'}>
 					{/* TODO: Add authentication */}
 					{!isAuthenticated ? <Register /> : null}
