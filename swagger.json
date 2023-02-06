@@ -1,479 +1,666 @@
 {
-	"swagger": "2.0",
-	"info": {
-		"title": "CS348 Group Project"
-	},
-	"basePath": "/api",
-	"tags": [
-		{
-			"name": "user",
-			"description": "User endpoints"
-		},
-		{
-			"name": "movie",
-			"description": "Movie endpoints"
-		},
-		{
-			"name": "genre",
-			"description": "Genre endpoints"
-		}
-	],
-	"paths": {
-		"/users/profile": {
-			"get": {
-				"tags": ["user"],
-				"summary": "Get current user's profile",
-				"produces": ["application/json"],
-				"parameters": [
-					{
-						"in": "header",
-						"name": "x-auth-token",
-						"description": "JWT token",
-						"required": true
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"examples": {
-							"application/json": {
-								"uuid": "621575d6-01b1-4995-830d-5ff9cf92893d",
-								"email": "john@gmail.com",
-								"role": "User",
-								"profile": "Hello world",
-								"password": "$2a$10$Up3PB8U7RnplQvbvLM6Vz.X5YH.ZHiX2yAB4/LulH6bVxP/NTI8IK",
-								"createdAt": "2023-01-27T20:23:09.000Z",
-								"updatedAt": "2023-01-27T20:23:09.000Z"
-							}
-						}
-					},
-					"401": {
-						"description": "No token",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "No token, authorization denied"
-									}
-								]
-							}
-						}
-					},
-					"404": {
-						"description": "Invalid token",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "User doesn't exist"
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		},
-		"/users/update-profile": {
-			"put": {
-				"tags": ["user"],
-				"summary": "Update current user's profile",
-				"consumes": ["application/json"],
-				"produces": ["application/json"],
-				"parameters": [
-					{
-						"in": "header",
-						"name": "x-auth-token",
-						"required": true
-					},
-					{
-						"in": "body",
-						"name": "body",
-						"required": true,
-						"schema": {
-							"type": "object",
-							"required": ["profile"],
-							"properties": {
-								"profile": {
-									"type": "string",
-									"example": "hello world",
-									"minLength": 0
-								}
-							}
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"examples": {
-							"application/json": {
-								"uuid": "621575d6-01b1-4995-830d-5ff9cf92893d",
-								"email": "john@gmail.com",
-								"role": "User",
-								"profile": "Hello world",
-								"password": "$2a$10$Up3PB8U7RnplQvbvLM6Vz.X5YH.ZHiX2yAB4/LulH6bVxP/NTI8IK",
-								"createdAt": "2023-01-27T20:23:09.000Z",
-								"updatedAt": "2023-01-27T20:23:09.000Z"
-							}
-						}
-					},
-					"401": {
-						"description": "No token",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "No token, authorization denied"
-									}
-								]
-							}
-						}
-					},
-					"404": {
-						"description": "Invalid token",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "User doesn't exist"
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		},
-		"/users/{userId}": {
-			"get": {
-				"tags": ["user"],
-				"summary": "Get the profile of an user",
-				"produces": ["application/json"],
-				"parameters": [
-					{
-						"name": "userId",
-						"in": "path",
-						"description": "A user's ID",
-						"required": true,
-						"type": "string"
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"examples": {
-							"application/json": {
-								"uuid": "94666c19-9ebb-44f3-b256-c91470aae40f",
-								"email": "john@gmail.com",
-								"role": "User",
-								"profile": "",
-								"password": "$2a$10$Vtj6oG8JhJ96rDwLtvlLTeot5S8H3dQb0dKBFe8A7Ekb6TaZB6ShG",
-								"createdAt": "2023-01-28T00:52:49.000Z",
-								"updatedAt": "2023-01-28T00:52:49.000Z"
-							}
-						}
-					},
-					"404": {
-						"description": "Invalid userID",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "User doesn't exist"
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		},
-		"/users/register": {
-			"post": {
-				"tags": ["user"],
-				"summary": "Create a new user",
-				"consumes": ["application/json"],
-				"produces": ["application/json"],
-				"parameters": [
-					{
-						"in": "body",
-						"name": "body",
-						"required": true,
-						"schema": {
-							"type": "object",
-							"required": ["email", "password", "profile"],
-							"properties": {
-								"email": {
-									"type": "string",
-									"example": "johndoe@example.com"
-								},
-								"password": {
-									"type": "string",
-									"example": "123456",
-									"minLength": 6
-								},
-								"profile": {
-									"type": "string",
-									"example": "hello world",
-									"minLength": 0
-								}
-							}
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"schema": {
-							"type": "object",
-							"properties": {
-								"user": { "$ref": "#/definitions/User" },
-								"token": {
-									"type": "string",
-									"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
-								}
-							}
-						},
-						"examples": {
-							"application/json": {
-								"user": {
-									"uuid": "3212359a-7405-44e1-89d7-3292c305c8fc",
-									"email": "emily@gmail.com",
-									"profile": "Hello world",
-									"role": "User",
-									"password": "$2a$10$Mui3DYREqARQX7jkWbcBBeAOwWXi66Su1YuC28ES36yunS0tqKdvS",
-									"updatedAt": "2023-01-28T01:00:51.161Z",
-									"createdAt": "2023-01-28T01:00:51.161Z"
-								},
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
-							}
-						}
-					},
-					"400": {
-						"description": "Bad request",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "Email already registered"
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		},
-		"/users/login": {
-			"post": {
-				"tags": ["user"],
-				"summary": "Login",
-				"consumes": ["application/json"],
-				"produces": ["application/json"],
-				"parameters": [
-					{
-						"in": "body",
-						"name": "body",
-						"description": "User object",
-						"required": true,
-						"schema": { "$ref": "#/definitions/Credentials" }
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"schema": {
-							"type": "object",
-							"properties": {
-								"user": { "$ref": "#/definitions/User" },
-								"token": {
-									"type": "string",
-									"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
-								}
-							}
-						},
-						"examples": {
-							"application/json": {
-								"user": {
-									"uuid": "3212359a-7405-44e1-89d7-3292c305c8fc",
-									"email": "emily@gmail.com",
-									"profile": "Hello world",
-									"role": "User",
-									"password": "$2a$10$Mui3DYREqARQX7jkWbcBBeAOwWXi66Su1YuC28ES36yunS0tqKdvS",
-									"updatedAt": "2023-01-28T01:00:51.161Z",
-									"createdAt": "2023-01-28T01:00:51.161Z"
-								},
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiIzMjEyMzU5YS03NDA1LTQ0ZTEtODlkNy0zMjkyYzMwNWM4ZmMifSwiaWF0IjoxNjc0ODY3NjUxLCJleHAiOjE2NzQ4NzEyNTF9.GXcsZ1a986lIgkxLxSIi87v313ln0IqVLGPynSi7wok"
-							}
-						}
-					},
-					"401": {
-						"description": "Invalid credentials",
-						"examples": {
-							"application/json": {
-								"errors": [
-									{
-										"msg": "Invalid credentials"
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		}
-	},
-	"definitions": {
-		"Credentials": {
-			"type": "object",
-			"required": ["email", "password"],
-			"properties": {
-				"email": {
-					"type": "string",
-					"example": "johndoe@example.com"
-				},
-				"password": {
-					"type": "string",
-					"example": "123456",
-					"minLength": 6
-				}
-			}
-		},
-		"User": {
-			"type": "object",
-			"required": [
-				"uuid",
-				"email",
-				"password",
-				"profile",
-				"role",
-				"createdAt",
-				"updatedAt"
-			],
-			"properties": {
-				"uuid": {
-					"type": "uuid",
-					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
-				},
-				"email": {
-					"type": "email",
-					"example": "johndoe@example.com"
-				},
-				"password": {
-					"type": "string",
-					"example": "123456",
-					"minLength": 6
-				},
-				"profile": {
-					"type": "string",
-					"example": "hello world",
-					"minLength": 0
-				},
-				"role": {
-					"type": "string",
-					"example": "Admin",
-					"enum": ["Admin", "User"]
-				},
-				"createdAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				},
-				"updatedAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				}
-			}
-		},
-		"Movie": {
-			"type": "object",
-			"required": [
-				"uuid",
-				"title",
-				"overview",
-				"adult",
-				"releasedDate",
-				"runtime",
-				"ratingCount",
-				"ratingAverage",
-				"popularity",
-				"createdAt",
-				"updatedAt"
-			],
-			"properties": {
-				"uuid": {
-					"type": "uuid",
-					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
-				},
-				"title": {
-					"type": "string",
-					"example": "A really cool movie",
-					"minLength": 1
-				},
-				"overview": {
-					"type": "string",
-					"example": "A movie about something",
-					"minLength": 1
-				},
-				"poster": {
-					"type": "url"
-				},
-				"adult": {
-					"type": "boolean"
-				},
-				"releasedData": {
-					"type": "string",
-					"example": "2022-12-31"
-				},
-				"runtime": {
-					"type": "integer",
-					"min": 0
-				},
-				"ratingCount": {
-					"type": "integer",
-					"min": 0
-				},
-				"ratingAverage": {
-					"type": "number",
-					"min": 0,
-					"max": 10
-				},
-				"popularity": {
-					"type": "number",
-					"min": 0
-				},
-				"createdAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				},
-				"updatedAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				}
-			}
-		},
-		"Genre": {
-			"type": "object",
-			"required": ["uuid", "name", "createdAt", "updatedAt"],
-			"properties": {
-				"uuid": {
-					"type": "uuid",
-					"example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
-				},
-				"name": {
-					"type": "string",
-					"minLength": 0,
-					"example": "Action"
-				},
-				"createdAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				},
-				"updatedAt": {
-					"type": "string",
-					"example": "2023-01-28T01:00:51.161Z"
-				}
-			}
-		}
-	}
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CS348 Group Project",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "User endpoints"
+    },
+    {
+      "name": "movie",
+      "description": "Movie endpoints"
+    },
+    {
+      "name": "genre",
+      "description": "Genre endpoints"
+    }
+  ],
+  "paths": {
+    "/api/users/profile": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/update-profile": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profile": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{userId}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginParams"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginParams"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/register": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterParams"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterParams"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/movies/popular": {
+      "get": {
+        "tags": [
+          "movie"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/movies/{movieId}": {
+      "get": {
+        "tags": [
+          "movie"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginParams": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "johndoe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "xml": {
+          "name": "LoginParams"
+        }
+      },
+      "RegisterParams": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "johndoe@example.com"
+          },
+          "username": {
+            "type": "string",
+            "example": "johndoe"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "profile": {
+            "type": "string",
+            "example": "Hello world"
+          }
+        },
+        "required": [
+          "email",
+          "username",
+          "password",
+          "profile"
+        ],
+        "xml": {
+          "name": "RegisterParams"
+        }
+      },
+      "AuthResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "type": "string",
+                "example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+              },
+              "email": {
+                "type": "string",
+                "example": "johndoe@example.com"
+              },
+              "password": {
+                "type": "string",
+                "example": "123456"
+              },
+              "profile": {
+                "type": "string",
+                "example": "Hello world!"
+              },
+              "role": {
+                "type": "string",
+                "example": "Admin"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2023-01-28T01:00:51.161Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2023-01-28T01:00:51.161Z"
+              }
+            },
+            "required": [
+              "uuid",
+              "email",
+              "password",
+              "profile",
+              "role",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InV1aWQiOiJmYmZkNDNhYS1kYjQzLTRhODctYmE2Ni1jYjM1MjYyMjliMDIifSwiaWF0IjoxNjc1NjYwMjM5LCJleHAiOjE2NzU2NjM4Mzl9._BReuhfRbxNmCnRmjh8B660rBUeiPK5XddNk5iQkFKA"
+          }
+        },
+        "xml": {
+          "name": "AuthResponse"
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Some error message"
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "ErrorResponse"
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+          },
+          "email": {
+            "type": "string",
+            "example": "johndoe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "profile": {
+            "type": "string",
+            "example": "Hello world!"
+          },
+          "role": {
+            "type": "string",
+            "example": "Admin"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          }
+        },
+        "required": [
+          "uuid",
+          "email",
+          "password",
+          "profile",
+          "role",
+          "createdAt",
+          "updatedAt"
+        ],
+        "xml": {
+          "name": "User"
+        }
+      },
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+          },
+          "title": {
+            "type": "string",
+            "example": "Ratatouille"
+          },
+          "overview": {
+            "type": "string",
+            "example": "Did I spell that right?..."
+          },
+          "poster": {
+            "type": "string",
+            "example": "http://image.tmdb.org/t/p/original/kuf6dutpsT0vSVehic3EZIqkOBt.jpg"
+          },
+          "backdrop": {
+            "type": "string",
+            "example": "http://image.tmdb.org/t/p/original/kuf6dutpsT0vSVehic3EZIqkOBt.jpg"
+          },
+          "adult": {
+            "type": "boolean",
+            "example": false
+          },
+          "releasedDate": {
+            "type": "string",
+            "example": "2022-12-31"
+          },
+          "runtime": {
+            "type": "number",
+            "example": 161
+          },
+          "ratingCount": {
+            "type": "number",
+            "example": 1200
+          },
+          "ratingAverage": {
+            "type": "number",
+            "example": 9.2
+          },
+          "popularity": {
+            "type": "number",
+            "example": 5462
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          }
+        },
+        "required": [
+          "uuid",
+          "title",
+          "overview",
+          "poster",
+          "backdrop",
+          "adult",
+          "releasedDate",
+          "runtime",
+          "ratingCount",
+          "ratingAverage",
+          "popularity",
+          "createdAt",
+          "updatedAt"
+        ],
+        "xml": {
+          "name": "Movie"
+        }
+      },
+      "Genre": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "1812a952-513d-4474-94d0-ef8a6c092fdb"
+          },
+          "name": {
+            "type": "string",
+            "example": "Action"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2023-01-28T01:00:51.161Z"
+          }
+        },
+        "required": [
+          "uuid",
+          "name",
+          "createdAt",
+          "updatedAt"
+        ],
+        "xml": {
+          "name": "Genre"
+        }
+      }
+    }
+  }
 }
