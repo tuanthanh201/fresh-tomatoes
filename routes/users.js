@@ -8,19 +8,34 @@ const auth = require('../middleware/auth');
 
 // Get my info
 router.get('/profile', auth, async (req, res) => {
+	// #swagger.tags = ['user']
 	try {
 		const { uuid } = req.user;
 		const user = await userService.getUserById(uuid);
+		/* #swagger.responses[200] = {
+					description: 'Success',
+					schema: { $ref: '#/definitions/User' }
+		} */
 		return res.json(user);
 	} catch (error) {
+		/* #swagger.responses[401] = {
+					description: 'Unauthorized',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+		/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
 		return defaultErrorHandler(res, error);
 	}
 });
 
+// Update profile
 router.put(
 	'/update-profile',
 	[auth, [check('profile', 'Profile must be a string').isString()]],
 	async (req, res) => {
+		// #swagger.tags = ['user']
 		try {
 			defaultRequestValidator(req);
 			const { uuid } = req.user;
@@ -28,6 +43,18 @@ router.put(
 			await userService.updateUserProfile(uuid, profile);
 			return res.json({ profile });
 		} catch (error) {
+			/* #swagger.responses[400] = {
+						description: 'Bad request',
+						schema: { $ref: '#/definitions/ErrorResponse' }
+			} */
+			/* #swagger.responses[401] = {
+						description: 'Unauthorized',
+						schema: { $ref: '#/definitions/ErrorResponse' }
+			} */
+			/* #swagger.responses[404] = {
+						description: 'Not found',
+						schema: { $ref: '#/definitions/ErrorResponse' }
+			} */
 			return defaultErrorHandler(res, error);
 		}
 	}
@@ -35,10 +62,19 @@ router.put(
 
 // Get user by id
 router.get('/:userId', async (req, res) => {
+	// #swagger.tags = ['user']
 	try {
 		const user = await userService.getUserById(req.params.userId);
+		/* #swagger.responses[200] = {
+					description: 'Success',
+					schema: { $ref: '#/definitions/User' }
+		} */
 		return res.json(user);
 	} catch (error) {
+		/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
 		return defaultErrorHandler(res, error);
 	}
 });
@@ -53,13 +89,29 @@ router.post(
 		}),
 	],
 	async (req, res) => {
+		// #swagger.tags = ['user']
 		try {
 			defaultRequestValidator(req);
-
 			const { email, password } = req.body;
+			/*	#swagger.requestBody = {
+            required: true,
+            schema: { $ref: "#/definitions/LoginParams" }
+    	} */
 			const response = await userService.login(email, password);
+			/* #swagger.responses[200] = {
+            description: 'Success',
+            schema: { $ref: '#/definitions/AuthResponse' }
+    	} */
 			return res.json(response);
 		} catch (error) {
+			/* #swagger.responses[400] = {
+            description: 'Bad request',
+            schema: { $ref: '#/definitions/ErrorResponse' }
+    	} */
+			/* #swagger.responses[401] = {
+            description: 'Unauthorized',
+            schema: { $ref: '#/definitions/ErrorResponse' }
+    	} */
 			return defaultErrorHandler(res, error);
 		}
 	}
@@ -79,10 +131,14 @@ router.post(
 		check('profile', 'Profile must be a string').isString(),
 	],
 	async (req, res) => {
+		// #swagger.tags = ['user']
 		try {
 			defaultRequestValidator(req);
-
 			const { email, username, password, profile } = req.body;
+			/*	#swagger.requestBody = {
+            required: true,
+            schema: { $ref: "#/definitions/RegisterParams" }
+    	} */
 			const response = await userService.register({
 				email,
 				username,
@@ -90,8 +146,16 @@ router.post(
 				profile,
 				// role: 'Admin',
 			});
+			/* #swagger.responses[200] = {
+            description: 'Success',
+            schema: { $ref: '#/definitions/AuthResponse' }
+    	} */
 			res.json(response);
 		} catch (error) {
+			/* #swagger.responses[400] = {
+            description: 'Bad request',
+            schema: { $ref: '#/definitions/ErrorResponse' }
+    	} */
 			return defaultErrorHandler(res, error);
 		}
 	}
