@@ -15,7 +15,9 @@ import { MovieListTitles } from '../../types';
 import MovieItem from './MovieItem';
 import {
 	fetchMorePopularMovies,
+	fetchMoreTrendingMovies,
 	getPopularMovies,
+	getTrendingMovies,
 } from '../../store/movie/actions';
 import { updateSortBy } from '../../store/movie/movieSlice';
 
@@ -38,6 +40,8 @@ const MovieList = ({ title }: MovieListProps) => {
 	useEffect(() => {
 		if (title === MovieListTitles.POPULAR) {
 			dispatch(getPopularMovies({ sort }));
+		} else if (title === MovieListTitles.TRENDING) {
+			dispatch(getTrendingMovies({ sort }));
 		}
 	}, [dispatch, title, sort]);
 
@@ -47,6 +51,14 @@ const MovieList = ({ title }: MovieListProps) => {
 				fetchMorePopularMovies({
 					sort,
 					popularity: fieldCursor,
+					uuid: uuidCursor,
+				})
+			);
+		} else if (title === MovieListTitles.TRENDING) {
+			dispatch(
+				fetchMoreTrendingMovies({
+					sort,
+					ratingAverage: fieldCursor,
 					uuid: uuidCursor,
 				})
 			);

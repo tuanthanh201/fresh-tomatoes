@@ -19,8 +19,7 @@ import { FiChevronDown, FiMenu } from 'react-icons/fi';
 import Login from '../authentication/Login';
 import Register from '../authentication/Register';
 import SearchBar from './SearchBar';
-import { useAppSelector } from '../../hooks/useRedux';
-import { useAppDispatch } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { clearUser } from '../../store/auth/authSlice';
 
 interface MobileProps extends FlexProps {
