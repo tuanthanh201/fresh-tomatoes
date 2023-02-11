@@ -15,6 +15,7 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import ReviewList from '../review/ReviewList';
+import StarRating from './Rating';
 
 const img =
 	'https://image.tmdb.org/t/p/original/otOtC45BDzFW7nuxnWHMmnYsicK.jpg';
@@ -118,9 +119,10 @@ const Movie = () => {
 								</ListItem>
 							</List>
 						</Box>
+						<StarRating />
 					</Stack>
 
-					<Button
+					{/* <Button
 						rounded={'none'}
 						w={'full'}
 						mt={8}
@@ -135,7 +137,7 @@ const Movie = () => {
 						}}
 					>
 						Review
-					</Button>
+					</Button> */}
 				</Stack>
 				<GridItem colSpan={{ base: 1, lg: 2 }}>
 					<ReviewList />
