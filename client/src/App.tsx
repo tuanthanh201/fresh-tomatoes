@@ -3,10 +3,9 @@ import ErrorPage from './components/error/Error';
 import MovieListContainer from './components/container/MovieListContainer';
 import { MovieListTitles } from './types';
 import { useEffect } from 'react';
-import { useAppDispatch } from './store';
 import { getMyProfile } from './store/auth/actions';
-import { Box, Flex, Spinner, VStack } from '@chakra-ui/react';
-import { useAppSelector } from './hooks/useRedux';
+import { Flex, Spinner } from '@chakra-ui/react';
+import { useAppSelector, useAppDispatch } from './hooks/useRedux';
 
 const router = createBrowserRouter([
 	{
@@ -35,8 +34,7 @@ const App = () => {
 		dispatch(getMyProfile());
 	}, [dispatch]);
 
-	return loading ? 
-
+	return loading ? (
 		<Flex
 			width='100vw'
 			height='100vh'
@@ -45,7 +43,9 @@ const App = () => {
 		>
 			<Spinner size='xl' />
 		</Flex>
-	:<RouterProvider router={router} />;
+	) : (
+		<RouterProvider router={router} />
+	);
 };
 
 export default App;

@@ -1,7 +1,8 @@
 import { useColorModeValue } from '@chakra-ui/react';
 import { toast, ToastContainer } from 'react-toastify';
-import { useAppSelector } from '../../hooks/useRedux';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAppSelector } from '../../hooks/useRedux';
+import {} from '../../store';
 
 const Toast = () => {
 	const { notifications } = useAppSelector((state) => state.ui);

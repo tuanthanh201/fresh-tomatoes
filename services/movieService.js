@@ -14,6 +14,10 @@ const getMoviesQuery = (movies, limit) => {
 	return { movies, hasMore };
 };
 
+const getLimit = (limit) => {
+	return limit ? parseInt(limit, 10) : LIMIT;
+};
+
 const getMovieById = async (uuid) => {
 	const movie = await movieRepo.findOne({ where: { uuid } });
 	if (!movie) {
@@ -27,7 +31,7 @@ const getMovieById = async (uuid) => {
  */
 const getPopularMovies = async (query) => {
 	const { sort, limit, popularity, uuid } = query;
-	const moviesLimit = limit ? parseInt(limit, 10) : LIMIT;
+	const moviesLimit = getLimit(limit);
 	const descending = !(sort === 'ASC');
 	try {
 		const movies = await movieRepo.findAll({
@@ -71,6 +75,53 @@ const getPopularMovies = async (query) => {
 	}
 };
 
+const getTrendingMovies = async (query) => {
+	const { sort, limit, ratingAverage, uuid } = query;
+	const moviesLimit = getLimit(limit);
+	const descending = !(sort === 'ASC');
+
+	try {
+		const movies = await movieRepo.findAll({
+			where: ratingAverage
+				? {
+						[Op.or]: [
+							{
+								ratingAverage: {
+									[descending ? Op.lt : Op.gt]: ratingAverage,
+								},
+							},
+							{
+								[Op.and]: [
+									{
+										ratingAverage: {
+											[Op.eq]: ratingAverage,
+										},
+									},
+									{
+										uuid: {
+											[descending ? Op.lt : Op.gt]: uuid,
+										},
+									},
+								],
+							},
+						],
+				  }
+				: null,
+			include: {
+				model: Genre,
+			},
+			order: [
+				['ratingAverage', sort ?? 'DESC'],
+				['uuid', sort ?? 'DESC'],
+			],
+			limit: moviesLimit,
+		});
+		return getMoviesQuery(movies, moviesLimit);
+	} catch (error) {
+		throw new StatusError([{ msg: error.message }], 500);
+	}
+};
+
 const createMovie = (movie) => {
 	return movieRepo.createOne(movie);
 };
@@ -82,6 +133,7 @@ const createMovies = (movies) => {
 module.exports = {
 	getMovieById,
 	getPopularMovies,
+	getTrendingMovies,
 	createMovie,
 	createMovies,
 };

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import useInput from '../../hooks/useInput';
-import { useAppDispatch } from '../../store';
+import { useAppDispatch } from '../../hooks/useRedux';
 import { register } from '../../store/auth/actions';
 import CustomModal from '../modal/CustomModal';
 
