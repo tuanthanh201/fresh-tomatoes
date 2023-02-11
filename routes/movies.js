@@ -39,6 +39,18 @@ router.get('/trending', async (req, res) => {
 	}
 });
 
+// Get movie by name
+router.get('/movieName', async (req, res) => {
+	console.log("getMoviesByName(): title is ");
+	try {
+		// #swagger.tags = ['movie']
+		const movie = await movieService.getMoviesByName(req.query.title);
+		return res.json(movie);
+	} catch (error) {
+		return defaultErrorHandler(res, error);
+	}
+});
+
 // Get movie by id
 router.get('/:movieId', async (req, res) => {
 	try {
