@@ -14,6 +14,7 @@ const auth = require('../middleware/auth');
  */
 router.get('/popular', async (req, res) => {
 	try {
+		// #swagger.tags = ['movie']
 		const result = await movieService.getPopularMovies(req.query);
 		return res.json(result);
 	} catch (error) {
@@ -24,6 +25,7 @@ router.get('/popular', async (req, res) => {
 // Get movie by id
 router.get('/:movieId', async (req, res) => {
 	try {
+		// #swagger.tags = ['movie']
 		const movie = await movieService.getMovieById(req.params.movieId);
 		return res.json(movie);
 	} catch (error) {
