@@ -20,7 +20,13 @@ import StarRating from './Rating';
 const img =
 	'https://image.tmdb.org/t/p/original/otOtC45BDzFW7nuxnWHMmnYsicK.jpg';
 
-const Movie = () => {
+interface MovieProps {
+	uuid: string;
+}
+
+const Movie = ({ uuid }: MovieProps) => {
+	console.log(uuid);
+
 	return (
 		<Container maxW={'7xl'}>
 			<SimpleGrid

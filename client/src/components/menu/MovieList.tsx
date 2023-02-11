@@ -102,6 +102,7 @@ const MovieList = ({ title }: MovieListProps) => {
 				<Wrap spacing='30px'>
 					{movies.map((movie) => (
 						<MovieItem
+							uuid={movie.uuid}
 							key={movie.uuid}
 							title={movie.title}
 							overview={movie.overview}

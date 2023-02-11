@@ -33,7 +33,7 @@ const Review = () => {
 		<SimpleGrid my={10} columns={{ base: 1, xl: 2 }} spacing={'20'} mx={'auto'}>
 			{testimonials.map((cardInfo, index) => (
 				// TODO: add key
-				<ReviewItem {...cardInfo} index={index} />
+				<ReviewItem key={index} {...cardInfo} index={index} />
 			))}
 		</SimpleGrid>
 	);

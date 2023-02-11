@@ -13,6 +13,7 @@ import Tags from '../utilities/Tags';
 import Movie from './Movie';
 
 interface MovieItemProps {
+	uuid: string;
 	title: string;
 	overview: string;
 	backdrop: string | null;
@@ -21,7 +22,7 @@ interface MovieItemProps {
 }
 
 const MovieItem = (props: MovieItemProps) => {
-	const { overview, poster, genres, title } = props;
+	const { uuid, overview, poster, genres, title } = props;
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -62,7 +63,7 @@ const MovieItem = (props: MovieItemProps) => {
 				header='Movie'
 				isOpen={isOpen}
 				onClose={onClose}
-				body={<Movie />}
+				body={<Movie uuid={uuid} />}
 			/>
 		</WrapItem>
 	);
