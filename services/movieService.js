@@ -29,16 +29,12 @@ const getMovieById = async (uuid) => {
 
 const getMoviesByName = async (title) => {
 	if (!title) {
-		throw new StatusError([{ msg: "Empty title" }], 404);
+		throw new StatusError([{ msg: 'Empty title' }], 404);
 	}
-	const movies = await utilRepo.executeQuery(
-		`SELECT * FROM movies WHERE title LIKE '%${title}%' LIMIT ${LIMIT}`,
+	return await utilRepo.executeQuery(
+		`SELECT uuid, title FROM movies WHERE title LIKE '%${title}%' LIMIT ${LIMIT}`,
 		{ type: QueryTypes.SELECT }
 	);
-	if (!movies) {
-		throw new StatusError([{ msg: "Movie doesn't exist" }], 404);
-	}
-	return movies;
 };
 
 /**
@@ -52,28 +48,28 @@ const getPopularMovies = async (query) => {
 		const movies = await movieRepo.findAll({
 			where: popularity
 				? {
-					[Op.or]: [
-						{
-							popularity: {
-								[descending ? Op.lt : Op.gt]: popularity,
+						[Op.or]: [
+							{
+								popularity: {
+									[descending ? Op.lt : Op.gt]: popularity,
+								},
 							},
-						},
-						{
-							[Op.and]: [
-								{
-									popularity: {
-										[Op.eq]: popularity,
+							{
+								[Op.and]: [
+									{
+										popularity: {
+											[Op.eq]: popularity,
+										},
 									},
-								},
-								{
-									uuid: {
-										[descending ? Op.lt : Op.gt]: uuid,
+									{
+										uuid: {
+											[descending ? Op.lt : Op.gt]: uuid,
+										},
 									},
-								},
-							],
-						},
-					],
-				}
+								],
+							},
+						],
+				  }
 				: null,
 			include: {
 				model: Genre,
@@ -99,28 +95,28 @@ const getTrendingMovies = async (query) => {
 		const movies = await movieRepo.findAll({
 			where: ratingAverage
 				? {
-					[Op.or]: [
-						{
-							ratingAverage: {
-								[descending ? Op.lt : Op.gt]: ratingAverage,
+						[Op.or]: [
+							{
+								ratingAverage: {
+									[descending ? Op.lt : Op.gt]: ratingAverage,
+								},
 							},
-						},
-						{
-							[Op.and]: [
-								{
-									ratingAverage: {
-										[Op.eq]: ratingAverage,
+							{
+								[Op.and]: [
+									{
+										ratingAverage: {
+											[Op.eq]: ratingAverage,
+										},
 									},
-								},
-								{
-									uuid: {
-										[descending ? Op.lt : Op.gt]: uuid,
+									{
+										uuid: {
+											[descending ? Op.lt : Op.gt]: uuid,
+										},
 									},
-								},
-							],
-						},
-					],
-				}
+								],
+							},
+						],
+				  }
 				: null,
 			include: {
 				model: Genre,

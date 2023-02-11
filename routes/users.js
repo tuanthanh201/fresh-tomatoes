@@ -161,4 +161,41 @@ router.post(
 	}
 );
 
+// Get my info
+router.post(
+	'/favourite',
+	[
+		auth,
+		[
+			check('movieId', 'movieId must not be empty').isLength({
+				min: 6,
+			}),
+		],
+	],
+	async (req, res) => {
+		// #swagger.tags = ['user']
+		try {
+			defaultRequestValidator(req);
+			const { uuid } = req.user;
+			const user = await userService.getUserById(uuid);
+			user.addMovie(req.body.movieId);
+			/* #swagger.responses[200] = {
+					description: 'Success',
+					schema: { $ref: '#/definitions/User' }
+		} */
+			return res.json('Success');
+		} catch (error) {
+			/* #swagger.responses[401] = {
+					description: 'Unauthorized',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			return defaultErrorHandler(res, error);
+		}
+	}
+);
+
 module.exports = router;
