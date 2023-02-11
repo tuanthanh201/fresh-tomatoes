@@ -18,7 +18,7 @@ const options = [
 
 const SearchBar = () => {
 	return (
-		<Box mr={5} width='80%'>
+		<Box mr={5} width='80%' color='black'>
 			<Select
 				maxMenuHeight={220}
 				menuPlacement='auto'
