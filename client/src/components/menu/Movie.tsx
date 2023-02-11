@@ -30,10 +30,8 @@ const Movie = ({ uuid }: MovieProps) => {
 	return (
 		<Container maxW={'7xl'}>
 			<SimpleGrid
-				// flexDir='column'
 				columns={{ base: 1, lg: 2 }}
 				spacing={{ base: 8, md: 10 }}
-				// py={{ base: 18, md: 24 }}
 			>
 				<Image
 					rounded={'md'}
