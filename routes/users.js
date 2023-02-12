@@ -61,7 +61,7 @@ router.put(
 );
 
 // Get user by id
-router.get('/:userId', async (req, res) => {
+router.get('user/:userId', async (req, res) => {
 	// #swagger.tags = ['user']
 	try {
 		const user = await userService.getUserById(req.params.userId);

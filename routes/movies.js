@@ -44,15 +44,15 @@ router.get('/movieName', async (req, res) => {
 	console.log("getMoviesByName(): title is ");
 	try {
 		// #swagger.tags = ['movie']
-		const movie = await movieService.getMoviesByName(req.query.title);
-		return res.json(movie);
+		const movies = await movieService.getMoviesByName(req.query.title);
+		return res.json(movies);
 	} catch (error) {
 		return defaultErrorHandler(res, error);
 	}
 });
 
 // Get movie by id
-router.get('/:movieId', async (req, res) => {
+router.get('movie/:movieId', async (req, res) => {
 	try {
 		// #swagger.tags = ['movie']
 		const movie = await movieService.getMovieById(req.params.movieId);
