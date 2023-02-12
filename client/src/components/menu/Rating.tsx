@@ -1,16 +1,32 @@
 import { useState } from 'react';
-import { IconButton, Box, Text } from '@chakra-ui/react';
+import {
+	IconButton,
+	Box,
+	Text,
+	useColorModeValue,
+	Textarea,
+	Button,
+	Stack,
+} from '@chakra-ui/react';
+import ReviewItem from '../review/ReviewItem';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
-interface StarRatingProps {
+interface RatingProps {
 	max?: number;
 	initialRating?: number;
+	reviewed?: boolean;
 }
 
-const StarRating = ({ max = 10, initialRating = 0 }: StarRatingProps) => {
+const Rating = ({
+	max = 10,
+	initialRating = 0,
+	reviewed = false,
+}: RatingProps) => {
 	const [rating, setRating] = useState(initialRating);
 	const [rated, setRated] = useState<Boolean>(false);
 	const [text, setText] = useState<String>('Rate it...');
+	const [review, setReview] = useState('');
+	const [showForm, setShowForm] = useState(false);
 
 	const getText = (index: number): String => {
 		switch (index) {
@@ -42,8 +58,7 @@ const StarRating = ({ max = 10, initialRating = 0 }: StarRatingProps) => {
 	const handleHover = (index: number) => {
 		if (!rated) {
 			setRating(index);
-			const label = getText(index);
-			setText(label);
+			setText(getText(index));
 		}
 	};
 
@@ -51,17 +66,20 @@ const StarRating = ({ max = 10, initialRating = 0 }: StarRatingProps) => {
 		if (!rated) {
 			setRating(index);
 			setRated(true);
-			const label = getText(index);
-			setText(label);
+			setText(getText(index));
+			setShowForm(true);
 			// TODO: send requests to backend
 		}
 	};
+
+	const iconColor = useColorModeValue('blueviolet', 'yellow');
 
 	return (
 		<>
 			<Text textAlign='center'>{text}</Text>
 			<Box
-				mt={5}
+				mt={2}
+				mb={5}
 				display='flex'
 				alignItems='center'
 				justifyContent='space-between'
@@ -70,7 +88,7 @@ const StarRating = ({ max = 10, initialRating = 0 }: StarRatingProps) => {
 					<IconButton
 						// border='none'
 						variant='unstyled'
-						color='yellow'
+						color={iconColor}
 						key={i}
 						aria-label={`Rate ${i + 1} out of ${max}`}
 						icon={rating > i ? <AiFillStar /> : <AiOutlineStar />}
@@ -80,8 +98,47 @@ const StarRating = ({ max = 10, initialRating = 0 }: StarRatingProps) => {
 					/>
 				))}
 			</Box>
+			{showForm && (
+				<Stack direction='column' spacing='8'>
+					{reviewed && (
+						<ReviewItem
+							content='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur assumenda magnam voluptas ad sapiente voluptates reiciendis consequatur, impedit totam rem aperiam dicta perferendis minima accusantium laudantium odio praesentium ut ducimus neque temporibus accusamus incidunt laborum? Tenetur voluptas ad saepe maiores, aliquam ducimus voluptatibus ea, qui, adipisci molestias quidem tempora pariatur!'
+							index={19}
+							name='John Doe'
+							role='User'
+						/>
+					)}
+					<Textarea
+						value={review}
+						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+							setReview(e.target.value)
+						}
+						placeholder='Write a review (optional)'
+						size='md'
+						height='12rem'
+					/>
+					<Stack alignSelf='center' direction='row' spacing={4}>
+						<Button
+							colorScheme='gray'
+							variant='outline'
+							onClick={() => {
+								setRating(0);
+								setText(getText(0));
+								setReview('');
+								setShowForm(false);
+								setRated(false);
+							}}
+						>
+							Cancel
+						</Button>
+						<Button colorScheme='blue' variant='solid'>
+							Submit
+						</Button>
+					</Stack>
+				</Stack>
+			)}
 		</>
 	);
 };
 
-export default StarRating;
+export default Rating;

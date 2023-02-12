@@ -52,7 +52,7 @@ router.get('/movieName', async (req, res) => {
 });
 
 // Get movie by id
-router.get('movie/:movieId', async (req, res) => {
+router.get('/movie/:movieId', async (req, res) => {
 	try {
 		// #swagger.tags = ['movie']
 		const movie = await movieService.getMovieById(req.params.movieId);
