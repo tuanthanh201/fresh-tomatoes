@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userService = require('../services/userService');
+const reviewService = require('../services/reviewService');
 const { defaultErrorHandler, defaultRequestValidator } = require('./utils');
 const { check } = require('express-validator');
 
@@ -61,7 +62,7 @@ router.put(
 );
 
 // Get user by id
-router.get('/:userId', async (req, res) => {
+router.get('user/:userId', async (req, res) => {
 	// #swagger.tags = ['user']
 	try {
 		const user = await userService.getUserById(req.params.userId);
@@ -161,7 +162,8 @@ router.post(
 	}
 );
 
-// Get my info
+// Add movie to favourite
+// TODO: should use the same endpoint for removing
 router.post(
 	'/favourite',
 	[
@@ -178,12 +180,125 @@ router.post(
 			defaultRequestValidator(req);
 			const { uuid } = req.user;
 			const user = await userService.getUserById(uuid);
-			user.addMovie(req.body.movieId);
+			await user.addMovie(req.body.movieId);
 			/* #swagger.responses[200] = {
 					description: 'Success',
 					schema: { $ref: '#/definitions/User' }
 		} */
-			return res.json('Success');
+			return res.json('Added succesfully');
+		} catch (error) {
+			/* #swagger.responses[401] = {
+					description: 'Unauthorized',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			return defaultErrorHandler(res, error);
+		}
+	}
+);
+
+// Remove movie to favourite
+// TODO: should use the same endpoint for removing
+router.delete(
+	'/favourite',
+	[
+		auth,
+		[
+			check('movieId', 'movieId must not be empty').isLength({
+				min: 6,
+			}),
+		],
+	],
+	async (req, res) => {
+		// #swagger.tags = ['user']
+		try {
+			defaultRequestValidator(req);
+			const { uuid } = req.user;
+			const user = await userService.getUserById(uuid);
+			await user.removeMovie(req.body.movieId);
+			/* #swagger.responses[200] = {
+					description: 'Success',
+					schema: { $ref: '#/definitions/User' }
+		} */
+			return res.json('Removed succesfully');
+		} catch (error) {
+			/* #swagger.responses[401] = {
+					description: 'Unauthorized',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			return defaultErrorHandler(res, error);
+		}
+	}
+);
+
+router.post(
+	'/review',
+	[
+		auth,
+		[
+			check('movieId', 'movieId must not be empty').isLength({
+				min: 6,
+			}),
+			check('content', 'content must be a string').isString(),
+			check('rating', 'rating must be between 1 and 10').isInt({
+				min: 1,
+				max: 10,
+			}),
+		],
+	],
+	async (req, res) => {
+		try {
+			defaultRequestValidator(req);
+			const { uuid } = req.user;
+			const { movieId, content, rating } = req.body;
+			const review = await reviewService.createReview({
+				content: content,
+				rating: rating,
+				MovieUuid: movieId,
+				UserUuid: uuid,
+			});
+			return res.json(review);
+		} catch (error) {
+			/* #swagger.responses[401] = {
+					description: 'Unauthorized',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			/* #swagger.responses[404] = {
+					description: 'Not found',
+					schema: { $ref: '#/definitions/ErrorResponse' }
+		} */
+			return defaultErrorHandler(res, error);
+		}
+	}
+);
+
+router.delete(
+	'/review',
+	[
+		auth,
+		[
+			check('movieId', 'movieId must not be empty').isLength({
+				min: 6,
+			}),
+		],
+	],
+	async (req, res) => {
+		try {
+			defaultRequestValidator(req);
+			const { uuid } = req.user;
+			const { movieId } = req.body;
+			const review = await reviewService.getReview(uuid, movieId);
+			if (review) {
+				await review.destroy();
+			}
+			return res.json('Removed successfully');
 		} catch (error) {
 			/* #swagger.responses[401] = {
 					description: 'Unauthorized',

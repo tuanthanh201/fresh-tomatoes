@@ -16,7 +16,7 @@ import {
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReviewList from '../review/ReviewList';
-import StarRating from './Rating';
+import Rating from './Rating';
 
 interface MovieProps {
 	uuid: string;
@@ -47,10 +47,9 @@ const Movie = ({ uuid }: MovieProps) => {
 		const getMovieById = async () => {
 			try {
 				const response = await axios.get(
-					`http://localhost:8000/api/movies/${uuid}`
+					`http://localhost:8000/api/movies/movie/${uuid}`
 				);
 				const movieData = response.data;
-				console.log(movieData);
 				setMovie(movieData);
 			} catch (error) {
 				console.error(error);
@@ -135,7 +134,7 @@ const Movie = ({ uuid }: MovieProps) => {
 									</ListItem>
 								</List>
 							</Box>
-							<StarRating />
+							<Rating />
 						</Stack>
 
 						{/* <Button
