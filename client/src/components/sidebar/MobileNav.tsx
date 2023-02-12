@@ -1,5 +1,4 @@
 import {
-	Avatar,
 	Box,
 	Flex,
 	FlexProps,
@@ -25,9 +24,12 @@ import { clearUser } from '../../store/auth/authSlice';
 interface MobileProps extends FlexProps {
 	onOpen: () => void;
 }
+
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	const { toggleColorMode } = useColorMode();
-	const { isAuthenticated } = useAppSelector((state) => state.auth);
+	const { username, role, isAuthenticated } = useAppSelector(
+		(state) => state.auth
+	);
 	const dispatch = useAppDispatch();
 
 	const bgColor = useColorModeValue('white', 'black');
@@ -96,9 +98,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 										spacing='1px'
 										ml='2'
 									>
-										<Text fontSize='sm'>John Doe</Text>
+										<Text fontSize='sm'>{username}</Text>
 										<Text fontSize='xs' color='gray.600'>
-											Admin
+											{role}
 										</Text>
 									</VStack>
 									<Box display={{ base: 'none', md: 'flex' }}>

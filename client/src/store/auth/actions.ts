@@ -61,7 +61,7 @@ export const login = (body: LoginParams) => {
 			dispatch(
 				showNotification({
 					status: 'success',
-					msg: 'Login successfully 🎊',
+					msg: 'Sign in successfully 🎊',
 				})
 			);
 		} catch (error: any) {
@@ -71,7 +71,7 @@ export const login = (body: LoginParams) => {
 					dispatch(
 						showNotification({
 							status: 'error',
-							msg: e.msg ?? 'Failed to login 😢',
+							msg: e.msg ?? 'Failed to sign in 😢',
 						})
 					)
 				);
@@ -79,7 +79,7 @@ export const login = (body: LoginParams) => {
 				dispatch(
 					showNotification({
 						status: 'error',
-						msg: error.message ?? 'Failed to login 😢',
+						msg: error.message ?? 'Failed to sign in 😢',
 					})
 				);
 			}
@@ -108,7 +108,7 @@ export const getMyProfile = () => {
 					dispatch(
 						showNotification({
 							status: 'error',
-							msg: e.msg ?? 'Failed to login 😢',
+							msg: e.msg ?? 'Failed to sign in 😢',
 						})
 					)
 				);
@@ -116,7 +116,7 @@ export const getMyProfile = () => {
 				dispatch(
 					showNotification({
 						status: 'error',
-						msg: error.message ?? 'Failed to login 😢',
+						msg: error.message ?? 'Failed to sign in 😢',
 					})
 				);
 			}

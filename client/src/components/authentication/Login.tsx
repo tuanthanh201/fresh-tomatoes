@@ -53,9 +53,9 @@ const Login = () => {
 
 	return (
 		<Box mr='1rem'>
-			<Button onClick={onOpen}>Login</Button>
+			<Button onClick={onOpen}>Sign in</Button>
 			<CustomModal
-				header='Login'
+				header='Sign in'
 				isOpen={isOpen}
 				onClose={onClose}
 				body={
@@ -93,7 +93,7 @@ const Login = () => {
 							Cancel
 						</Button>
 						<Button colorScheme='blue' onClick={submitHandler}>
-							Login
+							Sign in
 						</Button>
 					</>
 				}
