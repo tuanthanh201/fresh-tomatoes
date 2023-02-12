@@ -161,7 +161,8 @@ router.post(
 	}
 );
 
-// Get my info
+// Add movie to favourite
+// TODO: should use the same endpoint for removing
 router.post(
 	'/favourite',
 	[
@@ -178,12 +179,21 @@ router.post(
 			defaultRequestValidator(req);
 			const { uuid } = req.user;
 			const user = await userService.getUserById(uuid);
-			user.addMovie(req.body.movieId);
+			const favourited = await user.hasMovie(req.body.movieId);
+			if (favourited) {
+				console.log('Removing');
+				await user.removeMovie(req.body.movieId);
+			} else {
+				console.log('Adding');
+				await user.addMovie(req.body.movieId);
+			}
 			/* #swagger.responses[200] = {
 					description: 'Success',
 					schema: { $ref: '#/definitions/User' }
 		} */
-			return res.json('Success');
+			return favourited
+				? res.json('Removed succesfully')
+				: res.json('Added succesfully');
 		} catch (error) {
 			/* #swagger.responses[401] = {
 					description: 'Unauthorized',
