@@ -1,5 +1,5 @@
 const StatusError = require('../errors');
-const { Genre } = require('../models');
+const { Genre, User, Review, Favourite } = require('../models');
 const movieRepo = require('../repositories/movieRepo');
 const utilRepo = require('../repositories/utilRepo');
 const { Op, QueryTypes } = require('sequelize');
@@ -20,7 +20,17 @@ const getLimit = (limit) => {
 };
 
 const getMovieById = async (uuid) => {
-	const movie = await movieRepo.findOne({ where: { uuid } });
+	const movie = await movieRepo.findOne({
+		where: { uuid },
+		include: [
+			{
+				model: Favourite,
+			},
+			{
+				model: Review,
+			},
+		],
+	});
 	if (!movie) {
 		throw new StatusError([{ msg: "Movie doesn't exist" }], 404);
 	}

@@ -14,7 +14,13 @@ const sequelize = new Sequelize(
 		dialect: 'mysql',
 		// Change this to true if wanna show queries and arguments
 		// logging: console.log,
+		logQueryParameters: true,
 		logging: false,
+		// logging: (msg) => {
+		// 	var stream = fs.createWriteStream('append.txt', { flags: 'a' });
+		// 	stream.write(msg + '\n');
+		// 	stream.end();
+		// },
 	}
 );
 
