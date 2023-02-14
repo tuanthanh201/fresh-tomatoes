@@ -53,8 +53,8 @@ module.exports = function (sequelize, DataTypes) {
 	);
 
 	User.associate = (db) => {
-		User.belongsToMany(db.Movie, { through: db.Favourite });
-		User.belongsToMany(db.Movie, { through: db.Review });
+		User.hasMany(db.Favourite);
+		User.hasMany(db.Review);
 	};
 
 	return User;

@@ -21,6 +21,8 @@ const main = async () => {
 
 	app.use('/api/users', require('./routes/users'));
 	app.use('/api/movies', require('./routes/movies'));
+	app.use('/api/favourites', require('./routes/favourites'));
+	app.use('/api/reviews', require('./routes/reviews'));
 	app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 	const PORT = process.env.PORT || 8000;

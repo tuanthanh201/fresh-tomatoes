@@ -1,9 +1,7 @@
 const reviewRepo = require('../repositories/reviewRepo');
 
 const hasReviewed = async (UserUuid, MovieUuid) => {
-	const review = await reviewRepo.findOne({
-		where: { UserUuid, MovieUuid },
-	});
+	const review = await getReview(UserUuid, MovieUuid);
 	return !!review;
 };
 

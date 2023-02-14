@@ -14,5 +14,10 @@ module.exports = function (sequelize, DataTypes) {
 		}
 	);
 
+	Favourite.associate = (db) => {
+		Favourite.belongsTo(db.User);
+		Favourite.belongsTo(db.Movie);
+	};
+
 	return Favourite;
 };
