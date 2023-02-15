@@ -41,7 +41,6 @@ router.get('/trending', async (req, res) => {
 
 // Get movie by name
 router.get('/movieName', async (req, res) => {
-	console.log("getMoviesByName(): title is ");
 	try {
 		// #swagger.tags = ['movie']
 		const movies = await movieService.getMoviesByName(req.query.title);
