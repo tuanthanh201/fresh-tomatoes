@@ -7,6 +7,7 @@ const { syncDatabase } = require('./data/util');
 const { sequelize } = require('./models');
 
 const main = async () => {
+	console.log('Hello world');
 	try {
 		await sequelize.authenticate();
 		console.log('Connected to MySql...');
