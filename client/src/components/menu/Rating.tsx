@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import ReviewItem from '../review/ReviewItem';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { useAppSelector } from '../../hooks/useRedux';
 
 interface RatingProps {
 	max?: number;
@@ -22,6 +23,7 @@ const Rating = ({
 	initialRating = 0,
 	reviewed = false,
 }: RatingProps) => {
+	const { uuid, isAuthenticated } = useAppSelector((state) => state.auth);
 	const [rating, setRating] = useState(initialRating);
 	const [rated, setRated] = useState<Boolean>(false);
 	const [text, setText] = useState<String>('Rate it...');
@@ -56,20 +58,25 @@ const Rating = ({
 	};
 
 	const handleHover = (index: number) => {
-		if (!rated) {
+		if (!rated && isAuthenticated) {
 			setRating(index);
 			setText(getText(index));
 		}
 	};
 
 	const handleClick = (index: number) => {
-		if (!rated) {
+		if (!rated && isAuthenticated) {
 			setRating(index);
 			setRated(true);
 			setText(getText(index));
 			setShowForm(true);
 			// TODO: send requests to backend
 		}
+	};
+
+	const submitHandler = (e: React.SyntheticEvent) => {
+		e.preventDefault();
+		console.log({ rating, review });
 	};
 
 	const iconColor = useColorModeValue('blueviolet', 'yellow');
@@ -98,6 +105,7 @@ const Rating = ({
 					/>
 				))}
 			</Box>
+			{!isAuthenticated && <Text textAlign='center'>Sign in to review</Text>}
 			{showForm && (
 				<Stack direction='column' spacing='8'>
 					{reviewed && (
@@ -131,7 +139,7 @@ const Rating = ({
 						>
 							Cancel
 						</Button>
-						<Button colorScheme='blue' variant='solid'>
+						<Button onClick={submitHandler} colorScheme='blue' variant='solid'>
 							Submit
 						</Button>
 					</Stack>
